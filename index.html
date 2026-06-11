@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renzo Francesqui | Marketing Operations & RevOps Portfolio</title>
+    <meta name="description" content="Editorial portfolio of Renzo Francesqui, a Marketing Operations and RevOps professional. Consult with his AI representative regarding HubSpot setups and pipeline automation.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Renzo Francesqui | Marketing Operations & RevOps">
+    <meta property="og:description" content="Explore my operations work in CRM and automation through an interactive AI representative.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        :root {
+            --bg-dark: #fcfbfa; /* Warm Alabaster Linen */
+            --bg-secondary: #f5f4f0; /* Soft Stone Clay */
+            --accent-gold: #9a7846; /* Muted Bronze Gold */
+            --text-primary: #1c1917; /* Obsidian Charcoal */
+            --text-secondary: #6b6661; /* Warm Taupe */
+            --text-muted: #a8a29e; /* Muted Sand */
+            --border-light: rgba(28, 25, 23, 0.08);
+            --border-hover: rgba(28, 25, 23, 0.25);
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: var(--font-sans);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Header */
+        header.nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.75rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(252, 251, 250, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .nav-logo {
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        .nav-logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.72rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text-primary);
+            padding: 10px 22px;
+            border-radius: 0;
+            font-size: 0.72rem;
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-dark);
+            border-color: var(--text-primary);
+        }
+
+        /* Hero Container */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10rem 2rem 5rem 2rem;
+            background-color: var(--bg-dark);
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+
+        .hero-label {
+            font-size: 0.72rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+
+        .hero-header h1 {
+            font-family: var(--font-serif);
+            font-size: 2.65rem;
+            font-weight: 300;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+
+        .hero-header h1 strong {
+            font-weight: 500;
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+
+        /* Chat Ledger Console (High-End Warm Clay Finish) */
+        .chat-wrapper {
+            width: 100%;
+            height: 520px;
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(28, 25, 23, 0.05);
+        }
+
+        /* Chat status bar */
+        .chat-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 2.5rem;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-secondary);
+        }
+
+        .chat-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+
+        .chat-status-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-secondary);
+        }
+
+        .status-dot {
+            width: 5px;
+            height: 5px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+        }
+
+        .chat-engine-label {
+            font-size: 0.62rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--text-muted);
+        }
+
+        /* Chat Messages (Editorial Interview Ledger) */
+        .chat-messages {
+            flex: 1;
+            padding: 2.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            scroll-behavior: smooth;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: rgba(28, 25, 23, 0.08);
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold);
+        }
+
+        /* Q&A ledger entry structure */
+        .message-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            animation: textReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        @keyframes textReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-sender {
+            font-size: 0.65rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .message-sender.renzo {
+            color: var(--text-primary);
+        }
+
+        .message-sender.renzo::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: var(--accent-gold);
+            display: inline-block;
+        }
+
+        .message-content {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            max-width: 95%;
+        }
+
+        .message-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Suggestion Chips */
+        .chips-container {
+            padding: 0 2.5rem 1.25rem 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            background: var(--bg-secondary);
+        }
+
+        .chip {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            padding: 8px 18px;
+            font-size: 0.7rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .chip:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+            background: rgba(28, 25, 23, 0.02);
+        }
+
+        /* Form area */
+        .chat-form {
+            display: flex;
+            padding: 1.5rem 2.5rem;
+            background: #ebeae6;
+            border-top: 1px solid var(--border-light);
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .input-wrapper {
+            position: relative;
+            flex: 1;
+        }
+
+        .chat-input {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border-light);
+            padding: 10px 0;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: var(--font-sans);
+            outline: none;
+            transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .chat-input:focus {
+            border-color: var(--accent-gold);
+        }
+
+        .send-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 8px;
+            transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .send-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .send-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Typing indicators */
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 0;
+        }
+
+        .typing-dot {
+            width: 5px;
+            height: 5px;
+            background-color: var(--text-secondary);
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite ease-in-out both;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typingBounce {
+            0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Notice Logs */
+        .system-notice {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin: 0.4rem 0;
+            align-self: flex-start;
+        }
+
+        /* LinkedIn CTA Button in Chat responses & Grid */
+        .linkedin-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #0077b5; /* LinkedIn Blue */
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.12);
+        }
+
+        .linkedin-cta-btn:hover {
+            background-color: #00669c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 119, 181, 0.2);
+        }
+
+        .linkedin-cta-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: #ffffff;
+        }
+
+        .project-card .linkedin-cta-btn {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        /* Scroll down arrow indicator */
+        .scroll-down {
+            margin-top: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.72rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .scroll-down:hover {
+            color: var(--text-primary);
+        }
+
+        .scroll-down svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            animation: arrowScroll 2.2s infinite ease-in-out;
+        }
+
+        @keyframes arrowScroll {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
+        }
+
+        /* Below the Fold Credentials Section */
+        .details-section {
+            background-color: var(--bg-dark);
+            padding: 10rem 4rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .details-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .details-header {
+            margin-bottom: 6rem;
+            text-align: left;
+        }
+
+        .section-num {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .details-header h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .details-header p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            font-size: 1.1rem;
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+        }
+
+        .experience-item {
+            display: flex;
+            border-top: 1px solid var(--border-light);
+            padding-top: 3rem;
+            gap: 3rem;
+            transition: border-color 0.4s ease;
+        }
+
+        .experience-item:hover {
+            border-top-color: var(--text-primary);
+        }
+
+        .exp-meta {
+            width: 250px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .exp-date {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+        }
+
+        .exp-location {
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .exp-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .exp-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .exp-role {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .exp-bullets {
+            list-style: none;
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .exp-bullets li {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .exp-bullets li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4.5rem;
+        }
+
+        .project-card {
+            border-top: 1px solid var(--border-light);
+            padding-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: border-color 0.4s ease;
+        }
+
+        .project-card:hover {
+            border-top-color: var(--text-primary);
+        }
+
+        .project-date {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+        }
+
+        .project-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+        }
+
+        .project-tech {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3.5rem;
+        }
+
+        .education-card {
+            border-top: 1px solid var(--border-light);
+            padding-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: border-color 0.4s ease;
+        }
+
+        .education-card:hover {
+            border-top-color: var(--text-primary);
+        }
+
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .edu-date {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+        }
+
+        .edu-location {
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .education-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        .edu-degree {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        /* Skills & Certifications Grid */
+        .skills-section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+        }
+
+        .skills-block {
+            border-top: 1px solid var(--border-light);
+            padding-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: border-color 0.4s ease;
+        }
+
+        .skills-block:hover {
+            border-top-color: var(--text-primary);
+        }
+
+        .skills-block h3 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .skills-list li {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .skills-list li strong {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-dark);
+            border-top: 1px solid var(--border-light);
+            padding: 5rem 4rem;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 3.5rem;
+        }
+
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .footer-link:hover {
+            color: var(--text-primary);
+        }
+
+        .copyright {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* Lists in AI response */
+        .chat-list {
+            margin: 0.5rem 0 0.5rem 1.25rem;
+            list-style-type: square;
+        }
+
+        .chat-list li {
+            margin-bottom: 0.4rem;
+            color: var(--text-primary);
+        }
+
+        /* Scroll Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Layouts */
+        @media (max-width: 768px) {
+            header.nav-bar {
+                padding: 1.5rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 8rem 1.25rem 4rem 1.25rem;
+            }
+
+            .hero-header h1 {
+                font-size: 1.85rem;
+            }
+
+            .chat-wrapper {
+                height: 480px;
+            }
+
+            .chat-messages {
+                padding: 2rem 1.5rem;
+            }
+
+            .chips-container {
+                padding: 0 1.5rem 1rem 1.5rem;
+            }
+
+            .chat-form {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .details-section {
+                padding: 6rem 2rem;
+            }
+
+            .experience-item {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding-top: 2rem;
+            }
+
+            .exp-meta {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .projects-grid, .education-grid, .skills-section-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header class="nav-bar">
+        <div class="nav-logo">Renzo<span>.</span></div>
+        <nav class="nav-links">
+            <a href="#hero" class="nav-link">Dialogue</a>
+            <a href="#details" class="nav-link">Expertise</a>
+            <a href="mailto:renzo.francesqui@gmail.com" class="nav-btn">Get In Touch</a>
+        </nav>
+    </header>
+
+    <!-- Main Hero Workspace -->
+    <main class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-header">
+                <span class="hero-label">Interactive Consultation</span>
+                <h1>I'm <strong>Renzo</strong>. Ask me anything about my work in CRM, Marketing Automation, and RevOps.</h1>
+            </div>
+
+            <!-- Chat Workspace (Sleek Matte Console) -->
+            <section class="chat-wrapper">
+                <!-- Header status bar -->
+                <div class="chat-bar">
+                    <div class="chat-profile">
+                        <span class="avatar-label">RF // REP</span>
+                        <div class="chat-status-info">
+                            <span class="status-indicator">
+                                <span class="status-dot"></span>
+                                active
+                            </span>
+                        </div>
+                    </div>
+                    <span class="chat-engine-label">GEMINI_2.5_FLASH</span>
+                </div>
+
+                <!-- Scrollable dialogue transcription -->
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Interview nodes appended here -->
+                </div>
+
+                <!-- Dialogue suggestion nodes -->
+                <div class="chips-container" id="chipsContainer">
+                    <button class="chip" onclick="handleChipClick(this)">HubSpot Experience</button>
+                    <button class="chip" onclick="handleChipClick(this)">RevOps Qualifications</button>
+                    <button class="chip" onclick="handleChipClick(this)">Certifications Held</button>
+                    <button class="chip" onclick="handleChipClick(this)">Location & Availability</button>
+                </div>
+
+                <!-- Prompter Form -->
+                <form class="chat-form" id="chatForm" onsubmit="handleFormSubmit(event)">
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            class="chat-input" 
+                            id="chatInput" 
+                            placeholder="Ask a question..." 
+                            autocomplete="off"
+                        >
+                    </div>
+                    <button type="submit" class="send-btn" aria-label="Submit Inquiry">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                        </svg>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Scroll down indicator link -->
+            <a href="#details" class="scroll-down" aria-label="Scroll down to core credentials">
+                <span>Credentials Overview</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+            </a>
+        </div>
+    </main>
+
+    <!-- Below the Fold Details -->
+    <section class="details-section reveal" id="details">
+        <div class="details-container">
+            <!-- Experience -->
+            <header class="details-header reveal">
+                <span class="section-num">01 // TRACK RECORD</span>
+                <h2>Professional Experience</h2>
+                <p>Operational execution, database administration, and pipeline automation across global territories.</p>
+            </header>
+            
+            <div class="experience-list">
+                <!-- Job 1 -->
+                <div class="experience-item reveal">
+                    <div class="exp-meta">
+                        <span class="exp-date">Oct 2024 — Present</span>
+                        <span class="exp-location">Parma, Italy</span>
+                    </div>
+                    <div class="exp-content">
+                        <h3 class="exp-title">TOMRA</h3>
+                        <span class="exp-role">Marketing Events Support | CRM & Marketing Operations</span>
+                        <ul class="exp-bullets">
+                            <li>Supported end-to-end lead operations across 15–20 directly organized global trade shows per year (including IFAT and PRS Europe), ensuring 100% of captured leads were correctly synced to HubSpot for immediate sales follow-up across a 30–50 person EMEA and Americas sales team.</li>
+                            <li>Co-led the operational buildout of HubSpot CRM adoption from near-zero usage to an active pipeline management system, standardizing lead capture processes, contact properties, and lifecycle stages across all field events.</li>
+                            <li>Designed and enforced lead capture standardization at field events ranging from 8 to 350+ leads per show, eliminating data gaps and field mismatches between capture tools and HubSpot.</li>
+                            <li>Managed offline-to-online data integration workflows post-event, reducing lead-to-sales-handoff time from over one week to same-week import, cleaning, and routing.</li>
+                            <li>Collaborated with the lead generation team to define "High Intent" lead criteria and build lead scoring logic in HubSpot, accelerating MQL-to-SQL handover and reducing lead stagnation in the pipeline.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="experience-item reveal">
+                    <div class="exp-meta">
+                        <span class="exp-date">Oct 2022 — Apr 2024</span>
+                        <span class="exp-location">Lima, Peru</span>
+                    </div>
+                    <div class="exp-content">
+                        <h3 class="exp-title">IMBAREX</h3>
+                        <span class="exp-role">Digital Marketing Specialist | Marketing Operations</span>
+                        <ul class="exp-bullets">
+                            <li>Led marketing operations for a 5-person team executing campaigns across 10+ countries in the Americas, Europe, and the Middle East.</li>
+                            <li>Managed HubSpot CRM data integrity across international markets, standardizing contact properties, lifecycle stages, and campaign tracking to ensure clean attribution data.</li>
+                            <li>Executed SEO and SEM strategies across 4 regions, achieving a 40% increase in organic traffic in 6 months and a 33% improvement in paid conversion rates through continuous A/B testing and funnel optimization.</li>
+                            <li>Built Executive KPI Dashboards, visualizing channel performance and ROI attribution to guide Board-level decision-making.</li>
+                            <li>Designed automated email nurture sequences and lead segmentation workflows, improving lead-to-opportunity conversion rates.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="experience-item reveal">
+                    <div class="exp-meta">
+                        <span class="exp-date">May 2019 — Apr 2022</span>
+                        <span class="exp-location">Lima, Peru</span>
+                    </div>
+                    <div class="exp-content">
+                        <h3 class="exp-title">THE PISONAY COMPANY</h3>
+                        <span class="exp-role">Digital Marketing Executive</span>
+                        <ul class="exp-bullets">
+                            <li>Designed and executed a full GTM strategy (SEO/SEM, Email, CRM workflows) for high-value real estate projects, achieving 100% inventory sell-out prior to construction completion.</li>
+                            <li>Built and optimized CRM workflows and lead nurturing automations that drove an average monthly conversion rate increase of over 50% through rigorous A/B testing and funnel stage management.</li>
+                            <li>Managed the complete lead lifecycle from social media capture to sales handoff, defining lead qualification criteria and ensuring consistent data quality for the sales team.</li>
+                            <li>Designed and optimized landing pages integrated with CRM lead capture forms, improving form completion rates and data capture accuracy.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projects Section -->
+            <header class="details-header reveal" style="margin-top: 10rem;">
+                <span class="section-num">02 // AUTOMATION INITIATIVES</span>
+                <h2>Technical Projects</h2>
+                <p>Custom software implementations and integrations built to automate marketing operations tasks.</p>
+            </header>
+
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <span class="project-date">2026</span>
+                    <h3>Automated CRM Enrichment Agent</h3>
+                    <span class="project-tech">Python + HubSpot API + Google Antigravity</span>
+                    <p>Built an AI agent that automatically researches new HubSpot leads by scraping websites and classifying companies against an ICP. Reduced lead-to-data time from manual research to 30 seconds, saving the sales team 15+ hours per week and eliminating empty CRM fields.</p>
+                    <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7423816376298913792/" target="_blank" class="linkedin-cta-btn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>Discover more on my LinkedIn</a>
+                </div>
+                
+                <div class="project-card reveal">
+                    <span class="project-date">2026</span>
+                    <h3>Cloud-Native Market Intelligence Agent</h3>
+                    <span class="project-tech">Python + Antigravity + HubSpot + Slack</span>
+                    <p>Deployed an automated competitive intelligence pipeline that monitors competitor pricing every 6 hours, generates AI summaries of pricing shifts, and pushes updates directly into HubSpot Company Records. Eliminated $1,200/year in SaaS monitoring costs and 50+ hours of annual manual research.</p>
+                    <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7419768812691935233/" target="_blank" class="linkedin-cta-btn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>Discover more on my LinkedIn</a>
+                </div>
+            </div>
+
+            <!-- Education Section -->
+            <header class="details-header reveal" style="margin-top: 10rem;">
+                <span class="section-num">03 // INTELLECTUAL FOUNDATION</span>
+                <h2>Academic Credentials</h2>
+                <p>International business and marketing studies across Italy, Germany, and Peru.</p>
+            </header>
+
+            <div class="education-grid">
+                <div class="education-card reveal">
+                    <div class="edu-header">
+                        <span class="edu-date">2023 — 2025</span>
+                        <span class="edu-location">Parma, Italy</span>
+                    </div>
+                    <h3>Università degli Studi di Parma</h3>
+                    <span class="edu-degree">Master in International Business and Development</span>
+                </div>
+
+                <div class="education-card reveal">
+                    <div class="edu-header">
+                        <span class="edu-date">2015 — 2018</span>
+                        <span class="edu-location">Lima, Peru</span>
+                    </div>
+                    <h3>Universidad San Ignacio de Loyola</h3>
+                    <span class="edu-degree">Bachelor of International Business Administration</span>
+                </div>
+
+                <div class="education-card reveal">
+                    <div class="edu-header">
+                        <span class="edu-date">2017 — 2018</span>
+                        <span class="edu-location">Cologne, Germany</span>
+                    </div>
+                    <h3>Cologne Business School (Study Abroad)</h3>
+                    <span class="edu-degree">Specialization in Business and Marketing</span>
+                </div>
+            </div>
+
+            <!-- Skills & Certs Section -->
+            <header class="details-header reveal" style="margin-top: 10rem;">
+                <span class="section-num">04 // TAXONOMY</span>
+                <h2>Skills & Certifications</h2>
+                <p>Technical qualifications, digital automation tools, and language capabilities.</p>
+            </header>
+
+            <div class="skills-section-grid">
+                <div class="skills-block reveal">
+                    <h3>Technical Skills & Tools</h3>
+                    <ul class="skills-list">
+                        <li><strong>CRM Systems:</strong> HubSpot (Marketing Hub, Sales Hub, Workflows, Lead Scoring, Sequences), Salesforce (Admin cert in progress, target Q3 2026)</li>
+                        <li><strong>Marketing Automation:</strong> Nurture sequences, lead lifecycle scoring, custom integrations, lead routing logic</li>
+                        <li><strong>Data & Analytics:</strong> Google Analytics, Google Ads, SEMrush, SQL (Oracle Certification in progress)</li>
+                        <li><strong>AI & Custom Tools:</strong> Google Antigravity framework, Python API scripts, HTML/CSS (basic)</li>
+                    </ul>
+                </div>
+                
+                <div class="skills-block reveal">
+                    <h3>Certifications</h3>
+                    <ul class="skills-list">
+                        <li>HubSpot CRM Administration</li>
+                        <li>HubSpot Revenue Operations (RevOps)</li>
+                        <li>HubSpot Marketing Automation</li>
+                        <li>Google Digital Marketing Certificate</li>
+                        <li>Meta Digital Marketing Associate Certification</li>
+                    </ul>
+                </div>
+
+                <div class="skills-block reveal">
+                    <h3>Languages & Interests</h3>
+                    <ul class="skills-list">
+                        <li><strong>Spanish:</strong> Native speaker</li>
+                        <li><strong>English:</strong> C1 Advanced proficiency</li>
+                        <li><strong>Italian:</strong> B2 Upper-Intermediate proficiency</li>
+                        <li><strong>Interests:</strong> Artificial Intelligence trends, Marketing Automation Trends, Data Visualization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimal Footer -->
+    <footer>
+        <div class="footer-content reveal">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/renzofrancesqui/" target="_blank" rel="noopener noreferrer" class="footer-link linkedin-link">
+                    LinkedIn
+                </a>
+                <a href="mailto:renzo.francesqui@gmail.com" class="footer-link email-link">
+                    renzo.francesqui@gmail.com
+                </a>
+            </div>
+            <p class="copyright">&copy; 2026 Renzo Francesqui. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Securely routed through serverless proxy `/api/chat`
+
+        // System Prompt
+        const SYSTEM_PROMPT = `You are a professional representative for Renzo Francesqui, a Marketing Operations and CRM / RevOps professional with 5+ years of experience. You must always answer recruiter questions about him in the FIRST PERSON as if you are Renzo himself. Keep your answers elegant, concise, confident, and highly specific to operations, data systems, and CRM infrastructure.
+
+Tone & Persona Instructions:
+- Always maintain an extremely positive, professional, welcoming, and helpful tone.
+- Prioritize accurate data from my CV. Do not speculate or make up information.
+- My location is Milano (Milan), Italy. I am available for hybrid or remote roles in EMEA.
+- My HubSpot CRM, HubSpot RevOps, HubSpot Marketing Automation, Google Digital Marketing, and Meta Digital Marketing certifications are completed.
+- My Salesforce Administrator and SQL Oracle Database certifications are strictly IN PROGRESS (targeted completion Q3 2026 and currently studying respectively). Do not state that I have completed them.
+- When describing my technical projects, you must include the following LinkedIn URLs in your response text to show more details:
+  * Automated CRM Enrichment Agent: https://www.linkedin.com/feed/update/urn:li:ugcPost:7423816376298913792/
+  * Cloud-Native Market Intelligence Agent: https://www.linkedin.com/feed/update/urn:li:ugcPost:7419768812691935233/
+
+HubSpot Experience & Core Competencies:
+- When asked about HubSpot experience, represent my skills by focusing on:
+  * CRM Administration & Data Architecture: HubSpot platform management, property standardization, data hygiene, and offline-to-online system integration.
+  * Marketing Automation: Workflow building, sequence design, campaign tracking.
+  * Pipeline Operations: MQL-to-SQL routing, custom lead scoring logic, sales-marketing SLA alignment.
+  * Analytics & Attribution: Pipeline reporting, lifecycle stage tracking, CRM data visualization.
+- Reference my buildout at TOMRA (co-leading adoption from near-zero to active pipeline for 30-50 sales reps in EMEA and Americas) and management at IMBAREX (managing custom HubSpot setups across 10+ countries).
+
+Renzo's detailed background:
+
+Core Summary:
+- 5+ years of experience spanning digital acquisition and CRM systems.
+- Specializing in HubSpot platform administration, marketing automation, and lead lifecycle operations.
+- Transitioning towards a B2B SaaS RevOps or Marketing Operations (MOps) role.
+- Location: Milano (Milan), Italy. Open to remote or hybrid roles across EMEA.
+
+Work Experience:
+1. TOMRA (Parma, Italy) - Marketing Events Support | CRM & Marketing Operations (October 2024 - Present):
+   - Supported end-to-end lead operations across 15-20 directly organized global trade shows per year (e.g. IFAT, PRS Europe), ensuring 100% of captured leads synced to HubSpot for immediate follow-up across a 30-50 person EMEA & Americas sales team.
+   - Co-led operational buildout of HubSpot CRM adoption from near-zero usage to active pipeline management. Standardized lead capture, contact properties, and lifecycle stages across field events.
+   - Designed/enforced lead capture standardization at field events (8 to 350+ leads per show) to eliminate data gaps and field mismatches.
+   - Managed post-event offline-to-online workflows, reducing lead-to-sales-handoff from over 1 week to same-week import, cleaning, and routing.
+   - Built lead scoring logic and defined "High Intent" criteria in HubSpot to accelerate MQL-to-SQL handover and reduce pipeline stagnation.
+
+2. IMBAREX (Lima, Peru) - Digital Marketing Specialist | Marketing Operations (October 2022 - April 2024):
+   - Led marketing operations for a 5-person team executing campaigns across 10+ countries in the Americas, Europe, and Middle East.
+   - Managed HubSpot CRM data integrity across international markets, standardizing properties, lifecycle stages, and campaign tracking.
+   - Executed SEO/SEM strategies across 4 regions, achieving 40% organic traffic increase in 6 months and 33% improvement in paid conversion rates.
+   - Built Executive KPI dashboards in HubSpot/Excel to visualize channel performance and ROI attribution for Board-level decisions.
+   - Designed automated email nurture sequences and lead segmentation workflows to improve lead-to-opportunity conversion.
+
+3. THE PISONAY COMPANY (Lima, Peru) - Digital Marketing Executive (May 2019 - April 2022):
+   - Designed and executed GTM strategies (SEO/SEM, Email, CRM workflows) for high-value real estate projects, achieving 100% inventory sell-out before construction.
+   - Built and optimized CRM workflows and nurture automations, driving an average monthly conversion rate increase of 50%+.
+   - Managed the complete lead lifecycle from social media capture to sales handoff, defining qualification criteria.
+   - Designed and optimized landing pages integrated with CRM forms for improved completion rates and capture accuracy.
+
+Technical Projects:
+- Automated CRM Enrichment Agent (2026): Python + HubSpot API + Google Antigravity. Built an AI agent that automatically researches new HubSpot leads by scraping websites and classifying companies against an ICP. Reduced lead-to-data time from manual research to 30 seconds, saving the sales team 15+ hours per week.
+- Cloud-Native Market Intelligence Agent (2026): Python + Antigravity + HubSpot + Slack. Deployed an automated competitive intelligence pipeline that monitors competitor pricing every 6 hours, generates AI summaries of pricing shifts, and pushes updates directly into HubSpot Company Records, eliminating $1,200/year in SaaS costs.
+
+Education:
+- Università degli Studi di Parma (Parma, Italy): Master in International Business and Development (August 2023 - March 2025).
+- Universidad San Ignacio de Loyola (Lima, Peru): Bachelor of International Business Administration (March 2015 - July 2018).
+- Cologne Business School (Cologne, Germany): Study Abroad - Business and Marketing (August 2017 - January 2018).
+
+Skills, Tools & Certifications:
+- Technical Tools: HubSpot (Marketing Hub, Sales Hub, Workflows, Lead Scoring, Sequences), Salesforce (Admin cert in progress, target Q3 2026), Google Analytics, Google Ads, Google Antigravity, SEMrush, SQL (Oracle Certification in progress), basic HTML & CSS.
+- Certifications: HubSpot CRM, HubSpot RevOps, HubSpot Marketing Automation, Google Digital Marketing, Meta Digital Marketing.
+- Languages: Spanish (Native), English (C1), Italian (B2).
+- Interests: AI trends, Marketing Automation, Data Visualization.
+
+Persona & Communication Guidelines:
+- Answer in the first person ("I"). Keep your voice professional, elegant, and operations-focused.
+- If asked about education, refer directly to your Master's from Parma University, Bachelor's from USIL, and study abroad in Cologne.
+- If asked about experience, highlight your HubSpot buildout at TOMRA, global campaigns at IMBAREX, and GTM strategy at Pisonay.
+- Do not make up any facts or dates not listed here. If asked about something you do not know, politely state that you do not have that specific experience but highlight a related operational skill.`;
+
+        // States
+        const messagesHistory = [];
+        const chatMessages = document.getElementById("chatMessages");
+        const chatInput = document.getElementById("chatInput");
+
+        // Simple Markdown Parser
+        function formatMessage(text) {
+            let html = text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+
+            // Format specific LinkedIn post URLs as CTA buttons
+            const enrichmentPostUrl = "https://www.linkedin.com/feed/update/urn:li:ugcPost:7423816376298913792/";
+            const intelligencePostUrl = "https://www.linkedin.com/feed/update/urn:li:ugcPost:7419768812691935233/";
+
+            html = html.replace(new RegExp(enrichmentPostUrl, 'g'), `<a href="${enrichmentPostUrl}" target="_blank" class="linkedin-cta-btn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>Discover more on my LinkedIn</a>`);
+            html = html.replace(new RegExp(intelligencePostUrl, 'g'), `<a href="${intelligencePostUrl}" target="_blank" class="linkedin-cta-btn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>Discover more on my LinkedIn</a>`);
+
+            // Bold
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+            // Bullets formatting
+            const lines = html.split('\n');
+            let inList = false;
+            let result = [];
+
+            for (let line of lines) {
+                const trimmed = line.trim();
+                if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+                    if (!inList) {
+                        result.push('<ul class="chat-list">');
+                        inList = true;
+                    }
+                    result.push(`<li>${trimmed.substring(2)}</li>`);
+                } else {
+                    if (inList) {
+                        result.push('</ul>');
+                        inList = false;
+                    }
+                    result.push(line);
+                }
+            }
+            if (inList) {
+                result.push('</ul>');
+            }
+
+            return result.join('<br>').replace(/<\/ul><br>/g, '</ul>').replace(/<br><ul/g, '<ul');
+        }
+
+        // Add Interview Entry
+        function appendMessage(sender, text, isNotice = false) {
+            if (isNotice) {
+                const noticeDiv = document.createElement("div");
+                noticeDiv.className = "system-notice";
+                noticeDiv.innerText = text;
+                chatMessages.appendChild(noticeDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                return;
+            }
+
+            const block = document.createElement("div");
+            block.className = "message-block";
+
+            const senderLabel = document.createElement("span");
+            senderLabel.className = `message-sender ${sender === 'ai' ? 'renzo' : 'recruiter'}`;
+            senderLabel.innerText = sender === 'ai' ? "Renzo Francesqui" : "Inquiry";
+
+            const content = document.createElement("div");
+            content.className = "message-content";
+            content.innerHTML = formatMessage(text);
+
+            block.appendChild(senderLabel);
+            block.appendChild(content);
+            chatMessages.appendChild(block);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Typing indicator
+        let typingIndicatorElement = null;
+        function showTypingIndicator() {
+            if (typingIndicatorElement) return;
+
+            const block = document.createElement("div");
+            block.className = "message-block";
+            block.id = "typingIndicator";
+
+            const senderLabel = document.createElement("span");
+            senderLabel.className = "message-sender renzo";
+            senderLabel.innerText = "Renzo Francesqui";
+
+            const content = document.createElement("div");
+            content.className = "message-content";
+
+            const indicator = document.createElement("div");
+            indicator.className = "typing-indicator";
+            indicator.innerHTML = `
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            `;
+
+            content.appendChild(indicator);
+            block.appendChild(senderLabel);
+            block.appendChild(content);
+            chatMessages.appendChild(block);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            typingIndicatorElement = block;
+        }
+
+        // Remove typing indicator
+        function removeTypingIndicator() {
+            if (typingIndicatorElement) {
+                typingIndicatorElement.remove();
+                typingIndicatorElement = null;
+            }
+        }
+
+        // Local Fallback Dictionary
+        function getLocalResponse(query) {
+            const q = query.toLowerCase();
+            
+            if (q.includes('education') || q.includes('study') || q.includes('studied') || q.includes('school') || q.includes('university') || q.includes('college') || q.includes('degree') || q.includes('master') || q.includes('bachelor') || q.includes('academic') || q.includes('cologne') || q.includes('parma') || q.includes('usil')) {
+                return "I hold a **Master's degree in International Business and Development** from the *Università degli Studi di Parma* in Italy (Aug 2023 - Mar 2025) and a **Bachelor's degree in International Business Administration** from *Universidad San Ignacio de Loyola* in Peru. I also completed a study abroad semester at *Cologne Business School* in Germany specializing in Business and Marketing.";
+            }
+            if (q.includes('project') || q.includes('enrichment') || q.includes('agent') || q.includes('automation') || q.includes('python') || q.includes('intelligence')) {
+                return "I have developed custom automation initiatives using Python, HubSpot API, and Google Antigravity:\n\n1. **Automated CRM Enrichment Agent (2026):** Web-scraping and LLM company classification to automatically enrich new HubSpot leads, reducing research time to 30 seconds and saving the sales team 15+ hours/week.\nhttps://www.linkedin.com/feed/update/urn:li:ugcPost:7423816376298913792/\n\n2. **Cloud-Native Market Intelligence Agent (2026):** Deployed a Slack & HubSpot integration checking competitor pricing every 6 hours, pushing updates directly into HubSpot Company Records.\nhttps://www.linkedin.com/feed/update/urn:li:ugcPost:7419768812691935233/";
+            }
+            if (q.includes('language') || q.includes('spanish') || q.includes('english') || q.includes('italian') || q.includes('speak') || q.includes('tongue')) {
+                return "I speak **Spanish** (Native speaker), **English** (C1 Advanced), and **Italian** (B2 Upper-Intermediate).";
+            }
+            if (q.includes('hubspot') || q.includes('crm') || q.includes('pipeline') || q.includes('sales reps')) {
+                return "My **HubSpot & CRM Experience** spans over 5 years, focusing on platform management, data architecture, and pipeline operations. At TOMRA, I co-led the HubSpot CRM buildout from near-zero to active pipeline for 30-50 sales reps across EMEA and the Americas. At IMBAREX, I managed custom HubSpot configurations and campaign attribution across 10+ countries.\n\nMy core HubSpot competencies include:\n- **CRM Administration & Data Architecture**: HubSpot platform management, property standardization, data hygiene, and offline-to-online system integration.\n- **Marketing Automation**: Workflow building, sequence design, and campaign tracking.\n- **Pipeline Operations**: MQL-to-SQL routing, custom lead scoring logic, and sales-marketing SLA alignment.\n- **Analytics & Attribution**: Pipeline reporting, lifecycle stage tracking, and CRM data visualization.\n\nI hold certifications in **HubSpot CRM**, **HubSpot RevOps**, and **HubSpot Marketing Automation**.";
+            }
+            if (q.includes('salesforce') || q.includes('admin')) {
+                return "I'm currently working on my Salesforce Administrator certification, targeting completion in Q3 2026. This complements my HubSpot CRM administration background and further expands my CRM strategy skillset.";
+            }
+            if (q.includes('revops') || q.includes('operations') || q.includes('mops') || q.includes('marketing operations')) {
+                return "In RevOps and Marketing Operations, my work focuses on pipeline management, data architecture, and automation infrastructure. At TOMRA, I optimized process flows and reduced lead-to-sales handoff from 1 week to same-week. I also built lead scoring logic and MQL-to-SQL routing.";
+            }
+            if (q.includes('cert') || q.includes('certification')) {
+                return "I hold completed certifications in: **HubSpot CRM**, **HubSpot RevOps**, and **HubSpot Marketing Automation**. My **Salesforce Admin** and **SQL Oracle** database certifications are strictly **in progress** (expected target Q3 2026 and currently studying respectively).";
+            }
+            if (q.includes('lead') || q.includes('scoring') || q.includes('routing') || q.includes('mql') || q.includes('sql') || q.includes('handoff')) {
+                return "I built robust lead scoring logic and MQL-to-SQL routing rules, which helped reduce our lead-to-sales handoff time from 1 week to same-week, boosting sales productivity and pipeline metrics.";
+            }
+            if (q.includes('imbarex') || q.includes('traffic') || q.includes('conversion') || q.includes('organic')) {
+                return "At IMBAREX, I managed HubSpot across 10+ countries, achieving a **40% increase in organic traffic** and a **33% improvement in paid conversion rates** through automation and backend workflows.";
+            }
+            if (q.includes('tomra') || q.includes('emea') || q.includes('americas')) {
+                return "At TOMRA, I co-led the HubSpot CRM buildout from near-zero to active pipeline for 30-50 sales reps across EMEA and the Americas, successfully optimizing our sales pipeline.";
+            }
+            if (q.includes('pisonay') || q.includes('real estate')) {
+                return "At The Pisonay Company (May 2019 - Apr 2022), I served as a Digital Marketing Executive. I designed and executed full GTM strategies (SEO/SEM, Email, CRM workflows) for high-value real estate projects, achieving 100% inventory sell-out before construction. I also built CRM automations that increased monthly conversion rates by over 50%.";
+            }
+            if (q.includes('sql oracle') || q.includes('oracle') || q.includes('sql cert') || q.includes('database')) {
+                return "I am currently preparing for my **SQL Oracle Database certification** (in progress) to deepen my data architecture capabilities, which directly supports my CRM operations and custom integrations.";
+            }
+            if (q.includes('where') || q.includes('locate') || q.includes('location') || q.includes('based') || q.includes('milan') || q.includes('milano') || q.includes('parma') || q.includes('italy') || q.includes('availability') || q.includes('available') || q.includes('relocat')) {
+                return "I am based in **Milano (Milan) / Parma, Italy**, and I am fully open to remote or hybrid opportunities across EMEA.";
+            }
+            if (q.includes('title') || q.includes('digital marketing') || q.includes('actual') || q.includes('role')) {
+                return "Although my official titles have often been 'Digital Marketing', my day-to-day work has always focused on operations: pipeline management, data architecture, and marketing automation infrastructure.";
+            }
+            if (q.includes('contact') || q.includes('email') || q.includes('linkedin') || q.includes('reach')) {
+                return "You can reach me via email at **renzo.francesqui@gmail.com** or connect with me on LinkedIn at **linkedin.com/in/renzofrancesqui/**.";
+            }
+            if (q.includes('skills') || q.includes('tools') || q.includes('stack') || q.includes('technologies')) {
+                return "My technical stack includes **HubSpot** (Marketing & Sales Hub, Lead Scoring, Sequences, Workflows), **Salesforce** (Admin cert in progress for Q3 2026), **Google Analytics**, **SEMrush**, **SQL** (Oracle Database cert in progress), **Google Antigravity**, and basic **HTML/CSS**.";
+            }
+            
+            return "I have 5+ years of experience in Marketing Operations, CRM Administration, and RevOps. Some of my key accomplishments include co-leading TOMRA's HubSpot buildout for 30-50 sales reps in EMEA and Americas, reducing lead handoffs to same-week, and managing HubSpot across 10+ countries at IMBAREX (achieving +40% organic traffic and +33% conversion). I'm HubSpot CRM, RevOps, and Marketing Automation certified, with Salesforce Admin and SQL Oracle certs in progress. \n\nWhat would you like to know about my background?";
+        }
+
+        // Call Google Gemini API
+        async function fetchGeminiResponse(userInput) {
+            messagesHistory.push({ role: "user", content: userInput });
+
+            try {
+                const geminiContents = messagesHistory.map(msg => ({
+                    role: msg.role === "assistant" ? "model" : "user",
+                    parts: [{ text: msg.content }]
+                }));
+
+                const response = await fetch(`/api/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: geminiContents,
+                        systemInstruction: {
+                            parts: [{ text: SYSTEM_PROMPT }]
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Gemini status code: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const text = data.candidates[0].content.parts[0].text;
+                
+                messagesHistory.push({ role: "assistant", content: text });
+                return { success: true, text: text };
+
+            } catch (err) {
+                console.warn("API Error, utilizing local fallback system.", err);
+                
+                const fallbackResponseText = getLocalResponse(userInput);
+                messagesHistory.push({ role: "assistant", content: fallbackResponseText });
+                
+                return { success: false, text: fallbackResponseText };
+            }
+        }
+
+        // Query execution
+        async function submitQuery(queryText) {
+            if (!queryText || queryText.trim() === "") return;
+
+            appendMessage("user", queryText);
+            chatInput.value = "";
+
+            showTypingIndicator();
+            const result = await fetchGeminiResponse(queryText);
+            removeTypingIndicator();
+            appendMessage("ai", result.text);
+
+            if (!result.success && !window.fallbackNoteShown) {
+                appendMessage(null, "LOG_NOTE: FALLBACK_MODE_ACTIVE // LOCAL_REPRESENTATIVE_SIMULATOR", true);
+                window.fallbackNoteShown = true;
+            }
+
+            chatInput.focus();
+        }
+
+        // Form triggers
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const text = chatInput.value;
+            submitQuery(text);
+        }
+
+        // Chip triggers
+        function handleChipClick(chipElement) {
+            const text = chipElement.innerText;
+            submitQuery(text);
+        }
+
+        // Scroll observer triggers
+        function initScrollReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -60px 0px'
+            });
+
+            document.querySelectorAll('.reveal').forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Bulletproof ready/load check
+        function init() {
+            appendMessage("ai", "Hi, I'm Renzo's AI representative. What would you like to know about his experience in MOps, CRM, or RevOps?");
+            chatInput.focus();
+            initScrollReveal();
+        }
+
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            init();
+        } else {
+            window.addEventListener("DOMContentLoaded", init);
+        }
+    </script>
+</body>
+</html>
