@@ -351,11 +351,29 @@
         /* Form area */
         .chat-form {
             display: flex;
-            padding: 1.5rem 2.5rem;
+            padding: 1.25rem 2.5rem 0.75rem 2.5rem;
             background: #ebeae6;
             border-top: 1px solid var(--border-light);
             gap: 1.5rem;
             align-items: center;
+        }
+
+        .chat-disclaimer {
+            padding: 0 2.5rem 1rem 2.5rem;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-align: center;
+            background: #ebeae6;
+            line-height: 1.4;
+        }
+
+        .chat-disclaimer a {
+            color: var(--text-secondary);
+            text-decoration: underline;
+        }
+
+        .chat-disclaimer a:hover {
+            color: var(--text-primary);
         }
 
         .input-wrapper {
@@ -966,7 +984,14 @@
                             </span>
                         </div>
                     </div>
-                    <span class="chat-engine-label">GEMINI_2.5_FLASH</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="chat-engine-label" id="chatEngineLabel">GEMINI_2.5_FLASH</span>
+                        <button id="configKeyBtn" type="button" style="background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; color: var(--text-muted); opacity: 0.6; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6" title="Configure API Key">
+                            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;">
+                                <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84a.483.483 0 0 0-.48.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.489.489 0 0 0-.59.22L3.64 8.87c-.12.21-.07.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.48-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Scrollable dialogue transcription -->
@@ -999,6 +1024,11 @@
                         </svg>
                     </button>
                 </form>
+
+                <!-- Disclaimer -->
+                <div class="chat-disclaimer">
+                    This AI representative is trained on Renzo's professional profile. For sensitive topics like compensation and visa status, please contact him directly at <a href="mailto:renzo.francesqui@gmail.com">renzo.francesqui@gmail.com</a>
+                </div>
             </section>
 
             <!-- Scroll down indicator link -->
@@ -1208,9 +1238,16 @@
 Tone & Persona Instructions:
 - Always maintain an extremely positive, professional, welcoming, and helpful tone.
 - Prioritize accurate data from my CV. Do not speculate or make up information.
-- My location is Milano (Milan), Italy. I am available for hybrid or remote roles in EMEA.
+- Nationality & Work Authorization: I am a Peruvian national. I hold a valid Italian residence/work permit, which authorizes me to work in Italy. However, I am NOT an EU citizen.
+- Visa Sponsorship Rules: For any roles outside Italy (e.g. Netherlands, Germany, UK, etc.), I require visa sponsorship. Never state, suggest, or imply that I have EU-wide work authorization. If asked about visa requirements or eligibility outside Italy, always be honest and state: "I require visa sponsorship for roles outside Italy, and I am happy to discuss sponsorship and logistics directly with employers."
+- Current Job & Location: I am based in Milano (Milan), Italy, but I currently work at TOMRA in Parma, Italy, as Marketing Events Support | CRM & Marketing Operations (since October 2024). When asked about where I currently work or my current employer, always specify my TOMRA role. I am available for hybrid or remote roles in EMEA.
+- Availability & Notice Period: I am subject to a standard notice period (typically 1 month), but I am open to discussing start dates directly depending on the role.
+- Salary & Compensation Rules: For any questions about my salary expectations, compensation package, benefits, or negotiation, I must state professionally that I prefer to discuss these details directly. Invite the user to reach out to me via email at renzo.francesqui@gmail.com to coordinate a call.
+- Work Arrangements: I am based in Milano (Milan), Italy and open to remote or hybrid roles in EMEA. For specific remote policies, I am open to discussing details directly with employers.
+- Contact requests: If the user asks how to get in touch or contact me, direct them to my email (renzo.francesqui@gmail.com) and LinkedIn profile (linkedin.com/in/renzofrancesqui/).
+- Off-Topic / General Knowledge Queries: If asked about general knowledge, current events, or topics unrelated to my professional background (e.g., "What is the capital of France?"), I must politely redirect the user back to my profile and ask what they would like to know about my experience, projects, or certifications.
 - My HubSpot CRM, HubSpot RevOps, HubSpot Marketing Automation, Google Digital Marketing, and Meta Digital Marketing certifications are completed.
-- My Salesforce Administrator and SQL Oracle Database certifications are strictly IN PROGRESS (targeted completion Q3 2026 and currently studying respectively). Do not state that I have completed them.
+- My Salesforce Administrator and SQL Oracle Database certifications are strictly IN PROGRESS (targeted completion Q3 2026 and currently studying respectively). Do not state that I have completed them. When asked about SQL, clarify that I can write queries to extract data, manage tables, and analyze database structures to support CRM integrations.
 - When describing my technical projects, you must include the following LinkedIn URLs in your response text to show more details:
   * Automated CRM Enrichment Agent: https://www.linkedin.com/feed/update/urn:li:ugcPost:7423816376298913792/
   * Cloud-Native Market Intelligence Agent: https://www.linkedin.com/feed/update/urn:li:ugcPost:7419768812691935233/
@@ -1396,7 +1433,68 @@ Persona & Communication Guidelines:
         function getLocalResponse(query) {
             const q = query.toLowerCase();
             
-            if (q.includes('education') || q.includes('study') || q.includes('studied') || q.includes('school') || q.includes('university') || q.includes('college') || q.includes('degree') || q.includes('master') || q.includes('bachelor') || q.includes('academic') || q.includes('cologne') || q.includes('parma') || q.includes('usil')) {
+            // 1. Recruiter introductions / Opportunities / greetings (Using word boundaries to avoid substring matching like "benefits" matching "fit")
+            const recruiterRegex = /\b(recruiter|hiring|recruit|opportunity|fit|role|position|opening|looking for)\b/;
+            if (recruiterRegex.test(q)) {
+                return "Hello! Thank you for reaching out. Yes, I am actively seeking new opportunities in B2B SaaS Marketing Operations, CRM Administration, and RevOps. With 5+ years of experience—including co-leading HubSpot CRM builds for 30-50 sales reps at TOMRA and managing configurations across 10+ countries at IMBAREX—I specialize in building pipeline operations, lead scoring logic, and custom API automations. \n\nI am based in Italy, hold a valid Italian work permit, and am open to hybrid/remote roles across EMEA. How can I help you today? Feel free to ask about my CRM certifications, technical projects, or contact me directly at renzo.francesqui@gmail.com.";
+            }
+            
+            if (q === 'hi' || q === 'hello' || q === 'hey' || q.startsWith('hi ') || q.startsWith('hello ') || q.startsWith('hey ') || q === 'greetings' || q.includes('how are you')) {
+                return "Hi there! I'm Renzo's AI representative. I can help you learn more about his 5+ years of experience in Marketing Operations, CRM Administration, and RevOps, as well as his certifications and custom automation projects. What would you like to know?";
+            }
+
+            // 2. Salesforce (High priority for specific CRM questions)
+            if (q.includes('salesforce') || q.includes('admin')) {
+                return "I'm currently working on my Salesforce Administrator certification, targeting completion in Q3 2026. This complements my HubSpot CRM administration background and further expands my CRM strategy skillset.";
+            }
+
+            // 3. HubSpot (High priority for specific CRM questions)
+            if (q.includes('hubspot') || q.includes('crm') || q.includes('pipeline') || q.includes('sales reps')) {
+                return "My **HubSpot & CRM Experience** spans over 5 years, focusing on platform management, data architecture, and pipeline operations. At TOMRA, I co-led the HubSpot CRM buildout from near-zero to active pipeline for 30-50 sales reps across EMEA and the Americas. At IMBAREX, I managed custom HubSpot configurations and campaign attribution across 10+ countries.\n\nMy core HubSpot competencies include:\n- **CRM Administration & Data Architecture**: HubSpot platform management, property standardization, data hygiene, and offline-to-online system integration.\n- **Marketing Automation**: Workflow building, sequence design, and campaign tracking.\n- **Pipeline Operations**: MQL-to-SQL routing, custom lead scoring logic, and sales-marketing SLA alignment.\n- **Analytics & Attribution**: Pipeline reporting, lifecycle stage tracking, and CRM data visualization.\n\nI hold certifications in **HubSpot CRM**, **HubSpot RevOps**, and **HubSpot Marketing Automation**.";
+            }
+
+            // 4. Strengths / Unique Selling Points / Why hire / Differentiator
+            if (q.includes('different') || q.includes('unique') || q.includes('why hire') || q.includes('why should') || q.includes('strengths') || q.includes('differentiate') || q.includes('value') || q.includes('advantage') || q.includes('dealbreaker') || q.includes('deal-breaker') || q.includes('distinguish') || q.includes('selling point') || q.includes('candidate')) {
+                return "What makes me different is my unique blend of **marketing operations, CRM data architecture, and custom automation skills**. Unlike traditional marketers, I focus heavily on the technical backend: building automated lead qualification pipelines, standardizing CRM architectures, and deploying cloud-native automation scripts (like Python lead enrichment agents). I bridge the gap between sales, marketing, and engineering to optimize pipeline metrics.";
+            }
+
+            // 5. Salary, Compensation, Benefits, and Negotiation (Using boundaries for earn/pay/rate/fee)
+            if (q.includes('salary') || q.includes('compensation') || q.includes('benefit') || q.includes('money') || q.includes('package') || q.includes('expectation') || q.includes('negotiat') || /\b(earn|earning|earns|pay|paying|payment|rate|rates|fee|fees)\b/.test(q)) {
+                return "For topics like salary expectations, compensation packages, benefits, or contract terms, I prefer to discuss these directly. Please reach out to me at **renzo.francesqui@gmail.com** so we can connect and discuss this in more detail!";
+            }
+
+            // 6. Contact requests / Get in touch (Using boundaries for reach/call/write)
+            if (q.includes('contact') || q.includes('email') || q.includes('linkedin') || q.includes('touch') || q.includes('phone') || q.includes('message') || q.includes('talk to you') || /\b(reach|reaching|call|calls|calling|write|writing|writes|written)\b/.test(q)) {
+                return "You can reach me directly via email at **renzo.francesqui@gmail.com** or connect with me on LinkedIn at **linkedin.com/in/renzofrancesqui/**. I would be happy to discuss any opportunities or schedule a call!";
+            }
+
+            // 7. Current job / Work History (No generic "experience" or "company" here to avoid collisions)
+            if (q.includes('currently working') || q.includes('working now') || q.includes('working at') || q.includes('work now') || q.includes('work history') || q.includes('current role') || q.includes('current job') || q.includes('work at') || q.includes('do you work') || q.includes('employed at') || q.includes('working') || q.includes('employed') || q.includes('employer') || (/\bwhere\b/.test(q) && q.includes('work')) || (/\bwhere\b/.test(q) && q.includes('job'))) {
+                return "I am currently working at **TOMRA** in Parma, Italy, as **Marketing Events Support | CRM & Marketing Operations** (since October 2024). In this role, I manage HubSpot CRM adoption and lead operations for global trade shows. Previously, I worked at **IMBAREX** and **The Pisonay Company**.";
+            }
+
+            // 8. Location, Availability, Notice Period, Remote/Hybrid Work, Start Date (Using boundaries for where/join)
+            if (q.includes('locate') || q.includes('location') || q.includes('based') || q.includes('milan') || q.includes('milano') || q.includes('parma') || q.includes('italy') || q.includes('availability') || q.includes('available') || q.includes('relocat') || q.includes('start') || q.includes('notice') || q.includes('when can') || q.includes('remote') || q.includes('hybrid') || q.includes('wfh') || q.includes('home') || q.includes('office') || /\b(where|join|joining)\b/.test(q)) {
+                return "I am based in **Milano (Milan) / Parma, Italy**, and I am open to remote or hybrid opportunities across EMEA. I hold a valid Italian residence and work permit, meaning I am fully authorized to work in Italy. For roles outside Italy, I would require visa sponsorship. Regarding my **availability**, I am subject to a standard notice period (typically 1 month), but I am happy to discuss starting dates directly depending on the role. For specific remote or hybrid arrangements (including fully remote setups), I am open to discussing details directly with employers. Feel free to contact me at **renzo.francesqui@gmail.com**.";
+            }
+
+            // 9. Visa / Sponsorship (Using boundaries for eu/uk)
+            if (q.includes('visa') || q.includes('sponsor') || q.includes('permit') || q.includes('citizen') || q.includes('netherlands') || q.includes('holland') || q.includes('germany') || q.includes('passport') || q.includes('authorization') || q.includes('work in') || /\b(eu|uk)\b/.test(q)) {
+                return "I am a Peruvian national holding a valid Italian residence/work permit. While I am fully authorized to work in Italy, I do not hold EU citizenship. For roles outside Italy (such as in the Netherlands, Germany, etc.), I would require visa sponsorship. I am happy to discuss this directly with employers. For sensitive topics like compensation or detailed visa status, please feel free to reach out to me directly at renzo.francesqui@gmail.com.";
+            }
+
+            // 10. Lead scoring / routing / MQL-to-SQL (Using boundaries for sla)
+            if (q.includes('lead scoring') || q.includes('routing') || q.includes('mql') || q.includes('mql-to-sql') || q.includes('handoff') || q.includes('lead qualification') || /\bsla\b/.test(q)) {
+                return "I built robust lead scoring logic and MQL-to-SQL routing rules in HubSpot, which helped reduce our lead-to-sales handoff time from 1 week to same-week, boosting sales productivity and pipeline metrics.";
+            }
+
+            // 11. SQL / Database
+            if (q.includes('sql') || q.includes('oracle') || q.includes('database') || q.includes('querying')) {
+                return "I am currently preparing for my **SQL Oracle Database certification** (in progress) to deepen my database and querying capabilities, which supports my CRM data integrations. While I am not a database administrator, I can write SQL queries to extract data, manage tables, and analyze database structures. I expect to complete the certification in 2026.";
+            }
+
+            // 12. Other resume sections
+            if (q.includes('education') || q.includes('study') || q.includes('studied') || q.includes('school') || q.includes('university') || q.includes('college') || q.includes('degree') || q.includes('master') || q.includes('bachelor') || q.includes('academic') || q.includes('cologne') || q.includes('usil')) {
                 return "I hold a **Master's degree in International Business and Development** from the *Università degli Studi di Parma* in Italy (Aug 2023 - Mar 2025) and a **Bachelor's degree in International Business Administration** from *Universidad San Ignacio de Loyola* in Peru. I also completed a study abroad semester at *Cologne Business School* in Germany specializing in Business and Marketing.";
             }
             if (q.includes('project') || q.includes('enrichment') || q.includes('agent') || q.includes('automation') || q.includes('python') || q.includes('intelligence')) {
@@ -1405,52 +1503,56 @@ Persona & Communication Guidelines:
             if (q.includes('language') || q.includes('spanish') || q.includes('english') || q.includes('italian') || q.includes('speak') || q.includes('tongue')) {
                 return "I speak **Spanish** (Native speaker), **English** (C1 Advanced), and **Italian** (B2 Upper-Intermediate).";
             }
-            if (q.includes('hubspot') || q.includes('crm') || q.includes('pipeline') || q.includes('sales reps')) {
-                return "My **HubSpot & CRM Experience** spans over 5 years, focusing on platform management, data architecture, and pipeline operations. At TOMRA, I co-led the HubSpot CRM buildout from near-zero to active pipeline for 30-50 sales reps across EMEA and the Americas. At IMBAREX, I managed custom HubSpot configurations and campaign attribution across 10+ countries.\n\nMy core HubSpot competencies include:\n- **CRM Administration & Data Architecture**: HubSpot platform management, property standardization, data hygiene, and offline-to-online system integration.\n- **Marketing Automation**: Workflow building, sequence design, and campaign tracking.\n- **Pipeline Operations**: MQL-to-SQL routing, custom lead scoring logic, and sales-marketing SLA alignment.\n- **Analytics & Attribution**: Pipeline reporting, lifecycle stage tracking, and CRM data visualization.\n\nI hold certifications in **HubSpot CRM**, **HubSpot RevOps**, and **HubSpot Marketing Automation**.";
-            }
-            if (q.includes('salesforce') || q.includes('admin')) {
-                return "I'm currently working on my Salesforce Administrator certification, targeting completion in Q3 2026. This complements my HubSpot CRM administration background and further expands my CRM strategy skillset.";
-            }
             if (q.includes('revops') || q.includes('operations') || q.includes('mops') || q.includes('marketing operations')) {
                 return "In RevOps and Marketing Operations, my work focuses on pipeline management, data architecture, and automation infrastructure. At TOMRA, I optimized process flows and reduced lead-to-sales handoff from 1 week to same-week. I also built lead scoring logic and MQL-to-SQL routing.";
             }
             if (q.includes('cert') || q.includes('certification')) {
                 return "I hold completed certifications in: **HubSpot CRM**, **HubSpot RevOps**, and **HubSpot Marketing Automation**. My **Salesforce Admin** and **SQL Oracle** database certifications are strictly **in progress** (expected target Q3 2026 and currently studying respectively).";
             }
-            if (q.includes('lead') || q.includes('scoring') || q.includes('routing') || q.includes('mql') || q.includes('sql') || q.includes('handoff')) {
-                return "I built robust lead scoring logic and MQL-to-SQL routing rules, which helped reduce our lead-to-sales handoff time from 1 week to same-week, boosting sales productivity and pipeline metrics.";
-            }
-            if (q.includes('imbarex') || q.includes('traffic') || q.includes('conversion') || q.includes('organic')) {
+            if (q.includes('imbarex')) {
                 return "At IMBAREX, I managed HubSpot across 10+ countries, achieving a **40% increase in organic traffic** and a **33% improvement in paid conversion rates** through automation and backend workflows.";
             }
-            if (q.includes('tomra') || q.includes('emea') || q.includes('americas')) {
+            if (q.includes('tomra')) {
                 return "At TOMRA, I co-led the HubSpot CRM buildout from near-zero to active pipeline for 30-50 sales reps across EMEA and the Americas, successfully optimizing our sales pipeline.";
             }
-            if (q.includes('pisonay') || q.includes('real estate')) {
+            if (q.includes('pisonay')) {
                 return "At The Pisonay Company (May 2019 - Apr 2022), I served as a Digital Marketing Executive. I designed and executed full GTM strategies (SEO/SEM, Email, CRM workflows) for high-value real estate projects, achieving 100% inventory sell-out before construction. I also built CRM automations that increased monthly conversion rates by over 50%.";
-            }
-            if (q.includes('sql oracle') || q.includes('oracle') || q.includes('sql cert') || q.includes('database')) {
-                return "I am currently preparing for my **SQL Oracle Database certification** (in progress) to deepen my data architecture capabilities, which directly supports my CRM operations and custom integrations.";
-            }
-            if (q.includes('where') || q.includes('locate') || q.includes('location') || q.includes('based') || q.includes('milan') || q.includes('milano') || q.includes('parma') || q.includes('italy') || q.includes('availability') || q.includes('available') || q.includes('relocat')) {
-                return "I am based in **Milano (Milan) / Parma, Italy**, and I am fully open to remote or hybrid opportunities across EMEA.";
             }
             if (q.includes('title') || q.includes('digital marketing') || q.includes('actual') || q.includes('role')) {
                 return "Although my official titles have often been 'Digital Marketing', my day-to-day work has always focused on operations: pipeline management, data architecture, and marketing automation infrastructure.";
-            }
-            if (q.includes('contact') || q.includes('email') || q.includes('linkedin') || q.includes('reach')) {
-                return "You can reach me via email at **renzo.francesqui@gmail.com** or connect with me on LinkedIn at **linkedin.com/in/renzofrancesqui/**.";
             }
             if (q.includes('skills') || q.includes('tools') || q.includes('stack') || q.includes('technologies')) {
                 return "My technical stack includes **HubSpot** (Marketing & Sales Hub, Lead Scoring, Sequences, Workflows), **Salesforce** (Admin cert in progress for Q3 2026), **Google Analytics**, **SEMrush**, **SQL** (Oracle Database cert in progress), **Google Antigravity**, and basic **HTML/CSS**.";
             }
             
+            // Check if off-topic
+            const profileKeywords = ['renzo', 'francesqui', 'background', 'profile', 'cv', 'resume', 'qualification', 'about you', 'tell me about', 'summary', 'who are you', 'history', 'biography', 'skills', 'professional', 'job', 'work', 'career', 'intro', 'introduce', 'welcome', 'experience', 'hello', 'hi', 'hey', 'greetings', 'recreuit', 'recruiter', 'hiring', 'opportunity', 'fit', 'role', 'position', 'help', 'question', 'contact', 'email', 'linkedin', 'reach', 'touch', 'phone', 'call', 'write', 'message', 'talk', 'remote', 'hybrid', 'wfh', 'salary', 'compensation', 'pay', 'rate', 'earn', 'expectation', 'benefit', 'negotiat', 'salary expectations', 'package', 'different', 'unique', 'why hire', 'why should', 'strengths', 'differentiate', 'value', 'advantage', 'dealbreaker', 'deal-breaker', 'distinguish', 'selling point', 'candidate'];
+            const isOnTopic = profileKeywords.some(keyword => q.includes(keyword));
+            if (!isOnTopic) {
+                return "I am Renzo's AI representative, trained exclusively on his professional background, CRM systems, and RevOps experience. I cannot answer general knowledge or off-topic questions. However, I'd be happy to tell you about Renzo's experience in Marketing Operations, his HubSpot certifications, or his Python automation projects. What would you like to know?";
+            }
+            
             return "I have 5+ years of experience in Marketing Operations, CRM Administration, and RevOps. Some of my key accomplishments include co-leading TOMRA's HubSpot buildout for 30-50 sales reps in EMEA and Americas, reducing lead handoffs to same-week, and managing HubSpot across 10+ countries at IMBAREX (achieving +40% organic traffic and +33% conversion). I'm HubSpot CRM, RevOps, and Marketing Automation certified, with Salesforce Admin and SQL Oracle certs in progress. \n\nWhat would you like to know about my background?";
+        }
+
+        // Update Engine Label
+        function updateEngineLabel() {
+            const chatEngineLabel = document.getElementById('chatEngineLabel');
+            if (chatEngineLabel) {
+                const localApiKey = localStorage.getItem('GEMINI_API_KEY') || new URLSearchParams(window.location.search).get('gemini_key');
+                if (localApiKey) {
+                    chatEngineLabel.innerText = "GEMINI_2.5_FLASH (LIVE_AI)";
+                } else {
+                    chatEngineLabel.innerText = "GEMINI_2.5_FLASH";
+                }
+            }
         }
 
         // Call Google Gemini API
         async function fetchGeminiResponse(userInput) {
             messagesHistory.push({ role: "user", content: userInput });
+
+            const localApiKey = localStorage.getItem('GEMINI_API_KEY') || new URLSearchParams(window.location.search).get('gemini_key');
 
             try {
                 const geminiContents = messagesHistory.map(msg => ({
@@ -1458,18 +1560,36 @@ Persona & Communication Guidelines:
                     parts: [{ text: msg.content }]
                 }));
 
-                const response = await fetch(`/api/chat`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        contents: geminiContents,
-                        systemInstruction: {
-                            parts: [{ text: SYSTEM_PROMPT }]
-                        }
-                    })
-                });
+                let response;
+                if (localApiKey) {
+                    // Direct client-side fetch to Google Gemini API
+                    response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${localApiKey}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            contents: geminiContents,
+                            systemInstruction: {
+                                parts: [{ text: SYSTEM_PROMPT }]
+                            }
+                        })
+                    });
+                } else {
+                    // Serverless proxy fetch
+                    response = await fetch(`/api/chat`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            contents: geminiContents,
+                            systemInstruction: {
+                                parts: [{ text: SYSTEM_PROMPT }]
+                            }
+                        })
+                    });
+                }
 
                 if (!response.ok) {
                     throw new Error(`Gemini status code: ${response.status}`);
@@ -1495,11 +1615,30 @@ Persona & Communication Guidelines:
         async function submitQuery(queryText) {
             if (!queryText || queryText.trim() === "") return;
 
-            appendMessage("user", queryText);
+            const text = queryText.trim();
+            
+            // Check for /apikey command
+            if (text.startsWith('/apikey ')) {
+                const key = text.substring(8).trim();
+                if (key === 'clear') {
+                    localStorage.removeItem('GEMINI_API_KEY');
+                    appendMessage("user", text);
+                    appendMessage("ai", "Local API key cleared. Swapping to Vercel/Fallback mode.");
+                } else {
+                    localStorage.setItem('GEMINI_API_KEY', key);
+                    appendMessage("user", "/apikey *******");
+                    appendMessage("ai", "Local Gemini API key configured successfully! Live AI reasoning is now active.");
+                }
+                chatInput.value = "";
+                updateEngineLabel();
+                return;
+            }
+
+            appendMessage("user", text);
             chatInput.value = "";
 
             showTypingIndicator();
-            const result = await fetchGeminiResponse(queryText);
+            const result = await fetchGeminiResponse(text);
             removeTypingIndicator();
             appendMessage("ai", result.text);
 
@@ -1547,6 +1686,26 @@ Persona & Communication Guidelines:
             appendMessage("ai", "Hi, I'm Renzo's AI representative. What would you like to know about his experience in MOps, CRM, or RevOps?");
             chatInput.focus();
             initScrollReveal();
+            updateEngineLabel();
+
+            // Set up config gear click listener
+            const configKeyBtn = document.getElementById('configKeyBtn');
+            if (configKeyBtn) {
+                configKeyBtn.addEventListener('click', () => {
+                    const currentKey = localStorage.getItem('GEMINI_API_KEY') || '';
+                    const apiKey = prompt("Please configure your Google Gemini API Key to enable live AI reasoning directly in your browser:\n(Leave empty to clear and use Fallback mode)", currentKey);
+                    if (apiKey !== null) {
+                        if (apiKey.trim() === '') {
+                            localStorage.removeItem('GEMINI_API_KEY');
+                            alert("Local API key cleared. Swapping to Vercel/Fallback mode.");
+                        } else {
+                            localStorage.setItem('GEMINI_API_KEY', apiKey.trim());
+                            alert("Local Gemini API key configured successfully! Live AI reasoning is now active.");
+                        }
+                        updateEngineLabel();
+                    }
+                });
+            }
         }
 
         if (document.readyState === "complete" || document.readyState === "interactive") {
