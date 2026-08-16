@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B689F0JYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B689F0JYB6');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Blog & Perspectives — Renzo Francesqui (Version B)</title>
+    <meta name="description" content="Technical perspectives, CRM automation blueprints, and data architecture frameworks by Renzo Francesqui.">
+    <meta name="keywords" content="RevOps Blog, HubSpot Tutorials, Marketing Operations Articles, Python CRM Automation, Renzo Francesqui">
+    <meta name="author" content="Renzo Francesqui">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://renzo-francesqui.vercel.app/version-b/blog/">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --canvas-bg: #f8f6f0;
+            --surface-glass: rgba(255, 255, 255, 0.78);
+            --surface-glass-card: rgba(255, 255, 255, 0.85);
+            --surface-card-subtle: rgba(245, 243, 237, 0.9);
+            
+            --text-main: #141210;
+            --text-secondary: #524d46;
+            --text-muted: #8c857b;
+            
+            --accent-bronze: #8c6832;
+            --accent-bronze-glow: rgba(140, 104, 50, 0.16);
+            
+            --border-glass: rgba(20, 18, 16, 0.08);
+            --border-glass-hover: rgba(140, 104, 50, 0.28);
+            
+            --shadow-float: 0 20px 50px rgba(20, 18, 16, 0.06), 0 1px 3px rgba(20, 18, 16, 0.03);
+            --shadow-glass-depth: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 12px 36px rgba(20, 18, 16, 0.04);
+            
+            --spring-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        [data-theme="dark"] {
+            --canvas-bg: #0c0b0a;
+            --surface-glass: rgba(22, 20, 18, 0.78);
+            --surface-glass-card: rgba(28, 25, 23, 0.85);
+            --surface-card-subtle: rgba(20, 18, 16, 0.9);
+            
+            --text-main: #f5f2eb;
+            --text-secondary: #a8a299;
+            --text-muted: #6e675f;
+            
+            --accent-bronze: #d4a863;
+            --accent-bronze-glow: rgba(212, 168, 99, 0.2);
+            
+            --border-glass: rgba(255, 255, 255, 0.09);
+            --border-glass-hover: rgba(212, 168, 99, 0.35);
+            
+            --shadow-float: 0 24px 60px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(255, 255, 255, 0.05);
+            --shadow-glass-depth: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 16px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: var(--font-sans);
+            background-color: var(--canvas-bg);
+            color: var(--text-main);
+            transition: background-color 0.4s var(--spring-snappy), color 0.4s var(--spring-snappy);
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--canvas-bg);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            font-weight: 300;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+        }
+
+        .mono-pill {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-bronze);
+        }
+
+        /* Floating Spatial Dock */
+        .dock-container {
+            position: fixed;
+            top: 1.25rem;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            padding: 0 1rem;
+            pointer-events: none;
+        }
+
+        .spatial-dock {
+            pointer-events: auto;
+            background: var(--surface-glass);
+            backdrop-filter: blur(36px) saturate(200%);
+            -webkit-backdrop-filter: blur(36px) saturate(200%);
+            border: 1px solid var(--border-glass);
+            border-radius: 9999px;
+            padding: 0.45rem 0.65rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            box-shadow: var(--shadow-float), var(--shadow-glass-depth);
+        }
+
+        .dock-brand {
+            display: flex;
+            align-items: center;
+            padding: 0.35rem 1rem 0.35rem 0.75rem;
+            text-decoration: none;
+            color: var(--text-main);
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 500;
+            border-right: 1px solid var(--border-glass);
+        }
+
+        .dock-brand span {
+            color: var(--accent-bronze);
+        }
+
+        .dock-items {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .dock-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.45rem 0.85rem;
+            border-radius: 9999px;
+            transition: all 0.2s var(--spring-snappy);
+        }
+
+        .dock-link:hover, .dock-link.active {
+            color: var(--text-main);
+            background: var(--accent-bronze-glow);
+        }
+
+        .theme-toggle-btn {
+            background: none;
+            border: 1px solid var(--border-glass);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-main);
+            margin-left: 0.35rem;
+        }
+
+        /* Hub Page Body */
+        .blog-hub-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 8rem 1.5rem 6rem 1.5rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        .hub-header {
+            margin-bottom: 3.5rem;
+            text-align: center;
+        }
+
+        .hub-header h1 {
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            margin: 0.75rem 0 1rem 0;
+        }
+
+        /* Filter & Search Bar */
+        .hub-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            padding: 1rem 1.5rem;
+            background: var(--surface-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            backdrop-filter: blur(20px);
+        }
+
+        .category-pills {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cat-pill {
+            background: none;
+            border: 1px solid var(--border-glass);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s var(--spring-snappy);
+        }
+
+        .cat-pill.active, .cat-pill:hover {
+            background: var(--text-main);
+            color: var(--canvas-bg);
+            border-color: var(--text-main);
+        }
+
+        .search-box {
+            background: transparent;
+            border: 1px solid var(--border-glass);
+            border-radius: 9999px;
+            padding: 0.45rem 1rem;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            color: var(--text-main);
+            outline: none;
+            min-width: 220px;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent-bronze);
+        }
+
+        /* Article Stream Grid */
+        .articles-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .article-card-spatial {
+            background: var(--surface-glass-card);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-float), var(--shadow-glass-depth);
+            transition: all 0.35s var(--spring-snappy);
+        }
+
+        .article-card-spatial:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-glass-hover);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-card-spatial h2 {
+            font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+            margin: 0.5rem 0 1rem 0;
+            color: var(--text-main);
+        }
+
+        .article-card-spatial p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .read-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--accent-bronze);
+        }
+
+        /* Footer */
+        footer.spatial-footer {
+            padding: 5rem 2rem;
+            border-top: 1px solid var(--border-glass);
+            background: var(--surface-card-subtle);
+        }
+
+        .footer-wrap {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Dock -->
+    <div class="dock-container">
+        <nav class="spatial-dock">
+            <a href="../index.html#hero" class="dock-brand">
+                Renzo Francesqui<span>.</span>
+            </a>
+            <div class="dock-items">
+                <a href="../index.html#hero" class="dock-link">Dialogue</a>
+                <a href="index.html" class="dock-link active">Blog & News</a>
+                <a href="../index.html#experience" class="dock-link">Experience</a>
+                <a href="../index.html#projects" class="dock-link">Projects</a>
+                <a href="../index.html#credentials" class="dock-link">Skills</a>
+                <a href="mailto:renzo.francesqui@gmail.com" class="dock-link" style="color: var(--accent-bronze);">Contact</a>
+            </div>
+            <button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Toggle Theme">
+                <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2;">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                </svg>
+            </button>
+        </nav>
+    </div>
+
+    <main class="blog-hub-container">
+        <header class="hub-header">
+            <span class="mono-pill">EDITORIAL & PERSPECTIVES</span>
+            <h1>Operations & RevOps Journal</h1>
+            <p>Field studies, custom Python AI blueprints, and CRM architecture frameworks.</p>
+        </header>
+
+        <!-- Controls -->
+        <div class="hub-controls">
+            <div class="category-pills">
+                <button class="cat-pill active" onclick="filterArticles('all', this)">All Dispatches</button>
+                <button class="cat-pill" onclick="filterArticles('ai', this)">AI & Automation</button>
+                <button class="cat-pill" onclick="filterArticles('mops', this)">Marketing Ops</button>
+                <button class="cat-pill" onclick="filterArticles('revops', this)">RevOps Architecture</button>
+            </div>
+            <input type="text" class="search-box" id="articleSearch" placeholder="Search by keyword..." oninput="handleSearch(this.value)">
+        </div>
+
+        <!-- Articles Stream -->
+        <div class="articles-grid" id="articlesGrid">
+            <!-- Article 1 -->
+            <a href="hubspot-ai-enrichment-agent.html" class="article-card-spatial" data-cat="ai">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span class="mono-pill">AI & AUTOMATION • FIELD STUDY</span>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">AUG 10, 2026 • 4 MIN READ</span>
+                </div>
+                <h2>Bridging CRM & AI: Building an Automated HubSpot Lead Enrichment Agent in Python</h2>
+                <p>How we eliminated 15+ hours of weekly manual sales research by connecting Google Antigravity, LLM scrapers, and the HubSpot Companies API.</p>
+                <div class="read-action">Read Full Article →</div>
+            </a>
+
+            <!-- Article 2 -->
+            <a href="b2b-event-lead-operations.html" class="article-card-spatial" data-cat="mops">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span class="mono-pill">MARKETING OPERATIONS • CASE STUDY</span>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">JUL 22, 2026 • 5 MIN READ</span>
+                </div>
+                <h2>Scaling B2B Trade Show Operations: Slashing Lead Handoff from 7 Days to Same-Week</h2>
+                <p>Operational blueprints for managing offline-to-online data ingestion across 20 global field exhibitions, enforcing data hygiene and intent scoring in HubSpot.</p>
+                <div class="read-action">Read Full Article →</div>
+            </a>
+
+            <!-- Article 3 -->
+            <a href="modern-revops-lifecycle-architecture.html" class="article-card-spatial" data-cat="revops">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span class="mono-pill">REVOPS ARCHITECTURE • BLUEPRINT</span>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">JUN 18, 2026 • 6 MIN READ</span>
+                </div>
+                <h2>Modern RevOps Architecture: Standardizing Lifecycle Stages Across EMEA & Americas</h2>
+                <p>Why disparate CRM pipelines fail and how standardizing MQL-to-SQL SLAs and lead properties empowers a 50-person multinational sales force.</p>
+                <div class="read-action">Read Full Article →</div>
+            </a>
+        </div>
+    </main>
+
+    <footer class="spatial-footer">
+        <div class="footer-wrap">
+            <div class="footer-nav">
+                <a href="https://www.linkedin.com/in/renzofrancesqui/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:renzo.francesqui@gmail.com">Email</a>
+                <a href="../index.html">Version B Home</a>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">&copy; 2026 Renzo Francesqui. Version B.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Engine
+        let isDarkMode = false;
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+        }
+        if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+
+        // Filter Logic
+        function filterArticles(cat, btn) {
+            document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.article-card-spatial').forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Real-Time Search Logic
+        function handleSearch(query) {
+            const q = query.toLowerCase();
+            document.querySelectorAll('.article-card-spatial').forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(q) ? 'flex' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

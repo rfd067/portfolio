@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B689F0JYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B689F0JYB6');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Blog & Operations Perspectives | Renzo Francesqui</title>
+    <meta name="description" content="Operational field notes, CRM architecture breakdowns, and Python AI automation playbooks by Renzo Francesqui, Marketing Operations & RevOps specialist.">
+    <meta name="keywords" content="Marketing Operations Blog, RevOps Insights, HubSpot CRM Guide, Python AI Lead Enrichment, B2B Trade Show Operations, Lead Routing SLAs, Renzo Francesqui">
+    <meta name="author" content="Renzo Francesqui">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://renzo-francesqui.vercel.app/blog/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://renzo-francesqui.vercel.app/blog/">
+    <meta property="og:title" content="Blog & Operations Perspectives | Renzo Francesqui">
+    <meta property="og:description" content="Operational field notes, CRM architecture breakdowns, and Python AI automation playbooks for modern B2B revenue teams.">
+    <meta property="og:site_name" content="Renzo Francesqui Portfolio & Blog">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://renzo-francesqui.vercel.app/blog/">
+    <meta name="twitter:title" content="Blog & Operations Perspectives | Renzo Francesqui">
+    <meta name="twitter:description" content="Operational field notes, CRM architecture breakdowns, and Python AI automation playbooks for modern B2B revenue teams.">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "@id": "https://renzo-francesqui.vercel.app/blog/#blog",
+      "name": "Renzo Francesqui Blog & Operations Perspectives",
+      "url": "https://renzo-francesqui.vercel.app/blog/",
+      "description": "Operational field notes, CRM architecture breakdowns, and Python AI automation playbooks.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Renzo Francesqui",
+        "url": "https://renzo-francesqui.vercel.app/"
+      }
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #050404;
+            --bg-surface: rgba(16, 13, 11, 0.88);
+            --bg-surface-card: rgba(255, 255, 255, 0.03);
+            --bg-surface-elevated: rgba(22, 18, 15, 0.94);
+            
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glass-bright: rgba(255, 255, 255, 0.16);
+            
+            --accent-gold: #d4a863;
+            --accent-gold-glow: rgba(212, 168, 99, 0.35);
+            --accent-cyan: #38bdf8;
+            --accent-emerald: #34d399;
+            --accent-purple: #c084fc;
+            
+            --text-primary: #fcfbf9;
+            --text-secondary: #c2bcb4;
+            --text-muted: #807a72;
+            
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --spring-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-deep);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* 3D Background Canvas */
+        #spatialCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Spatial Navigation Header */
+        header.nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.1rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(5, 4, 4, 0.78);
+            backdrop-filter: blur(28px) saturate(200%);
+            -webkit-backdrop-filter: blur(28px) saturate(200%);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .brand-header-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .brand-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .brand-name span {
+            color: var(--accent-gold);
+        }
+
+        .brand-tag-badge {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-gold);
+            background: rgba(212, 168, 99, 0.12);
+            border: 1px solid rgba(212, 168, 99, 0.3);
+            padding: 3px 9px;
+            border-radius: 9999px;
+        }
+
+        .spatial-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-glass-bright);
+            padding: 0.5rem 1.15rem;
+            border-radius: 9999px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.76rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            transition: all 0.3s var(--spring-snappy);
+        }
+
+        .spatial-back-btn:hover {
+            background: rgba(212, 168, 99, 0.15);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            transform: translateX(-3px);
+            box-shadow: 0 0 20px rgba(212, 168, 99, 0.3);
+        }
+
+        /* Hub Page Layout */
+        .blog-hub-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 7.5rem 1.5rem 6rem 1.5rem;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .hub-hero-card {
+            background: var(--bg-surface);
+            backdrop-filter: blur(32px) saturate(220%);
+            -webkit-backdrop-filter: blur(32px) saturate(220%);
+            border: 1px solid var(--border-glass-bright);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        }
+
+        .hub-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-gold);
+            background: rgba(212, 168, 99, 0.12);
+            border: 1px solid rgba(212, 168, 99, 0.3);
+            padding: 4px 12px;
+            border-radius: 9999px;
+            margin-bottom: 1.25rem;
+        }
+
+        h1.hub-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.035em;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .hub-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            max-width: 720px;
+        }
+
+        /* Filter Pills */
+        .filter-pills-row {
+            display: flex;
+            gap: 0.65rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .filter-pill {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.25s var(--spring-snappy);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .filter-pill:hover, .filter-pill.active {
+            background: rgba(212, 168, 99, 0.15);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            box-shadow: 0 0 15px rgba(212, 168, 99, 0.3);
+        }
+
+        /* Articles Grid */
+        .articles-list-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .article-card-row {
+            background: var(--bg-surface);
+            backdrop-filter: blur(28px) saturate(200%);
+            -webkit-backdrop-filter: blur(28px) saturate(200%);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 2.25rem;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            transition: all 0.35s var(--spring-snappy);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .article-card-row:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 25px rgba(212, 168, 99, 0.2);
+        }
+
+        .article-card-content {
+            flex: 1;
+        }
+
+        .card-category-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .card-tag {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .card-read-time {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin-bottom: 0.65rem;
+            letter-spacing: -0.02em;
+        }
+
+        .card-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .card-author-footer {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.76rem;
+            color: var(--text-muted);
+        }
+
+        .card-cta-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass-bright);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: all 0.3s var(--spring-snappy);
+        }
+
+        .article-card-row:hover .card-cta-icon {
+            background: var(--accent-gold);
+            color: #080706;
+            box-shadow: 0 0 20px var(--accent-gold-glow);
+            transform: translateX(4px);
+        }
+
+        /* Spatial Footer */
+        footer.spatial-footer {
+            padding: 3.5rem 2rem;
+            border-top: 1px solid var(--border-glass);
+            background: rgba(5, 4, 4, 0.9);
+            position: relative;
+            z-index: 10;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.76rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            header.nav-bar {
+                padding: 1rem 1.25rem;
+            }
+            .brand-tag-badge {
+                display: none;
+            }
+            .blog-hub-container {
+                padding: 6.5rem 1rem 4rem 1rem;
+            }
+            .hub-hero-card {
+                padding: 2rem 1.25rem;
+            }
+            .article-card-row {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem;
+            }
+            .card-cta-icon {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 3D Starfield Constellation Canvas Engine -->
+    <canvas id="spatialCanvas"></canvas>
+
+    <!-- Header Navigation -->
+    <header class="nav-bar">
+        <a href="../index.html" class="brand-header-title" aria-label="Renzo Francesqui Home">
+            <span class="brand-name">Renzo Francesqui<span>.</span></span>
+            <span class="brand-tag-badge">AI Marketing Automation, CRM and Operations</span>
+        </a>
+
+        <a href="../index.html" class="spatial-back-btn">
+            ← Return to Orbit Portfolio
+        </a>
+    </header>
+
+    <!-- Main Hub Container -->
+    <main class="blog-hub-container">
+
+        <!-- Hero Card -->
+        <section class="hub-hero-card">
+            <div class="hub-badge">📰 FIELD NOTES & TECHNICAL BLUEPRINTS</div>
+            <h1 class="hub-title">Revenue Operations & AI Engineering Perspectives</h1>
+            <p class="hub-subtitle">
+                In-depth operational playbooks on architecting automated CRM enrichment pipelines, scaling multi-region trade show data operations, and standardizing enterprise RevOps SLAs across global revenue teams.
+            </p>
+        </section>
+
+        <!-- Filter Pills Row -->
+        <div class="filter-pills-row">
+            <button class="filter-pill active" onclick="filterArticles('all', this)">All Blueprints (3)</button>
+            <button class="filter-pill" onclick="filterArticles('ai', this)">AI & Automation</button>
+            <button class="filter-pill" onclick="filterArticles('mktg', this)">Marketing Operations</button>
+            <button class="filter-pill" onclick="filterArticles('revops', this)">RevOps Architecture</button>
+        </div>
+
+        <!-- Articles List -->
+        <div class="articles-list-grid">
+
+            <!-- Article 1 -->
+            <a href="hubspot-ai-enrichment-agent.html" class="article-card-row" data-category="ai">
+                <div class="article-card-content">
+                    <div class="card-category-meta">
+                        <span class="card-tag">🤖 AI & AUTOMATION</span>
+                        <span class="card-read-time">• 4 MIN READ • AUG 10, 2026</span>
+                    </div>
+                    <h2 class="card-title">Bridging CRM & AI: Building an Automated HubSpot Lead Enrichment Agent in Python</h2>
+                    <p class="card-desc">How we eliminated 15+ hours of weekly manual sales research by connecting Google Antigravity, LLM scrapers, and the HubSpot Companies API.</p>
+                    <div class="card-author-footer">
+                        <img src="images/renzo-francesqui.jpg" alt="Renzo Francesqui" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold);">
+                        <span>By Renzo Francesqui</span>
+                        <span>•</span>
+                        <span style="color: var(--accent-gold); font-weight: 600;">Read Full Breakdown →</span>
+                    </div>
+                </div>
+                <div class="card-cta-icon">→</div>
+            </a>
+
+            <!-- Article 2 -->
+            <a href="b2b-event-lead-operations.html" class="article-card-row" data-category="mktg">
+                <div class="article-card-content">
+                    <div class="card-category-meta">
+                        <span class="card-tag">📊 MARKETING OPERATIONS</span>
+                        <span class="card-read-time">• 5 MIN READ • AUG 04, 2026</span>
+                    </div>
+                    <h2 class="card-title">Scaling B2B Trade Show Operations: Slashing Lead Handoff from 7 Days to Same-Week</h2>
+                    <p class="card-desc">How we engineered automated data ingestion pipelines across 15-20 annual global exhibitions, reducing lead-to-sales handover from 7 days to same-week.</p>
+                    <div class="card-author-footer">
+                        <img src="images/renzo-francesqui.jpg" alt="Renzo Francesqui" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold);">
+                        <span>By Renzo Francesqui</span>
+                        <span>•</span>
+                        <span style="color: var(--accent-gold); font-weight: 600;">Read Full Breakdown →</span>
+                    </div>
+                </div>
+                <div class="card-cta-icon">→</div>
+            </a>
+
+            <!-- Article 3 -->
+            <a href="modern-revops-lifecycle-architecture.html" class="article-card-row" data-category="revops">
+                <div class="article-card-content">
+                    <div class="card-category-meta">
+                        <span class="card-tag">🏛️ REVOPS ARCHITECTURE</span>
+                        <span class="card-read-time">• 6 MIN READ • JUL 28, 2026</span>
+                    </div>
+                    <h2 class="card-title">Modern RevOps Architecture: Standardizing Lifecycle Stages Across EMEA & Americas</h2>
+                    <p class="card-desc">Why disparate CRM pipelines fail and how standardizing MQL-to-SQL SLAs and lifecycle stage definitions aligns multinational sales and marketing teams.</p>
+                    <div class="card-author-footer">
+                        <img src="images/renzo-francesqui.jpg" alt="Renzo Francesqui" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold);">
+                        <span>By Renzo Francesqui</span>
+                        <span>•</span>
+                        <span style="color: var(--accent-gold); font-weight: 600;">Read Full Breakdown →</span>
+                    </div>
+                </div>
+                <div class="card-cta-icon">→</div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Spatial Footer -->
+    <footer class="spatial-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/renzofrancesqui/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+                <a href="mailto:renzo.francesqui@gmail.com" class="footer-link">renzo.francesqui@gmail.com</a>
+                <a href="index.html" class="footer-link">All Articles</a>
+                <a href="../index.html" class="footer-link">Portfolio Orbit</a>
+            </div>
+            <p class="copyright">&copy; 2026 Renzo Francesqui. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Filter & Background Canvas Script -->
+    <script>
+        function filterArticles(category, btn) {
+            document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.article-card-row');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Background Starfield Canvas
+        (function initBlogStars() {
+            const canvas = document.getElementById('spatialCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let w = canvas.width = window.innerWidth;
+            let h = canvas.height = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            });
+
+            const stars = [];
+            for (let i = 0; i < 90; i++) {
+                stars.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    r: Math.random() * 1.4 + 0.3,
+                    alpha: Math.random() * 0.6 + 0.2,
+                    speed: Math.random() * 0.15 + 0.05
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, w, h);
+                for (let s of stars) {
+                    s.y -= s.speed;
+                    if (s.y < 0) s.y = h;
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${s.alpha})`;
+                    ctx.fill();
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+    </script>
+</body>
+</html>

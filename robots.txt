@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://renzo-francesqui.vercel.app/sitemap.xml

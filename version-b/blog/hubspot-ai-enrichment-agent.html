@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B689F0JYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B689F0JYB6');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Bridging CRM & AI: Building an Automated HubSpot Lead Enrichment Agent in Python | Renzo Francesqui (Version B)</title>
+    <meta name="description" content="How we built a serverless Python AI agent integrated with HubSpot Webhooks and Google Antigravity to enrich inbound B2B leads in under 30 seconds.">
+    <meta name="author" content="Renzo Francesqui">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://renzo-francesqui.vercel.app/version-b/blog/hubspot-ai-enrichment-agent.html">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --canvas-bg: #f8f6f0;
+            --surface-glass: rgba(255, 255, 255, 0.78);
+            --surface-glass-card: rgba(255, 255, 255, 0.85);
+            --surface-card-subtle: rgba(245, 243, 237, 0.9);
+            
+            --text-main: #141210;
+            --text-secondary: #524d46;
+            --text-muted: #8c857b;
+            
+            --accent-bronze: #8c6832;
+            --accent-bronze-glow: rgba(140, 104, 50, 0.16);
+            
+            --border-glass: rgba(20, 18, 16, 0.08);
+            --border-glass-hover: rgba(140, 104, 50, 0.28);
+            
+            --shadow-float: 0 20px 50px rgba(20, 18, 16, 0.06), 0 1px 3px rgba(20, 18, 16, 0.03);
+            --shadow-glass-depth: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 12px 36px rgba(20, 18, 16, 0.04);
+            
+            --spring-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        [data-theme="dark"] {
+            --canvas-bg: #0c0b0a;
+            --surface-glass: rgba(22, 20, 18, 0.78);
+            --surface-glass-card: rgba(28, 25, 23, 0.85);
+            --surface-card-subtle: rgba(20, 18, 16, 0.9);
+            
+            --text-main: #f5f2eb;
+            --text-secondary: #a8a299;
+            --text-muted: #6e675f;
+            
+            --accent-bronze: #d4a863;
+            --accent-bronze-glow: rgba(212, 168, 99, 0.2);
+            
+            --border-glass: rgba(255, 255, 255, 0.09);
+            --border-glass-hover: rgba(212, 168, 99, 0.35);
+            
+            --shadow-float: 0 24px 60px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(255, 255, 255, 0.05);
+            --shadow-glass-depth: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 16px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: var(--font-sans);
+            background-color: var(--canvas-bg);
+            color: var(--text-main);
+            transition: background-color 0.4s var(--spring-snappy), color 0.4s var(--spring-snappy);
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--canvas-bg);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            font-weight: 300;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+        }
+
+        .mono-pill {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-bronze);
+        }
+
+        /* Floating Spatial Dock */
+        .dock-container {
+            position: fixed;
+            top: 1.25rem;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            padding: 0 1rem;
+            pointer-events: none;
+        }
+
+        .spatial-dock {
+            pointer-events: auto;
+            background: var(--surface-glass);
+            backdrop-filter: blur(36px) saturate(200%);
+            -webkit-backdrop-filter: blur(36px) saturate(200%);
+            border: 1px solid var(--border-glass);
+            border-radius: 9999px;
+            padding: 0.45rem 0.65rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            box-shadow: var(--shadow-float), var(--shadow-glass-depth);
+        }
+
+        .dock-brand {
+            display: flex;
+            align-items: center;
+            padding: 0.35rem 1rem 0.35rem 0.75rem;
+            text-decoration: none;
+            color: var(--text-main);
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 500;
+            border-right: 1px solid var(--border-glass);
+        }
+
+        .dock-brand span {
+            color: var(--accent-bronze);
+        }
+
+        .dock-items {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .dock-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.45rem 0.85rem;
+            border-radius: 9999px;
+            transition: all 0.2s var(--spring-snappy);
+        }
+
+        .dock-link:hover, .dock-link.active {
+            color: var(--text-main);
+            background: var(--accent-bronze-glow);
+        }
+
+        .theme-toggle-btn {
+            background: none;
+            border: 1px solid var(--border-glass);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-main);
+            margin-left: 0.35rem;
+        }
+
+        /* Article Layout */
+        .article-spatial-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 8rem 1.5rem 6rem 1.5rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.74rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-bronze);
+        }
+
+        .article-spatial-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .article-spatial-header h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            margin: 0.85rem 0 1.25rem 0;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .prose-body {
+            font-size: 1.05rem;
+            line-height: 1.84;
+            color: var(--text-secondary);
+        }
+
+        .prose-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .prose-body h2 {
+            font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+            margin: 2.5rem 0 1rem 0;
+        }
+
+        .prose-body ul {
+            margin: 1.25rem 0 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .spatial-callout {
+            background: var(--surface-glass-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            box-shadow: var(--shadow-float);
+        }
+
+        .spatial-callout h3 {
+            font-family: var(--font-sans);
+            font-size: 0.92rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent-bronze);
+            margin-bottom: 0.75rem;
+        }
+
+        .author-box-spatial {
+            margin-top: 5rem;
+            background: var(--surface-glass-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            box-shadow: var(--shadow-float);
+        }
+
+        .author-avatar-big {
+            width: 64px;
+            height: 64px;
+            background: var(--accent-bronze);
+            color: #ffffff;
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        footer.spatial-footer {
+            padding: 4.5rem 2rem;
+            border-top: 1px solid var(--border-glass);
+            background: var(--surface-card-subtle);
+        }
+
+        .footer-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dock-container">
+        <nav class="spatial-dock">
+            <a href="../index.html#hero" class="dock-brand">
+                Renzo Francesqui<span>.</span>
+            </a>
+            <div class="dock-items">
+                <a href="../index.html#hero" class="dock-link">Dialogue</a>
+                <a href="index.html" class="dock-link active">Blog & News</a>
+                <a href="../index.html#experience" class="dock-link">Experience</a>
+                <a href="../index.html#projects" class="dock-link">Projects</a>
+                <a href="../index.html#credentials" class="dock-link">Skills</a>
+                <a href="mailto:renzo.francesqui@gmail.com" class="dock-link" style="color: var(--accent-bronze);">Contact</a>
+            </div>
+            <button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Toggle Theme">
+                <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2;">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                </svg>
+            </button>
+        </nav>
+    </div>
+
+    <main class="article-spatial-wrap">
+        <a href="index.html" class="back-link">← Back to All Dispatches</a>
+
+        <article>
+            <header class="article-spatial-header">
+                <span class="mono-pill">AI & AUTOMATION • FIELD STUDY</span>
+                <h1>Bridging CRM & AI: Building an Automated HubSpot Lead Enrichment Agent in Python</h1>
+                <div class="article-meta">
+                    <span>By <strong>Renzo Francesqui</strong></span>
+                    <span>•</span>
+                    <span>August 10, 2026</span>
+                    <span>•</span>
+                    <span>4 min read</span>
+                </div>
+            </header>
+
+            <div class="prose-body">
+                <p>One of the most persistent bottlenecks in modern B2B pipeline velocity is empty CRM records. When a prospective client fills out a top-of-funnel conversion form, requesting ten distinct firmographic data points kills conversion rates. However, passing an un-enriched lead with only an email and company name to a sales rep burns hours of manual LinkedIn and Google searching every single week.</p>
+                
+                <h2>The Architectural Bottleneck</h2>
+                <p>In high-growth sales teams, sales development reps (SDRs) routinely spend between 8 to 12 minutes researching each new inbound lead before deciding whether to draft a personalized sequence or route the lead to an account executive. When a marketing campaign generates 100+ inbound leads per week, this represents over 15 hours of manual data entry and investigative work.</p>
+
+                <div class="spatial-callout">
+                    <h3>Key Operational Takeaway</h3>
+                    <p style="margin-bottom: 0;">The objective of Marketing Operations is not simply storing contact data—it is automating data completeness so sales representatives spend 100% of their cognitive bandwidth engaging high-intent prospects.</p>
+                </div>
+
+                <h2>The System Blueprint</h2>
+                <p>To eliminate this friction, I architected a serverless Python pipeline integrated with HubSpot Webhooks and Google Antigravity. The end-to-end data lifecycle operates as follows:</p>
+                <ul>
+                    <li><strong>Webhook Ingestion:</strong> Whenever a new contact is created in HubSpot without verified firmographic attributes, HubSpot dispatches an instant webhook payload.</li>
+                    <li><strong>Web-Scraping & Entity Extraction:</strong> The Python agent inspects the company's live root website, sitemap, and meta tags to extract product descriptions, industry taxonomy, and approximate operational scale.</li>
+                    <li><strong>ICP Classification Layer (LLM):</strong> An inference layer evaluates the scraped company profile against our predefined Ideal Customer Profile (ICP) criteria, assigning a fit score (Tier 1, 2, or 3).</li>
+                    <li><strong>HubSpot Properties Patch:</strong> The agent updates the HubSpot Company Record directly via REST API in under 30 seconds.</li>
+                </ul>
+
+                <h2>Measurable Business Results</h2>
+                <p>Across our test rollout, this automated agent compressed lead research time from 8–10 minutes down to under 30 seconds per record. For a 30-person sales organization, this initiative reclaimed over <strong>15+ hours per week</strong> in productive selling bandwidth.</p>
+            </div>
+        </article>
+
+        <div class="author-box-spatial">
+            <div class="author-avatar-big">RF</div>
+            <div>
+                <h4 style="font-size: 1.2rem; margin-bottom: 0.35rem;">Written by Renzo Francesqui</h4>
+                <p style="font-size: 0.88rem; margin-bottom: 0; line-height: 1.55;">Marketing Operations & RevOps specialist with 5+ years of experience architecting HubSpot pipelines and custom AI agents across EMEA and the Americas.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="spatial-footer">
+        <div class="footer-wrap">
+            <p style="font-size: 0.75rem; color: var(--text-muted);">&copy; 2026 Renzo Francesqui. Version B.</p>
+        </div>
+    </footer>
+
+    <script>
+        let isDarkMode = false;
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+        }
+        if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    </script>
+</body>
+</html>

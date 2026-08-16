@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Primary Main Portfolio & Interactive AI Representative -->
+  <url>
+    <loc>https://renzo-francesqui.vercel.app/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- Dedicated Blog Hub -->
+  <url>
+    <loc>https://renzo-francesqui.vercel.app/blog/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Classic Version (Version A) -->
+  <url>
+    <loc>https://renzo-francesqui.vercel.app/classic/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Article: Scaling B2B Trade Show Operations: Slashing Lead Handoff from 7 Days to Same-Week -->
+  <url>
+    <loc>https://renzo-francesqui.vercel.app/blog/b2b-event-lead-operations.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Article: Bridging CRM & AI: Building an Automated HubSpot Lead Enrichment Agent in Python -->
+  <url>
+    <loc>https://renzo-francesqui.vercel.app/blog/hubspot-ai-enrichment-agent.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Article: Modern RevOps Architecture: Standardizing Lifecycle Stages Across EMEA & Americas -->
+  <url>
+    <loc>https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+</urlset>
