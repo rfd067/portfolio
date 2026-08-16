@@ -34,7 +34,7 @@ for hf in html_files:
     desc = desc_match.group(1) if desc_match else 'MISSING DESCRIPTION'
     canonical_match = re.search(r'<link\s+rel=["\']canonical["\']\s+href=["\'](.*?)["\']', content, re.IGNORECASE)
     canonical = canonical_match.group(1) if canonical_match else 'MISSING CANONICAL'
-    ga_present = 'G-B689F0JYB6' in content
+    ga_present = 'G-DPYXTL3ZSN' in content
     h1_count = len(re.findall(r'<h1[^>]*>', content, re.IGNORECASE))
     h2_count = len(re.findall(r'<h2[^>]*>', content, re.IGNORECASE))
     json_ld_present = 'application/ld+json' in content
