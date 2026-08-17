@@ -1879,34 +1879,36 @@
                 });
             };
 
-            // Touch & Pointer Drag / Instant Tap Engine
-            let tapStartX = 0, tapStartY = 0, tapStartTime = 0;
+            // Exact Rendered Coordinates Store & Anti-Jitter Touch Engine
+            let lastRenderedNodes = [];
+            let isPointerDown = false;
+            let startTouchX = 0, startTouchY = 0, startTouchTime = 0;
+            let dragStartX = 0, dragStartY = 0;
 
-            function handleCanvasTap(clientX, clientY) {
+            function checkOrbHit(clientX, clientY) {
                 const rect = canvas.getBoundingClientRect();
                 const clickX = clientX - rect.left;
                 const clickY = clientY - rect.top;
 
-                for (let n of nodes) {
-                    const p = project(n.x, n.y, n.z);
-                    if (p.scale <= 0) continue;
+                // Test against the exact pixel positions drawn in the current frame
+                for (let n of lastRenderedNodes) {
+                    // 1. Orb Sphere Hit (generous radius covering core, highlights, and corona)
+                    const orbHitRadius = Math.max(45, n.r * 1.6);
+                    const distToOrb = Math.hypot(clickX - n.px, clickY - n.py);
 
-                    // 1. Orb circular hit zone (covers inside the orb, glowing halo, and center)
-                    const orbRadius = (w < 768 ? 48 : 40) * p.scale;
-                    const distToOrb = Math.hypot(clickX - p.x, clickY - p.y);
+                    // 2. Title Pill Capsule Hit (generous bounding box covering title pill text)
+                    const halfPillW = Math.max(60, (n.pillWidth / 2) + 15);
+                    const halfPillH = Math.max(22, (n.pillHeight / 2) + 12);
+                    const inPillX = Math.abs(clickX - n.px) <= halfPillW;
+                    const inPillY = Math.abs(clickY - n.pillY) <= halfPillH;
 
-                    // 2. Title pill badge hit zone (covers clicking directly on the title of the orbit)
-                    const pillY = p.y + (24 * p.scale) + (16 * p.scale);
-                    const pillHalfWidth = (w < 768 ? 95 : 85) * p.scale;
-                    const pillHalfHeight = (w < 768 ? 26 : 22) * p.scale;
+                    // 3. Complete Composite Bounding Box (from top of orb to bottom of title label)
+                    const topOfOrb = n.py - orbHitRadius;
+                    const bottomOfPill = n.pillY + halfPillH;
+                    const maxHalfW = Math.max(orbHitRadius, halfPillW);
+                    const inFullBox = (Math.abs(clickX - n.px) <= maxHalfW) && (clickY >= topOfOrb && clickY <= bottomOfPill);
 
-                    const inPillX = Math.abs(clickX - p.x) <= pillHalfWidth;
-                    const inPillY = Math.abs(clickY - pillY) <= pillHalfHeight;
-
-                    // 3. Connector zone between the orb and the title badge
-                    const inBetween = Math.abs(clickX - p.x) <= (40 * p.scale) && clickY >= (p.y - orbRadius * 0.5) && clickY <= (pillY + pillHalfHeight);
-
-                    if (distToOrb <= orbRadius || (inPillX && inPillY) || inBetween) {
+                    if (distToOrb <= orbHitRadius || (inPillX && inPillY) || inFullBox) {
                         playTone(680, 'sine', 0.12);
                         activateOrbNode(n.id);
                         return true;
@@ -1917,42 +1919,54 @@
 
             window.addEventListener('pointerdown', (e) => {
                 if (e.target.id === 'spatialCanvas') {
-                    isDragging = true;
-                    lastX = tapStartX = e.clientX;
-                    lastY = tapStartY = e.clientY;
-                    tapStartTime = Date.now();
+                    isPointerDown = true;
+                    isDragging = false;
+                    startTouchX = dragStartX = e.clientX;
+                    startTouchY = dragStartY = e.clientY;
+                    startTouchTime = Date.now();
                 }
             });
 
             window.addEventListener('pointermove', (e) => {
-                if (isDragging) {
-                    const dx = e.clientX - lastX;
-                    const dy = e.clientY - lastY;
+                if (!isPointerDown) return;
+                const moveDist = Math.hypot(e.clientX - startTouchX, e.clientY - startTouchY);
+
+                // Anti-Jitter threshold: only rotate camera if finger moved more than 8px
+                if (moveDist > 8) {
+                    isDragging = true;
+                    const dx = e.clientX - dragStartX;
+                    const dy = e.clientY - dragStartY;
                     rotY += dx * 0.0035;
                     rotX += dy * 0.0035;
-                    lastX = e.clientX;
-                    lastY = e.clientY;
+                    dragStartX = e.clientX;
+                    dragStartY = e.clientY;
                 }
             });
 
             window.addEventListener('pointerup', (e) => {
-                if (isDragging) {
-                    isDragging = false;
-                    if (e.target.id === 'spatialCanvas') {
-                        const dist = Math.hypot(e.clientX - tapStartX, e.clientY - tapStartY);
-                        const duration = Date.now() - tapStartTime;
-                        if (dist < 14 && duration < 450) {
-                            handleCanvasTap(e.clientX, e.clientY);
-                        }
+                if (!isPointerDown) return;
+                isPointerDown = false;
+                isDragging = false;
+
+                if (e.target.id === 'spatialCanvas') {
+                    const moveDist = Math.hypot(e.clientX - startTouchX, e.clientY - startTouchY);
+                    const tapDuration = Date.now() - startTouchTime;
+
+                    // Clean tap: finger moved less than 16px within 500ms
+                    if (moveDist < 16 && tapDuration < 500) {
+                        checkOrbHit(startTouchX, startTouchY);
                     }
                 }
             });
 
-            window.addEventListener('pointercancel', () => { isDragging = false; });
+            window.addEventListener('pointercancel', () => {
+                isPointerDown = false;
+                isDragging = false;
+            });
 
-            // Raycast click fallback
+            // Fallback click listener
             canvas.addEventListener('click', (e) => {
-                handleCanvasTap(e.clientX, e.clientY);
+                checkOrbHit(e.clientX, e.clientY);
             });
 
             function project(x, y, z) {
@@ -2222,12 +2236,33 @@
 
                 projectedNodes.sort((a, b) => b.zIndex - a.zIndex);
 
+                const currentRenderedNodes = [];
+
                 for (let n of projectedNodes) {
                     if (n.scale <= 0) continue;
 
                     // Breathing Pulsing Radius
                     const pulse = 1 + 0.06 * Math.sin(animTime * 2.8 + n.index);
                     const r = 24 * n.scale * pulse;
+
+                    // Floating Aesthetic Glass Capsule Label metrics
+                    ctx.font = `700 ${Math.max(10, Math.round(12 * n.scale))}px "Plus Jakarta Sans", sans-serif`;
+                    const labelText = `${n.icon} ${n.label}`;
+                    const textMetrics = ctx.measureText(labelText);
+                    const pillWidth = textMetrics.width + 18 * n.scale;
+                    const pillHeight = 24 * n.scale;
+                    const pillY = n.py + r + 16 * n.scale;
+
+                    currentRenderedNodes.push({
+                        id: n.id,
+                        px: n.px,
+                        py: n.py,
+                        scale: n.scale,
+                        r: r,
+                        pillY: pillY,
+                        pillWidth: pillWidth,
+                        pillHeight: pillHeight
+                    });
 
                     // Tier 1: Wide Diffuse Atmospheric Nebula Glow
                     const outerGlow = ctx.createRadialGradient(n.px, n.py, 0, n.px, n.py, r * 3.5);
@@ -2280,15 +2315,8 @@
                     ctx.fill();
 
                     // Floating Aesthetic Glass Capsule Label
-                    ctx.font = `700 ${Math.max(10, Math.round(12 * n.scale))}px "Plus Jakarta Sans", sans-serif`;
                     ctx.textAlign = 'center';
                     ctx.textBaseline = 'middle';
-
-                    const labelText = `${n.icon} ${n.label}`;
-                    const textMetrics = ctx.measureText(labelText);
-                    const pillWidth = textMetrics.width + 18 * n.scale;
-                    const pillHeight = 24 * n.scale;
-                    const pillY = n.py + r + 16 * n.scale;
 
                     // Pill Background with Frosted Glass Border
                     ctx.fillStyle = 'rgba(12, 10, 8, 0.90)';
@@ -2303,6 +2331,8 @@
                     ctx.fillStyle = '#fcfbf9';
                     ctx.fillText(labelText, n.px, pillY);
                 }
+
+                lastRenderedNodes = currentRenderedNodes;
 
                 requestAnimationFrame(render);
             }
