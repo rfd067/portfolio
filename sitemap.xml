@@ -7,7 +7,7 @@
   <!-- Primary Main Portfolio & Interactive AI Representative -->
   <url>
     <loc>https://renzo-francesqui.vercel.app/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
@@ -15,15 +15,23 @@
   <!-- Dedicated Blog Hub -->
   <url>
     <loc>https://renzo-francesqui.vercel.app/blog/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
+  </url>
+
+  <!-- Version 1.5 (Categorized Skills & Mobile Optimized) -->
+  <url>
+    <loc>https://renzo-francesqui.vercel.app/version-1.5/</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
 
   <!-- Classic Version (Version A) -->
   <url>
     <loc>https://renzo-francesqui.vercel.app/classic/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
