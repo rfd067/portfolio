@@ -1890,9 +1890,23 @@
                 for (let n of nodes) {
                     const p = project(n.x, n.y, n.z);
                     if (p.scale <= 0) continue;
-                    const dist = Math.hypot(clickX - p.x, clickY - p.y);
-                    const hitRadius = (w < 768 ? 64 : 50) * p.scale;
-                    if (dist < hitRadius) {
+
+                    // 1. Orb circular hit zone (covers inside the orb, glowing halo, and center)
+                    const orbRadius = (w < 768 ? 48 : 40) * p.scale;
+                    const distToOrb = Math.hypot(clickX - p.x, clickY - p.y);
+
+                    // 2. Title pill badge hit zone (covers clicking directly on the title of the orbit)
+                    const pillY = p.y + (24 * p.scale) + (16 * p.scale);
+                    const pillHalfWidth = (w < 768 ? 95 : 85) * p.scale;
+                    const pillHalfHeight = (w < 768 ? 26 : 22) * p.scale;
+
+                    const inPillX = Math.abs(clickX - p.x) <= pillHalfWidth;
+                    const inPillY = Math.abs(clickY - pillY) <= pillHalfHeight;
+
+                    // 3. Connector zone between the orb and the title badge
+                    const inBetween = Math.abs(clickX - p.x) <= (40 * p.scale) && clickY >= (p.y - orbRadius * 0.5) && clickY <= (pillY + pillHalfHeight);
+
+                    if (distToOrb <= orbRadius || (inPillX && inPillY) || inBetween) {
                         playTone(680, 'sine', 0.12);
                         activateOrbNode(n.id);
                         return true;
