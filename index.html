@@ -1890,29 +1890,40 @@
                 const clickX = clientX - rect.left;
                 const clickY = clientY - rect.top;
 
-                // Test against the exact pixel positions drawn in the current frame
+                let bestHit = null;
+                let minDistance = Infinity;
+
                 for (let n of lastRenderedNodes) {
-                    // 1. Orb Sphere Hit (generous radius covering core, highlights, and corona)
-                    const orbHitRadius = Math.max(45, n.r * 1.6);
+                    // 1. Orb Sphere Hit Radius (generous 55px radius)
+                    const orbHitRadius = Math.max(55, n.r * 2.0);
                     const distToOrb = Math.hypot(clickX - n.px, clickY - n.py);
 
-                    // 2. Title Pill Capsule Hit (generous bounding box covering title pill text)
-                    const halfPillW = Math.max(60, (n.pillWidth / 2) + 15);
-                    const halfPillH = Math.max(22, (n.pillHeight / 2) + 12);
+                    // 2. Title Label Hit Box (super generous: at least 180px wide × 70px tall)
+                    const halfPillW = Math.max(90, (n.pillWidth / 2) + 30);
+                    const halfPillH = Math.max(35, (n.pillHeight / 2) + 20);
                     const inPillX = Math.abs(clickX - n.px) <= halfPillW;
                     const inPillY = Math.abs(clickY - n.pillY) <= halfPillH;
 
-                    // 3. Complete Composite Bounding Box (from top of orb to bottom of title label)
-                    const topOfOrb = n.py - orbHitRadius;
-                    const bottomOfPill = n.pillY + halfPillH;
-                    const maxHalfW = Math.max(orbHitRadius, halfPillW);
-                    const inFullBox = (Math.abs(clickX - n.px) <= maxHalfW) && (clickY >= topOfOrb && clickY <= bottomOfPill);
+                    // 3. Full Combined Envelope (covers from top of orb all the way down below label)
+                    const topBound = n.py - orbHitRadius;
+                    const bottomBound = n.pillY + halfPillH;
+                    const maxW = Math.max(orbHitRadius, halfPillW);
+                    const inFullEnvelope = (Math.abs(clickX - n.px) <= maxW) && (clickY >= topBound && clickY <= bottomBound);
 
-                    if (distToOrb <= orbHitRadius || (inPillX && inPillY) || inFullBox) {
-                        playTone(680, 'sine', 0.12);
-                        activateOrbNode(n.id);
-                        return true;
+                    if (distToOrb <= orbHitRadius || (inPillX && inPillY) || inFullEnvelope) {
+                        const nodeCenterY = (n.py + n.pillY) / 2;
+                        const dist = Math.hypot(clickX - n.px, clickY - nodeCenterY);
+                        if (dist < minDistance) {
+                            minDistance = dist;
+                            bestHit = n.id;
+                        }
                     }
+                }
+
+                if (bestHit) {
+                    playTone(680, 'sine', 0.12);
+                    activateOrbNode(bestHit);
+                    return true;
                 }
                 return false;
             }
@@ -1946,16 +1957,13 @@
             window.addEventListener('pointerup', (e) => {
                 if (!isPointerDown) return;
                 isPointerDown = false;
+                const moveDist = Math.hypot(e.clientX - startTouchX, e.clientY - startTouchY);
+                const tapDuration = Date.now() - startTouchTime;
                 isDragging = false;
 
-                if (e.target.id === 'spatialCanvas') {
-                    const moveDist = Math.hypot(e.clientX - startTouchX, e.clientY - startTouchY);
-                    const tapDuration = Date.now() - startTouchTime;
-
-                    // Clean tap: finger moved less than 16px within 500ms
-                    if (moveDist < 16 && tapDuration < 500) {
-                        checkOrbHit(startTouchX, startTouchY);
-                    }
+                // Clean tap: finger moved less than 20px within 600ms
+                if (moveDist < 20 && tapDuration < 600) {
+                    checkOrbHit(startTouchX, startTouchY);
                 }
             });
 
@@ -1963,6 +1971,20 @@
                 isPointerDown = false;
                 isDragging = false;
             });
+
+            // Direct TouchEnd Listener for Instant iOS Response
+            canvas.addEventListener('touchend', (e) => {
+                if (e.changedTouches && e.changedTouches.length > 0) {
+                    const touch = e.changedTouches[0];
+                    const moveDist = Math.hypot(touch.clientX - startTouchX, touch.clientY - startTouchY);
+                    const tapDuration = Date.now() - startTouchTime;
+                    if (moveDist < 20 && tapDuration < 600) {
+                        if (checkOrbHit(touch.clientX, touch.clientY)) {
+                            e.preventDefault();
+                        }
+                    }
+                }
+            }, { passive: false });
 
             // Fallback click listener
             canvas.addEventListener('click', (e) => {
