@@ -1275,12 +1275,12 @@
                 <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
                     <div>
                         <h3 style="font-size: 1.3rem; color: var(--text-primary);">THE PISONAY COMPANY</h3>
-                        <div style="font-size: 0.82rem; color: var(--accent-gold);">Lima, Peru • Digital Marketing Executive</div>
+                        <div style="font-size: 0.82rem; color: var(--accent-gold);">Lima, Peru • Digital Marketing Executive | Go-To-Market (GTM) Strategy</div>
                     </div>
                     <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">MAY 2019 — APR 2022</span>
                 </div>
                 <ul class="exp-bullets-list">
-                    <li>Designed and executed a full GTM strategy (SEO/SEM, Email, CRM workflows) for high-value real estate projects, achieving 100% inventory sell-out prior to construction completion.</li>
+                    <li>Architected and executed full Go-To-Market (GTM) strategies across SEO/SEM, email workflows, and CRM lead capture for high-value residential developments, driving a complete 100% inventory sell-out before construction delivery.</li>
                     <li>Built and optimized CRM workflows and lead nurturing automations that drove an average monthly conversion rate increase of over 50% through rigorous A/B testing and funnel stage management.</li>
                     <li>Managed the complete lead lifecycle from social media capture to sales handoff, defining lead qualification criteria and ensuring consistent data quality for the sales team.</li>
                 </ul>
@@ -1510,6 +1510,7 @@
             <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-glass); border-radius: 16px; padding: 1.35rem;">
                 <h4 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--accent-gold);">Certifications in Progress (2026)</h4>
                 <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.88rem; color: var(--text-secondary);">
+                    <li>⏳ <strong>Salesforce Administrator</strong> (Currently studying / in pursuit)</li>
                     <li>⏳ <strong>SQL Oracle Database</strong> (Currently studying)</li>
                 </ul>
             </div>
@@ -1779,8 +1780,11 @@
 
         function getChatResponse(q) {
             const query = q.toLowerCase();
-            if (query.includes('hubspot') || query.includes('crm') || query.includes('salesforce')) {
+            if (query.includes('hubspot') || query.includes('crm')) {
                 return "My **HubSpot CRM Experience** spans over 5 years across platform administration, schema design, and pipeline operations. At TOMRA, I co-led the HubSpot buildout for 30–50 sales reps in EMEA and Americas. At IMBAREX, I standardized property schemas across 10+ countries. I hold certifications in **HubSpot CRM Administration**, **RevOps**, and **Marketing Automation**.";
+            }
+            if (query.includes('salesforce')) {
+                return "I am currently **preparing for and actively pursuing the Salesforce Administrator certification** to expand multi-CRM interoperability alongside my 5+ years of advanced HubSpot administration.";
             }
             if (query.includes('automation') || query.includes('agent') || query.includes('ai') || query.includes('python')) {
                 return "I design and orchestrate **AI marketing automation workflows** using tools like Google Antigravity, LLM prompt architectures, and HubSpot webhooks. My **Automated CRM Enrichment Agent** extracts domain insights and classifies firmographics against ICP criteria in under 30 seconds, saving 15+ hours weekly.";
@@ -1792,7 +1796,10 @@
                 return "I am based in **Milano (Milan) / Parma, Italy**, holding a valid Italian work permit. I am open to hybrid or remote roles across EMEA. For roles outside Italy, I require visa sponsorship.";
             }
             if (query.includes('cert') || query.includes('degree') || query.includes('master') || query.includes('sql') || query.includes('education')) {
-                return "I hold a **Master's in International Business & Development** from *Università degli Studi di Parma*. Certifications completed: **HubSpot CRM, RevOps, Marketing Automation, Google Digital Marketing, Meta Associate**. SQL Oracle Database is currently **in progress** (2026).";
+                return "I hold a **Master's in International Business & Development** from *Università degli Studi di Parma*. Certifications completed: **HubSpot CRM Administration, RevOps, Marketing Automation, Google Digital Marketing, Meta Associate**. Currently in progress (2026): **Salesforce Administrator** and **SQL Oracle Database**.";
+            }
+            if (query.includes('gtm') || query.includes('pisonay')) {
+                return "At **The Pisonay Company**, I led the **Go-To-Market (GTM)** execution across SEO/SEM, email automations, and CRM workflows for high-value developments, achieving a 100% inventory sell-out before project completion.";
             }
             if (query.includes('skill') || query.includes('seo') || query.includes('sem') || query.includes('ads') || query.includes('analytics')) {
                 return "My skills span 6 core areas: **CRM Architecture** (HubSpot CRM), **Marketing Operations** (Lifecycle SLAs, Lead Scoring), **AI Marketing Automation** (Google Antigravity, Webhooks), **Performance Marketing** (Google Ads, Meta Ads, LinkedIn), **Technical SEO** (+40% organic growth), and **Analytics / BI** (GA4, SQL, KPI dashboards). Check the **Skills** orb!";
@@ -1884,35 +1891,37 @@
             let isPointerDown = false;
             let startTouchX = 0, startTouchY = 0, startTouchTime = 0;
             let dragStartX = 0, dragStartY = 0;
+            let lastTapTriggeredTime = 0;
 
             function checkOrbHit(clientX, clientY) {
                 const rect = canvas.getBoundingClientRect();
-                const clickX = clientX - rect.left;
-                const clickY = clientY - rect.top;
+                const scaleX = rect.width ? (w / rect.width) : 1;
+                const scaleY = rect.height ? (h / rect.height) : 1;
+                const clickX = (clientX - rect.left) * scaleX;
+                const clickY = (clientY - rect.top) * scaleY;
 
                 let bestHit = null;
                 let minDistance = Infinity;
 
                 for (let n of lastRenderedNodes) {
-                    // 1. Orb Sphere Hit Radius (generous 55px radius)
-                    const orbHitRadius = Math.max(55, n.r * 2.0);
-                    const distToOrb = Math.hypot(clickX - n.px, clickY - n.py);
+                    const nodeCenterY = (n.py + n.pillY) / 2;
+                    const dx = Math.abs(clickX - n.px);
+                    const dy = Math.abs(clickY - nodeCenterY);
 
-                    // 2. Title Label Hit Box (super generous: at least 180px wide × 70px tall)
-                    const halfPillW = Math.max(90, (n.pillWidth / 2) + 30);
-                    const halfPillH = Math.max(35, (n.pillHeight / 2) + 20);
-                    const inPillX = Math.abs(clickX - n.px) <= halfPillW;
-                    const inPillY = Math.abs(clickY - n.pillY) <= halfPillH;
+                    // 1. Direct inside expanded rectangular envelope
+                    const maxHalfW = Math.max(90, (n.pillWidth / 2) + 35);
+                    const maxHalfH = Math.max(75, Math.abs(n.pillY - n.py) + 40);
+                    const inRect = (dx <= maxHalfW) && (dy <= maxHalfH);
 
-                    // 3. Full Combined Envelope (covers from top of orb all the way down below label)
-                    const topBound = n.py - orbHitRadius;
-                    const bottomBound = n.pillY + halfPillH;
-                    const maxW = Math.max(orbHitRadius, halfPillW);
-                    const inFullEnvelope = (Math.abs(clickX - n.px) <= maxW) && (clickY >= topBound && clickY <= bottomBound);
+                    // 2. Proximity checks (orb, title pill, combined center)
+                    const orbDist = Math.hypot(clickX - n.px, clickY - n.py);
+                    const pillDist = Math.hypot(clickX - n.px, clickY - n.pillY);
+                    const centerDist = Math.hypot(dx, dy * 0.85);
 
-                    if (distToOrb <= orbHitRadius || (inPillX && inPillY) || inFullEnvelope) {
-                        const nodeCenterY = (n.py + n.pillY) / 2;
-                        const dist = Math.hypot(clickX - n.px, clickY - nodeCenterY);
+                    const isHit = inRect || (orbDist < 75) || (pillDist < 75) || (centerDist < 100);
+
+                    if (isHit) {
+                        const dist = Math.min(orbDist, pillDist, centerDist);
                         if (dist < minDistance) {
                             minDistance = dist;
                             bestHit = n.id;
@@ -1923,6 +1932,18 @@
                 if (bestHit) {
                     playTone(680, 'sine', 0.12);
                     activateOrbNode(bestHit);
+                    return true;
+                }
+                return false;
+            }
+
+            function handleTouchOrClick(clientX, clientY) {
+                const now = Date.now();
+                if (now - lastTapTriggeredTime < 350) return false;
+
+                const hit = checkOrbHit(clientX, clientY);
+                if (hit) {
+                    lastTapTriggeredTime = now;
                     return true;
                 }
                 return false;
@@ -1963,7 +1984,7 @@
 
                 // Clean tap: finger moved less than 20px within 600ms
                 if (moveDist < 20 && tapDuration < 600) {
-                    checkOrbHit(startTouchX, startTouchY);
+                    handleTouchOrClick(startTouchX, startTouchY);
                 }
             });
 
@@ -1979,7 +2000,7 @@
                     const moveDist = Math.hypot(touch.clientX - startTouchX, touch.clientY - startTouchY);
                     const tapDuration = Date.now() - startTouchTime;
                     if (moveDist < 20 && tapDuration < 600) {
-                        if (checkOrbHit(touch.clientX, touch.clientY)) {
+                        if (handleTouchOrClick(touch.clientX, touch.clientY)) {
                             e.preventDefault();
                         }
                     }
@@ -1988,7 +2009,7 @@
 
             // Fallback click listener
             canvas.addEventListener('click', (e) => {
-                checkOrbHit(e.clientX, e.clientY);
+                handleTouchOrClick(e.clientX, e.clientY);
             });
 
             function project(x, y, z) {
