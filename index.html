@@ -22,6 +22,11 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://renzo-francesqui.vercel.app/">
 
+    <!-- Language Alternates / Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/">
+    <link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/">
+    <link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://renzo-francesqui.vercel.app/">
@@ -235,6 +240,54 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        /* Header Language Switcher */
+        .lang-switcher {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            border-radius: 9999px;
+            padding: 2px 4px;
+            gap: 2px;
+            flex-shrink: 0;
+            user-select: none;
+        }
+
+        .lang-divider {
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            font-family: var(--font-mono);
+            opacity: 0.45;
+            line-height: 1;
+        }
+
+        .lang-btn {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 3px 8px;
+            border-radius: 9999px;
+            transition: all 0.2s var(--spring-snappy);
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .lang-btn.active {
+            background: var(--bg-active);
+            color: var(--accent-gold);
+            border: 1px solid var(--border-glass-bright);
+            box-shadow: 0 0 10px rgba(212, 168, 99, 0.25);
         }
 
         .hud-btn {
@@ -1023,12 +1076,15 @@
             .hud-header {
                 padding: 0.48rem 0.85rem;
                 border-radius: 9999px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
             .brand-header-title {
                 gap: 0.45rem;
-                width: 100%;
-                justify-content: space-between;
+                flex: 1;
+                justify-content: flex-start;
                 min-width: 0;
             }
 
@@ -1043,10 +1099,21 @@
                 font-size: 0.52rem;
                 padding: 2px 7px;
                 letter-spacing: 0.04em;
-                max-width: 52vw;
+                max-width: 34vw;
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
+            }
+
+            .lang-switcher {
+                margin-left: 0.35rem;
+                padding: 2px 3px;
+                gap: 1px;
+            }
+
+            .lang-btn {
+                font-size: 0.58rem;
+                padding: 2px 5px;
             }
 
             .orbit-floating-hint {
@@ -1182,6 +1249,11 @@
                 <h1 class="brand-name">Renzo Francesqui<span>.</span></h1>
                 <span class="brand-tag-badge">Digital Marketing | AI Marketing Automation, CRM and Operations</span>
             </a>
+            <div class="lang-switcher" aria-label="Language selector">
+                <a href="/" class="lang-btn active" aria-current="page" title="English">EN</a>
+                <span class="lang-divider">/</span>
+                <a href="/it/" class="lang-btn" title="Italiano">IT</a>
+            </div>
         </header>
 
         <!-- Center Stage: Floating Orbit Hint (Desktop) -->

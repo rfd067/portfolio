@@ -9,6 +9,7 @@ if sys.platform == 'win32':
 
 html_files = [
     'index.html',
+    'it/index.html',
     'blog/index.html',
     'blog/hubspot-ai-enrichment-agent.html',
     'blog/b2b-event-lead-operations.html',
@@ -39,6 +40,8 @@ for hf in html_files:
     h2_count = len(re.findall(r'<h2[^>]*>', content, re.IGNORECASE))
     json_ld_present = 'application/ld+json' in content
 
+    hreflang_count = len(re.findall(r'<link\s+rel=["\']alternate["\']\s+hreflang=', content, re.IGNORECASE))
+
     print(f'\nFile: {hf}')
     print(f'   Title: {title}')
     print(f'   Desc ({len(desc)} chars): {desc[:75]}...')
@@ -47,6 +50,8 @@ for hf in html_files:
     print(f'   H1 Count: {h1_count} ({"[OK] Single H1" if h1_count == 1 else "[FAIL] Check H1"})')
     print(f'   H2 Count: {h2_count}')
     print(f'   Schema.org JSON-LD: {"[OK] Present" if json_ld_present else "[FAIL] Missing"}')
+    if hreflang_count > 0:
+        print(f'   Hreflang Tags: [OK] {hreflang_count} tags found')
 
 print('\n=== ASSET VERIFICATION ===')
 photo_path = os.path.join(base_dir, 'images', 'renzo-francesqui.jpg')
