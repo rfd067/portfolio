@@ -1,5 +1,27 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/services/small-startup-business-crm-setup-optimization",
+      "destination": "/services/hubspot-crm-optimization-startups/",
+      "permanent": true
+    },
+    {
+      "source": "/services/small-startup-business-crm-setup-optimization/",
+      "destination": "/services/hubspot-crm-optimization-startups/",
+      "permanent": true
+    },
+    {
+      "source": "/it/services/small-startup-business-crm-setup-optimization",
+      "destination": "/it/services/hubspot-crm-optimization-startups/",
+      "permanent": true
+    },
+    {
+      "source": "/it/services/small-startup-business-crm-setup-optimization/",
+      "destination": "/it/services/hubspot-crm-optimization-startups/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

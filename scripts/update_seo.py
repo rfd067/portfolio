@@ -91,6 +91,14 @@ def generate_sitemap(articles):
         '    <priority>0.90</priority>',
         '  </url>',
         '',
+        '  <!-- Version 3.0 (Next-Gen Photorealistic 3D Solar Matrix) -->',
+        '  <url>',
+        f'    <loc>{CANONICAL_DOMAIN}/version-3/</loc>',
+        f'    <lastmod>{today}</lastmod>',
+        '    <changefreq>weekly</changefreq>',
+        '    <priority>0.92</priority>',
+        '  </url>',
+        '',
         '  <!-- Version 1.5 (Categorized Skills & Mobile Optimized) -->',
         '  <url>',
         f'    <loc>{CANONICAL_DOMAIN}/version-1.5/</loc>',
@@ -122,14 +130,80 @@ def generate_sitemap(articles):
             ''
         ])
 
+    # Append freelance service mirror pages
+    service_slugs = [
+        ("hubspot-crm-optimization-startups", "HubSpot CRM Setup & RevOps Architecture"),
+        ("paid-media-management", "Paid Media Management"),
+        ("seo-and-geo-optimization", "SEO & GEO Optimization"),
+        ("marketing-data-reporting", "Marketing Data & Reporting")
+    ]
+    for s_slug, s_name in service_slugs:
+        xml_lines.extend([
+            f'  <!-- Service: {s_name} (EN & IT) -->',
+            '  <url>',
+            f'    <loc>{CANONICAL_DOMAIN}/services/{s_slug}/</loc>',
+            f'    <lastmod>{today}</lastmod>',
+            '    <changefreq>monthly</changefreq>',
+            '    <priority>0.88</priority>',
+            f'    <xhtml:link rel="alternate" hreflang="en" href="{CANONICAL_DOMAIN}/services/{s_slug}/"/>',
+            f'    <xhtml:link rel="alternate" hreflang="it" href="{CANONICAL_DOMAIN}/it/services/{s_slug}/"/>',
+            f'    <xhtml:link rel="alternate" hreflang="x-default" href="{CANONICAL_DOMAIN}/services/{s_slug}/"/>',
+            '  </url>',
+            '  <url>',
+            f'    <loc>{CANONICAL_DOMAIN}/it/services/{s_slug}/</loc>',
+            f'    <lastmod>{today}</lastmod>',
+            '    <changefreq>monthly</changefreq>',
+            '    <priority>0.88</priority>',
+            f'    <xhtml:link rel="alternate" hreflang="en" href="{CANONICAL_DOMAIN}/services/{s_slug}/"/>',
+            f'    <xhtml:link rel="alternate" hreflang="it" href="{CANONICAL_DOMAIN}/it/services/{s_slug}/"/>',
+            f'    <xhtml:link rel="alternate" hreflang="x-default" href="{CANONICAL_DOMAIN}/services/{s_slug}/"/>',
+            '  </url>',
+            ''
+        ])
+
+    # Append interactive tools landing pages
+    tool_slugs = [
+        ("mql-to-sql-sla-lead-leakage-calculator", "MQL-to-SQL SLA & Lead Leakage Calculator"),
+        ("b2b-campaign-utm-crm-builder", "B2B Campaign UTM & CRM Governance Builder"),
+        ("b2b-trade-show-roi-calculator", "B2B Trade Show & Exhibition ROI Modeler")
+    ]
+    for t_slug, t_name in tool_slugs:
+        xml_lines.extend([
+            f'  <!-- Tool: {t_name} (EN & IT) -->',
+            '  <url>',
+            f'    <loc>{CANONICAL_DOMAIN}/tools/{t_slug}/</loc>',
+            f'    <lastmod>{today}</lastmod>',
+            '    <changefreq>monthly</changefreq>',
+            '    <priority>0.88</priority>',
+            f'    <xhtml:link rel="alternate" hreflang="en" href="{CANONICAL_DOMAIN}/tools/{t_slug}/"/>',
+            f'    <xhtml:link rel="alternate" hreflang="it" href="{CANONICAL_DOMAIN}/it/tools/{t_slug}/"/>',
+            f'    <xhtml:link rel="alternate" hreflang="x-default" href="{CANONICAL_DOMAIN}/tools/{t_slug}/"/>',
+            '  </url>',
+            '  <url>',
+            f'    <loc>{CANONICAL_DOMAIN}/it/tools/{t_slug}/</loc>',
+            f'    <lastmod>{today}</lastmod>',
+            '    <changefreq>monthly</changefreq>',
+            '    <priority>0.88</priority>',
+            f'    <xhtml:link rel="alternate" hreflang="en" href="{CANONICAL_DOMAIN}/tools/{t_slug}/"/>',
+            f'    <xhtml:link rel="alternate" hreflang="it" href="{CANONICAL_DOMAIN}/it/tools/{t_slug}/"/>',
+            f'    <xhtml:link rel="alternate" hreflang="x-default" href="{CANONICAL_DOMAIN}/tools/{t_slug}/"/>',
+            '  </url>',
+            ''
+        ])
+
     xml_lines.append('</urlset>')
     return '\n'.join(xml_lines)
 
 def generate_robots_txt():
     return f"""User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /draft
+Disallow: /draft/
+Disallow: /*?draft=*
 
 Sitemap: {CANONICAL_DOMAIN}/sitemap.xml
+Host: {CANONICAL_DOMAIN}
 """
 
 def main():

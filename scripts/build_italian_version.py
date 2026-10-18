@@ -115,6 +115,51 @@ def build_italian_page():
       "sameAs": [
         "https://www.linkedin.com/in/renzofrancesqui/"
       ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Milano, Italy"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Lombardy"
+        }
+      ],
+      "location": {
+        "@type": "Place",
+        "name": "Milano, Italy",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Milano",
+          "addressRegion": "Lombardy",
+          "addressCountry": "IT"
+        }
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Renzo Francesqui RevOps & Growth Consulting",
+        "url": "https://renzo-francesqui.vercel.app/it/",
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Milano, Italy"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Lombardy"
+          }
+        ],
+        "location": {
+          "@type": "Place",
+          "name": "Milano, Italy",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Milano",
+            "addressRegion": "Lombardy",
+            "addressCountry": "IT"
+          }
+        }
+      },
       "knowsAbout": [
         "CRM HubSpot",
         "Revenue Operations (RevOps)",
@@ -340,6 +385,18 @@ def build_italian_page():
         'Automated Workflow + Slack + HubSpot. Monitors competitor pricing shifts every 6 hours and logs intelligence summaries.',
         'Workflow Automatizzato + Slack + HubSpot. Monitora le variazioni di prezzo dei competitor ogni 6 ore e registra report di sintesi dell\'intelligence.'
     )
+    html = html.replace('Algorithmic Markov Chain Attribution Engine', 'Motore di Attribuzione Algoritmica con Catene di Markov')
+    html = html.replace(
+        'Python + BigQuery SQL + Looker Studio. Multi-touch algorithmic attribution using first-order Markov chains to calculate removal effects and true channel revenue contribution beyond last-touch bias.',
+        'Python + BigQuery SQL + Looker Studio. Attribuzione algoritmica multi-touch tramite catene di Markov del primo ordine per calcolare gli effetti di rimozione e il contributo reale dei canali al fatturato.'
+    )
+    html = html.replace('Explore Data Architecture →', 'Esplora Architettura Dati →')
+    html = html.replace('Enterprise HubSpot &amp; Salesforce RevOps Architecture', 'Architettura RevOps Enterprise HubSpot &amp; Salesforce')
+    html = html.replace(
+        'B2B Lead Lifecycle + SLA Routing Engine. Complete enterprise alignment between marketing qualified leads (MQL) and sales accepted leads (SAL) with sub-5-minute routing, custom deal-stage gating, and zero lead leakage.',
+        'Ciclo di Vita Lead B2B + Motore di Routing SLA. Allineamento enterprise completo tra MQL e SAL con routing sotto i 5 minuti, requisiti di passaggio deal vincolanti e zero dispersione di lead.'
+    )
+    html = html.replace('Explore RevOps Architecture →', 'Esplora Architettura RevOps →')
 
     # 14. Modal 3: Skills
     html = html.replace('<span>🛠️</span> Technical & Strategic Skills Matrix', '<span>🛠️</span> Matrice Competenze Tecniche e Strategiche')
@@ -403,7 +460,14 @@ def build_italian_page():
     html = html.replace('Spanish (Native), English (C1), Italian (B2)', 'Spagnolo (Madrelingua), Inglese (C1), Italiano (B2)')
 
     # 16. Modal 5: Blog
-    html = html.replace('<span>📰</span> Editorial Hub & Publications', '<span>📰</span> Hub Editoriale & Pubblicazioni')
+    html = html.replace('<span>📰</span> Editorial Hub &amp; Publications', '<span>📰</span> Hub Editoriale &amp; Pubblicazioni')
+    html = html.replace('<span>📰</span> Editorial Hub & Publications', '<span>📰</span> Hub Editoriale &amp; Pubblicazioni')
+    html = html.replace('EDITORIAL ARCHIVE HUB', 'ARCHIVIO EDITORIALE &amp; HUB')
+    html = html.replace('Explore All Technical Dispatches &amp; Case Studies', 'Esplora Tutti i Dispacci Tecnici &amp; Case Study')
+    html = html.replace(
+        'Live category filters, system architecture blueprints, and field-tested playbooks.',
+        'Filtri di categoria live, blueprint di architettura di sistema e playbook testati sul campo.'
+    )
     html = html.replace(
         'Field-tested frameworks, operational blueprints, and technical architecture guides for modern B2B revenue and marketing teams.',
         'Framework testati sul campo, modelli operativi e guide di architettura tecnica per i moderni team B2B di marketing e revenue.'
@@ -412,6 +476,13 @@ def build_italian_page():
     html = html.replace('READ ARTICLE →', 'LEGGI ARTICOLO →')
 
     # 17. Modal 6: Contact
+    # Milan Location Badge
+    html = html.replace(
+        '📍 Based in Milan, Italy • Available for EMEA &amp; Global Remote / Hybrid Engagements.',
+        '📍 Basato a Milano, Italia • Disponibile per collaborazioni remote / ibride EMEA &amp; Globali.'
+    )
+    html = html.replace('📅 Book a Call on Calendly', '📅 Prenota una Call su Calendly')
+
     html = html.replace('<span>✉️</span> Initiate Direct Transmission', '<span>✉️</span> Entra in Contatto')
     html = html.replace(
         'Available for senior opportunities in Marketing Operations, CRM Architecture, and AI Automation Systems.',

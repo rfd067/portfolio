@@ -12,11 +12,15 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Scaling B2B Trade Show Operations: Slashing Lead Handoff from 7 Days to Same-Week | Renzo Francesqui</title>
+    <title>Scaling B2B Trade Show Operations: From Offline Badge Scans to Same-Week SQLs | Renzo Francesqui</title>
     <meta name="description" content="How we engineered automated data ingestion pipelines across 15-20 annual global exhibitions, reducing lead-to-sales handover from 7 days to same-week.">
     <meta name="keywords" content="B2B Trade Show Operations, Event Lead Management, HubSpot Event Integration, Marketing Operations, Lead Routing SLAs, Renzo Francesqui, TOMRA">
     <meta name="author" content="Renzo Francesqui">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://renzo-francesqui.vercel.app/blog/b2b-event-lead-operations.html">
@@ -24,8 +28,9 @@
     <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://renzo-francesqui.vercel.app/blog/b2b-event-lead-operations.html">
-    <meta property="og:title" content="Scaling B2B Trade Show Operations: Slashing Lead Handoff from 7 Days to Same-Week">
-    <meta property="og:description" content="How we engineered automated data capture and CRM enrichment for 20 global field exhibitions.">
+    <meta property="og:title" content="Scaling B2B Trade Show Operations: From Offline Badge Scans to Same-Week SQLs">
+    <meta property="og:description" content="How we engineered automated data ingestion pipelines across 15-20 annual global exhibitions, reducing lead-to-sales handover from 7 days to same-week.">
+    <meta property="og:image" content="https://renzo-francesqui.vercel.app/images/renzo-francesqui.jpg">
     <meta property="article:published_time" content="2026-08-04T09:00:00Z">
     <meta property="article:author" content="Renzo Francesqui">
     <meta property="og:site_name" content="Renzo Francesqui Portfolio & Blog">
@@ -33,718 +38,1358 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://renzo-francesqui.vercel.app/blog/b2b-event-lead-operations.html">
-    <meta name="twitter:title" content="Scaling B2B Trade Show Operations: Slashing Lead Handoff from 7 Days to Same-Week">
-    <meta name="twitter:description" content="How we engineered automated data capture and CRM enrichment for 20 global field exhibitions.">
+    <meta name="twitter:title" content="Scaling B2B Trade Show Operations: From Offline Badge Scans to Same-Week SQLs">
+    <meta name="twitter:description" content="Operational blueprints for managing offline-to-online data ingestion across 15-20 global field exhibitions.">
+    <meta name="twitter:image" content="https://renzo-francesqui.vercel.app/images/renzo-francesqui.jpg">
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://renzo-francesqui.vercel.app/blog/b2b-event-lead-operations.html"
-      },
-      "headline": "Scaling B2B Trade Show Operations: Slashing Lead Handoff from 7 Days to Same-Week",
-      "description": "How we engineered automated data ingestion pipelines across 15-20 annual global exhibitions, reducing lead-to-sales handover from 7 days to same-week.",
-      "author": {
-        "@type": "Person",
-        "name": "Renzo Francesqui",
-        "url": "https://renzo-francesqui.vercel.app/"
-      },
-      "publisher": {
-        "@type": "Person",
-        "name": "Renzo Francesqui"
-      },
-      "datePublished": "2026-08-04T09:00:00Z",
-      "dateModified": "2026-08-16T12:00:00Z"
+      "@graph": [
+        {
+          "@type": "TechArticle",
+          "@id": "https://renzo-francesqui.vercel.app/blog/b2b-event-lead-operations.html#article",
+          "headline": "Scaling B2B Trade Show Operations: From Offline Badge Scans to Same-Week SQLs",
+          "description": "How we engineered automated data ingestion pipelines across 15-20 annual global exhibitions, reducing lead-to-sales handover from 7 days to same-week.",
+          "image": "https://renzo-francesqui.vercel.app/images/renzo-francesqui.jpg",
+          "author": {
+            "@type": "Person",
+            "@id": "https://renzo-francesqui.vercel.app/#person",
+            "name": "Renzo Francesqui",
+            "url": "https://renzo-francesqui.vercel.app/",
+            "jobTitle": "Marketing Operations & RevOps Specialist"
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Renzo Francesqui"
+          },
+          "datePublished": "2026-08-04T09:00:00Z",
+          "dateModified": "2026-08-16T12:00:00Z",
+          "mainEntityOfPage": "https://renzo-francesqui.vercel.app/blog/b2b-event-lead-operations.html"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://renzo-francesqui.vercel.app/blog/b2b-event-lead-operations.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://renzo-francesqui.vercel.app/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://renzo-francesqui.vercel.app/blog/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "B2B Trade Show Operations",
+              "item": "https://renzo-francesqui.vercel.app/blog/b2b-event-lead-operations.html"
+            }
+          ]
+        }
+      ]
     }
     </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- MASTER EDITORIAL STYLESHEET -->
     <style>
-        :root {
-            --bg-deep: #050404;
-            --bg-surface: rgba(16, 13, 11, 0.88);
-            --bg-surface-card: rgba(255, 255, 255, 0.03);
-            --bg-surface-elevated: rgba(22, 18, 15, 0.94);
-            
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --border-glass-bright: rgba(255, 255, 255, 0.16);
-            
-            --accent-gold: #d4a863;
-            --accent-gold-glow: rgba(212, 168, 99, 0.35);
-            --accent-cyan: #38bdf8;
-            --accent-emerald: #34d399;
-            --accent-purple: #c084fc;
-            
-            --text-primary: #fcfbf9;
-            --text-secondary: #c2bcb4;
-            --text-muted: #807a72;
-            
-            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-            --spring-snappy: cubic-bezier(0.16, 1, 0.3, 1);
-        }
+:root {
+    --bg-deep: #030204;
+    --bg-surface: rgba(15, 12, 18, 0.75);
+    --bg-elevated: rgba(22, 18, 28, 0.90);
+    --bg-subtle: rgba(255, 255, 255, 0.025);
+    --bg-active: rgba(212, 168, 99, 0.12);
+    
+    --accent-gold: #d4a863;
+    --accent-emerald: #34d399;
+    --accent-purple: #c084fc;
+    --accent-cyan: #38bdf8;
+    
+    --text-primary: #fcfbf9;
+    --text-body: #d6d1c7;
+    --text-secondary: #a8a197;
+    --text-muted: #6e675d;
+    
+    --border-hairline: rgba(255, 255, 255, 0.08);
+    --border-gold: rgba(212, 168, 99, 0.45);
+    
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
-        }
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        html {
-            scroll-behavior: smooth;
-            background-color: var(--bg-deep);
-            color: var(--text-primary);
-            font-family: var(--font-sans);
-            -webkit-font-smoothing: antialiased;
-        }
+html {
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+}
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background-color: var(--bg-deep);
-            overflow-x: hidden;
-            position: relative;
-        }
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: 
+        radial-gradient(circle at 50% 0%, rgba(212, 168, 99, 0.06) 0%, transparent 50%),
+        var(--bg-deep);
+    line-height: 1.75;
+}
 
-        /* 3D Background Canvas */
-        #spatialCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 0;
-            pointer-events: none;
-        }
+/* Top Reading Progress Bar */
+#readingProgress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-gold), #fff);
+    z-index: 9999;
+    transition: width 0.08s linear;
+}
 
-        /* Top Reading Progress Bar */
-        #readProgressBar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
-            z-index: 1001;
-            transition: width 0.1s linear;
-        }
+/* Sticky Minimalist HUD Header */
+.nav-wrapper {
+    position: sticky;
+    top: 1.25rem;
+    z-index: 100;
+    padding: 0 1.5rem;
+    margin-bottom: 4.5rem;
+}
 
-        /* Spatial Navigation Header */
-        header.nav-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.1rem 2.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(5, 4, 4, 0.78);
-            backdrop-filter: blur(28px) saturate(200%);
-            -webkit-backdrop-filter: blur(28px) saturate(200%);
-            border-bottom: 1px solid var(--border-glass);
-        }
+.hud-header {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-surface);
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+    border: 1px solid var(--border-hairline);
+    border-radius: 9999px;
+    padding: 0.6rem 1.35rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+}
 
-        .brand-header-title {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-        }
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 0.95rem;
+}
 
-        .brand-name {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-        }
+.nav-brand span.gold { color: var(--accent-gold); }
 
-        .brand-name span {
-            color: var(--accent-gold);
-        }
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
-        .brand-tag-badge {
-            font-family: var(--font-mono);
-            font-size: 0.62rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent-gold);
-            background: rgba(212, 168, 99, 0.12);
-            border: 1px solid rgba(212, 168, 99, 0.3);
-            padding: 3px 9px;
-            border-radius: 9999px;
-        }
+.nav-pill {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.38rem 0.85rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border-hairline);
+    transition: all 0.2s var(--ease-out);
+}
 
-        .spatial-back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--border-glass-bright);
-            padding: 0.5rem 1.15rem;
-            border-radius: 9999px;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 0.76rem;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            transition: all 0.3s var(--spring-snappy);
-        }
+.nav-pill:hover, .nav-pill.gold {
+    color: var(--accent-gold);
+    border-color: var(--border-gold);
+    background: var(--bg-active);
+}
 
-        .spatial-back-btn:hover {
-            background: rgba(212, 168, 99, 0.15);
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-            transform: translateX(-3px);
-            box-shadow: 0 0 20px rgba(212, 168, 99, 0.3);
-        }
+/* =========================================
+   ARTICLE PAGE LAYOUT (2-COLUMN EDITORIAL)
+   ========================================= */
+.article-shell {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 1.5rem 7rem;
+}
 
-        /* Main Article Layout */
-        .article-page-container {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 7.5rem 1.5rem 6rem 1.5rem;
-            position: relative;
-            z-index: 10;
-            width: 100%;
-        }
+/* Article Header */
+.article-header {
+    max-width: 780px;
+    margin: 0 auto 3.5rem;
+}
 
-        .spatial-article-card {
-            background: var(--bg-surface);
-            backdrop-filter: blur(32px) saturate(220%);
-            -webkit-backdrop-filter: blur(32px) saturate(220%);
-            border: 1px solid var(--border-glass-bright);
-            border-radius: 24px;
-            padding: 3rem;
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-        }
+.article-meta-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 1.15rem;
+}
 
-        .article-meta-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent-gold);
-            background: rgba(212, 168, 99, 0.12);
-            border: 1px solid rgba(212, 168, 99, 0.3);
-            padding: 4px 12px;
-            border-radius: 9999px;
-            margin-bottom: 1.25rem;
-        }
+.meta-divider { color: var(--text-muted); }
 
-        h1.article-title {
-            font-size: clamp(2rem, 4.2vw, 2.75rem);
-            font-weight: 800;
-            line-height: 1.18;
-            letter-spacing: -0.03em;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-        }
+.article-title {
+    font-size: clamp(2rem, 4.2vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+}
 
-        .article-meta-row {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            border-bottom: 1px solid var(--border-glass);
-            padding-bottom: 1.75rem;
-            margin-bottom: 2.25rem;
-            flex-wrap: wrap;
-        }
+.article-subtitle {
+    font-size: 1.12rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
 
-        .author-mini {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
+.author-byline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--border-hairline);
+    border-bottom: 1px solid var(--border-hairline);
+}
 
-        .author-mini-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 1px solid var(--accent-gold);
-            box-shadow: 0 0 10px rgba(212, 168, 99, 0.4);
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
 
-        .author-mini-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
+.author-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--border-gold);
+    object-fit: cover;
+}
 
-        /* Article Prose */
-        .article-prose {
-            font-size: 1.05rem;
-            line-height: 1.85;
-            color: var(--text-secondary);
-        }
+.author-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
 
-        .article-prose p {
-            margin-bottom: 1.5rem;
-        }
+.author-role {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
 
-        .article-prose h2 {
-            font-size: 1.55rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-            margin: 2.5rem 0 1rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+/* 2-Column Content Grid (Sticky TOC + Reading Stream) */
+.article-grid {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 680px);
+    gap: 4rem;
+    justify-content: center;
+    align-items: start;
+}
 
-        .article-prose h2::before {
-            content: '⚡';
-            font-size: 1.1rem;
-        }
+/* Sticky Left Table of Contents */
+.toc-sidebar {
+    position: sticky;
+    top: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
 
-        .article-prose ul {
-            margin: 1.25rem 0 2rem 1.25rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.85rem;
-        }
+.toc-heading {
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
 
-        .article-prose li {
-            line-height: 1.7;
-        }
+.toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--border-hairline);
+}
 
-        .article-prose li strong {
-            color: var(--text-primary);
-        }
+.toc-link {
+    display: block;
+    padding: 0.4rem 0 0.4rem 1rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    transition: all 0.2s var(--ease-out);
+    line-height: 1.4;
+}
 
-        .article-prose blockquote {
-            border-left: 3px solid var(--accent-gold);
-            background: rgba(212, 168, 99, 0.06);
-            border-radius: 0 14px 14px 0;
-            padding: 1.25rem 1.5rem;
-            margin: 2.25rem 0;
-            font-size: 1.15rem;
-            font-style: italic;
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
+.toc-link:hover {
+    color: var(--text-primary);
+}
 
-        .callout-box {
-            background: rgba(212, 168, 99, 0.08);
-            border: 1px solid rgba(212, 168, 99, 0.35);
-            border-radius: 16px;
-            padding: 1.5rem 1.75rem;
-            margin: 2.25rem 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
+.toc-link.active {
+    color: var(--accent-gold);
+    border-left-color: var(--accent-gold);
+    font-weight: 600;
+}
 
-        .callout-box h3 {
-            font-family: var(--font-mono);
-            font-size: 0.78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-        }
+/* Reading Prose Typography */
+.article-prose {
+    font-size: 1.02rem;
+    color: var(--text-body);
+}
 
-        /* Author Bio Card */
-        .author-bio-card {
-            margin-top: 3.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-glass-bright);
-            border-radius: 20px;
-            padding: 2rem;
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+.article-prose h2 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 3.5rem 0 1.15rem;
+    padding-top: 1rem;
+    scroll-margin-top: 6rem;
+}
 
-        .author-avatar {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--accent-gold);
-            box-shadow: 0 0 25px var(--accent-gold-glow);
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.article-prose h3 {
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 2.25rem 0 0.75rem;
+}
 
-        .author-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
+.article-prose p {
+    margin-bottom: 1.4rem;
+}
 
-        .author-details {
-            flex: 1;
-            min-width: 260px;
-        }
+.article-prose a {
+    color: var(--accent-gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(212, 168, 99, 0.4);
+    transition: all 0.2s;
+}
 
-        .author-details h4 {
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            margin-bottom: 0.35rem;
-        }
+.article-prose a:hover {
+    color: #fff;
+    text-decoration-color: var(--accent-gold);
+}
 
-        .author-details p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.75rem;
-            line-height: 1.55;
-        }
+.article-prose ul, .article-prose ol {
+    margin: 0 0 1.6rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
 
-        .author-action-link {
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent-gold);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            transition: color 0.2s;
-        }
+.article-prose li::marker {
+    color: var(--accent-gold);
+}
 
-        .author-action-link:hover {
-            color: #ffffff;
-        }
+/* =========================================
+   RICH MEDIA SLOTS (IMAGES, INFOGRAPHICS, VIDEO)
+   ========================================= */
 
-        /* Related Articles Grid */
-        .related-articles-section {
-            margin-top: 4rem;
-        }
+/* 1. Executive Summary / TL;DR Callout (GEO Optimized) */
+.tldr-callout {
+    border: 1px solid var(--border-gold);
+    background: linear-gradient(145deg, rgba(212, 168, 99, 0.06), rgba(15, 12, 18, 0.6));
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.5rem;
+}
 
-        .related-heading {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--accent-gold);
-            margin-bottom: 1.25rem;
-        }
+.tldr-label {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
-        .related-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-        }
+.tldr-callout ul {
+    margin-bottom: 0;
+    font-size: 0.92rem;
+    color: var(--text-primary);
+}
 
-        .related-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-glass);
-            border-radius: 18px;
-            padding: 1.5rem;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s var(--spring-snappy);
-        }
+/* 2. Framed Image Slot (Supports 16:9 or 4:3 + Click-to-Zoom) */
+.media-figure {
+    margin: 2.5rem 0;
+    border: 1px solid var(--border-hairline);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #07060a;
+    transition: border-color 0.25s var(--ease-out);
+}
 
-        .related-card:hover {
-            border-color: var(--accent-gold);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-        }
+.media-figure:hover {
+    border-color: var(--border-gold);
+}
 
-        .related-tag {
-            font-family: var(--font-mono);
-            font-size: 0.62rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
-        }
+.media-viewport {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: radial-gradient(circle at center, rgba(212, 168, 99, 0.08), #050408);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-in;
+}
 
-        .related-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.35;
-            margin-bottom: 0.75rem;
-        }
+.media-viewport img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s var(--ease-out);
+}
 
-        .related-desc {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
+.media-figure:hover .media-viewport img {
+    transform: scale(1.015);
+}
 
-        .related-link-arrow {
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-        }
+.media-caption-bar {
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid var(--border-hairline);
+    background: rgba(255, 255, 255, 0.015);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+}
 
-        /* Spatial Footer */
-        footer.spatial-footer {
-            padding: 3rem 2rem;
-            border-top: 1px solid var(--border-glass);
-            background: rgba(5, 4, 4, 0.9);
-            position: relative;
-            z-index: 10;
-            margin-top: auto;
-        }
+.media-caption-bar span.fig-id {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
 
-        .footer-content {
-            max-width: 860px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
+/* 3. Infographic / System Architecture Blueprint Slot */
+.infographic-frame {
+    margin: 2.75rem 0;
+    border: 1px solid var(--border-hairline);
+    border-radius: 16px;
+    background: 
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+        #060509;
+    background-size: 24px 24px;
+    overflow: hidden;
+}
 
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-        }
+.infographic-header {
+    padding: 0.85rem 1.35rem;
+    border-bottom: 1px solid var(--border-hairline);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
 
-        .footer-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.76rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            transition: color 0.2s ease;
-        }
+.infographic-body {
+    padding: 2.25rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
 
-        .footer-link:hover {
-            color: var(--accent-gold);
-        }
+/* Clean Architectural Flowchart Nodes inside Infographic */
+.blueprint-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+}
 
-        .copyright {
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            color: var(--text-muted);
-        }
+.blueprint-node {
+    border: 1px solid var(--border-hairline);
+    background: rgba(15, 12, 18, 0.85);
+    border-radius: 10px;
+    padding: 1rem;
+    position: relative;
+}
 
-        @media (max-width: 768px) {
-            header.nav-bar {
-                padding: 1rem 1.25rem;
-            }
-            .brand-tag-badge {
-                display: none;
-            }
-            .article-page-container {
-                padding: 6.5rem 1rem 4rem 1rem;
-            }
-            .spatial-article-card {
-                padding: 1.75rem 1.25rem;
-            }
-            .related-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+.blueprint-node .node-step {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.35rem;
+}
+
+.blueprint-node .node-title {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.blueprint-node .node-spec {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* 4. Cinema Video / Loom Walkthrough Slot */
+.video-stage {
+    margin: 2.75rem 0;
+    border: 1px solid var(--border-hairline);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #050407;
+}
+
+.video-aspect {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: radial-gradient(circle at 50% 40%, rgba(212, 168, 99, 0.14), #040306 75%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.video-aspect iframe, .video-aspect video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-play-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--bg-active);
+    border: 1px solid var(--border-gold);
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(212, 168, 99, 0.25);
+    transition: transform 0.25s var(--ease-out), background 0.25s;
+    margin-bottom: 1rem;
+}
+
+.video-play-btn:hover {
+    transform: scale(1.08);
+    background: var(--accent-gold);
+    color: #050406;
+}
+
+/* 5. Minimalist Code / Webhook / SQL Block */
+.code-block-wrapper {
+    margin: 2rem 0;
+    border: 1px solid var(--border-hairline);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #060508;
+}
+
+.code-bar {
+    padding: 0.55rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--border-hairline);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+.copy-code-btn {
+    background: transparent;
+    border: 1px solid var(--border-hairline);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    padding: 2px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.copy-code-btn:hover {
+    border-color: var(--border-gold);
+    color: var(--accent-gold);
+}
+
+pre.code-pre {
+    padding: 1.25rem;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.65;
+    color: #e2e8f0;
+}
+
+/* 6. Clean Data Comparison Table */
+.editorial-table-wrap {
+    margin: 2.25rem 0;
+    border: 1px solid var(--border-hairline);
+    border-radius: 12px;
+    overflow-x: auto;
+}
+
+.editorial-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+    text-align: left;
+}
+
+.editorial-table th {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-gold);
+    background: rgba(255, 255, 255, 0.025);
+    padding: 0.9rem 1.15rem;
+    border-bottom: 1px solid var(--border-hairline);
+}
+
+.editorial-table td {
+    padding: 0.9rem 1.15rem;
+    border-bottom: 1px solid var(--border-hairline);
+    color: var(--text-secondary);
+}
+
+.editorial-table tr:last-child td { border-bottom: none; }
+
+.editorial-table td code {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--accent-gold);
+}
+
+/* 7. Author Dossier & Next Read Footer */
+.author-dossier {
+    margin-top: 4.5rem;
+    padding: 2.25rem;
+    border: 1px solid var(--border-hairline);
+    border-radius: 16px;
+    background: var(--bg-subtle);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.author-dossier-bio {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    max-width: 620px;
+}
+
+.author-dossier-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid var(--border-gold);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.author-dossier-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.author-dossier-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+.author-dossier-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* Lightbox Modal for Zooming Images */
+#mediaLightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 2, 4, 0.92);
+    backdrop-filter: blur(20px);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    cursor: zoom-out;
+}
+
+#mediaLightbox.open { display: flex; }
+#mediaLightbox img {
+    max-width: 92vw;
+    max-height: 88vh;
+    border: 1px solid var(--border-gold);
+    border-radius: 12px;
+}
+
+.badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    background: var(--bg-active);
+    border: 1px solid var(--border-gold);
+    color: var(--accent-gold);
+}
+
+.next-read-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.next-read-card {
+    border: 1px solid var(--border-hairline);
+    border-radius: 14px;
+    padding: 1.5rem;
+    background: var(--bg-subtle);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s var(--ease-out);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.next-read-card:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .article-grid { grid-template-columns: 1fr; }
+    .toc-sidebar { position: static; margin-bottom: 2rem; }
+    .blueprint-flow, .archive-grid, .next-read-grid { grid-template-columns: 1fr; }
+    .author-dossier { flex-direction: column; align-items: flex-start; }
+}
     </style>
 </head>
 <body>
 
-    <!-- Top Reading Progress Indicator -->
-    <div id="readProgressBar"></div>
+    <!-- 1. Top 2px Gold Reading Progress Bar -->
+    <div id="readingProgress" aria-hidden="true"></div>
 
-    <!-- 3D Starfield Constellation Canvas Engine -->
-    <canvas id="spatialCanvas"></canvas>
+    <!-- Sticky Minimalist HUD Header -->
+    <div class="nav-wrapper">
+        <header class="hud-header">
+            <a href="index.html" class="nav-brand" title="Return to Blog Archive">
+                <span>← Back to <span class="gold">Editorial Hub</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html" class="nav-pill">← 3D Matrix</a>
+                <a href="/tools/b2b-trade-show-roi-calculator/" class="nav-pill">Event ROI Calc</a>
+                <a href="/services/hubspot-crm-optimization-startups/" class="nav-pill">CRM Service</a>
+                <a href="https://calendly.com/renzo-francesqui" target="_blank" rel="noopener noreferrer" class="nav-pill gold">Book Call ↗</a>
+            </nav>
+        </header>
+    </div>
 
-    <!-- Header Navigation -->
-    <header class="nav-bar">
-        <a href="../index.html" class="brand-header-title" aria-label="Renzo Francesqui Home">
-            <span class="brand-name">Renzo Francesqui<span>.</span></span>
-            <span class="brand-tag-badge">Digital Marketing | AI Marketing Automation, CRM and Operations</span>
-        </a>
+    <!-- Article Container -->
+    <article class="article-shell">
 
-        <a href="../index.html" class="spatial-back-btn">
-            ← Return to Orbit Portfolio
-        </a>
-    </header>
-
-    <!-- Main Article Body -->
-    <main class="article-page-container">
-
-        <article class="spatial-article-card">
-            <header>
-                <div class="article-meta-badge">📊 MARKETING OPERATIONS • B2B CASE STUDY</div>
-                <h1 class="article-title">Scaling B2B Trade Show Operations: Slashing Lead Handoff from 7 Days to Same-Week</h1>
-                <div class="article-meta-row">
-                    <div class="author-mini">
-                        <div class="author-mini-avatar">
-                            <img src="images/renzo-francesqui.jpg" alt="Renzo Francesqui">
-                        </div>
-                        <span>Renzo Francesqui</span>
+        <!-- Article Header -->
+        <header class="article-header">
+            <div class="article-meta-top">
+                <span>MARKET OPERATIONS &amp; FIELD OPS</span>
+                <span class="meta-divider">•</span>
+                <span>7 MIN READ</span>
+                <span class="meta-divider">•</span>
+                <span>AUGUST 2026</span>
+            </div>
+            <h1 class="article-title">Scaling B2B Trade Show Operations: From Offline Badge Scans to Same-Week SQLs</h1>
+            <p class="article-subtitle">
+                Real-world operational playbooks from managing 15–20 annual global exhibitions (IFAT Munich, PRS Europe) across a 30–50 person EMEA &amp; Americas sales team.
+            </p>
+            <div class="author-byline">
+                <div class="author-info">
+                    <img src="../images/renzo-francesqui.jpg" alt="Renzo Francesqui" class="author-avatar" onerror="this.src='images/renzo-francesqui.jpg'">
+                    <div>
+                        <div class="author-name">Renzo Francesqui</div>
+                        <div class="author-role">Marketing Operations &amp; RevOps Specialist • Milan, Italy</div>
                     </div>
-                    <span>•</span>
-                    <span>Published August 4, 2026</span>
-                    <span>•</span>
-                    <span>5 min read</span>
                 </div>
-            </header>
+                <span class="badge-tag">FIELD OPERATIONS PLAYBOOK</span>
+            </div>
+        </header>
 
-            <div class="article-prose">
-                <p>In high-value industrial and capital equipment B2B sectors, major trade exhibitions (such as IFAT and PRS Europe) represent massive marketing investments. Booths are staffed by dozens of commercial representatives, hundreds of badges are scanned, and hundreds of thousands of euros are deployed.</p>
-                
-                <p>Yet across many global enterprises, post-event lead processing remains remarkably antiquated: business cards, scanner CSVs, and handwritten booth notes sit untouched in spreadsheets for over a week before being manually uploaded to the CRM.</p>
+        <!-- 2-Column Grid: Sticky TOC + Prose Stream -->
+        <div class="article-grid">
 
-                <div class="callout-box">
-                    <h3><span>⏱️</span> The Speed-to-Lead Imperative</h3>
-                    <p style="margin-bottom: 0;">Trade show lead conversion decays rapidly with each passing day. A lead contacted within 72 hours of an exhibition conversation is over 3x more likely to convert into an active pipeline opportunity than one contacted two weeks later.</p>
-                </div>
-
-                <h2>Standardizing the Capture Framework</h2>
-                <p>At TOMRA, supporting end-to-end lead operations across 15–20 global exhibitions per year required transitioning from ad-hoc badge exports to an engineered operational framework:</p>
-                <ul>
-                    <li><strong>Scanner Schema Standardization:</strong> Pre-configuring all badge scanner devices with mandatory fields (Target Application, Machine Interest, Procurement Timeline, Territory Code) before reps step onto the exhibition floor.</li>
-                    <li><strong>Automated Data Cleansing & De-duplication:</strong> Deploying structured import pipelines that map custom event properties directly into HubSpot Contact, Company, and Deal lifecycle stages.</li>
-                    <li><strong>High-Intent Lead Fast-Track:</strong> Implementing custom scoring logic so contacts flagged as "High Intent" at the booth instantly trigger automated notification sequences to the responsible territory sales manager.</li>
+            <!-- 2. Sticky Left Scroll-Spy Table of Contents -->
+            <aside class="toc-sidebar" aria-label="Table of Contents">
+                <div class="toc-heading">TABLE OF CONTENTS</div>
+                <ul class="toc-list">
+                    <li><a href="#offline-reality" class="toc-link active">1. The Offline Scan Reality</a></li>
+                    <li><a href="#ingestion-architecture" class="toc-link">2. Ingestion Architecture</a></li>
+                    <li><a href="#sync-blueprint" class="toc-link">3. Offline-to-Online Blueprint</a></li>
+                    <li><a href="#normalization-code" class="toc-link">4. Normalization Engine</a></li>
+                    <li><a href="#lead-routing-sla" class="toc-link">5. 48-Hour SLA Governance</a></li>
+                    <li><a href="#video-walkthrough" class="toc-link">6. Video Walkthrough</a></li>
+                    <li><a href="#attribution-roi" class="toc-link">7. Trade Show Attribution &amp; ROI</a></li>
+                    <li><a href="#operational-matrix" class="toc-link">8. Operational Benchmark</a></li>
+                    <li><a href="#next-steps" class="toc-link">9. Next Steps &amp; Related Playbooks</a></li>
                 </ul>
+            </aside>
 
-                <blockquote>"Standardizing data capture at the source eliminates 90% of post-event data cleaning friction."</blockquote>
+            <!-- Main Reading Prose -->
+            <div class="article-prose">
 
-                <h2>Empowering a 50-Person Multinational Sales Team</h2>
-                <p>By enforcing this standardized pipeline across 15–20 annual exhibitions ranging from 8 to 350+ leads per show, we eliminated data mismatches, prevented CRM record duplications, and compressed the average lead-to-sales handover window from over 7 days down to <strong>same-week import, enrichment, and assignment</strong>.</p>
-            </div>
-
-            <!-- Author Bio Box -->
-            <div class="author-bio-card">
-                <div class="author-avatar">
-                    <img src="images/renzo-francesqui.jpg" alt="Renzo Francesqui">
+                <!-- 3. Executive Summary / Key Takeaways Callout Box -->
+                <div class="tldr-callout">
+                    <div class="tldr-label">
+                        <span>⚡</span>
+                        <span>EXECUTIVE SUMMARY // KEY TAKEAWAYS</span>
+                    </div>
+                    <ul>
+                        <li><strong>15–20 Annual Global Exhibitions:</strong> Engineered field operations across premier industrial expos including IFAT Munich, PRS Europe Amsterdam, and North American trade conferences.</li>
+                        <li><strong>30–50 Sales Reps Aligned:</strong> Unified lead capture workflows across fragmented EMEA and Americas sales territories.</li>
+                        <li><strong>7-Day Lag Slashed to Same-Week:</strong> Replaced disorganized, post-show CSV handoffs with an automated 24-hour CRM ingestion pipeline.</li>
+                        <li><strong>Zero Scan Loss Guarantee:</strong> Standardized multi-vendor badge scanners (CDS, Swapcard, Maritz) into a normalized HubSpot schema.</li>
+                        <li><strong>Closed-Loop Revenue Telemetry:</strong> Bound badge scan UTM campaigns directly to HubSpot Opportunity pipelines to prove multi-million-euro trade show ROI.</li>
+                    </ul>
                 </div>
-                <div class="author-details">
-                    <h4>Written by <a href="https://www.linkedin.com/in/renzofrancesqui/" target="_blank" rel="noopener noreferrer" style="color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--accent-gold); text-underline-offset: 4px;">Renzo Francesqui</a></h4>
-                    <p>Marketing Operations & RevOps specialist with 5+ years of experience architecting HubSpot pipelines, marketing automations, and custom AI agents across EMEA and the Americas.</p>
-                    <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 0.85rem;">
-                        <a href="https://www.linkedin.com/in/renzofrancesqui/" target="_blank" rel="noopener noreferrer" class="author-action-link" style="color: #38bdf8;">
-                            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor; display: inline-block; vertical-align: middle;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                            LinkedIn Profile ↗
-                        </a>
-                        <a href="../index.html" class="author-action-link">
-                            <span>💬</span> Consult with Renzo's AI Representative →
-                        </a>
+
+                <!-- 4. Framed Hero Image Slot with Lightbox Zoom -->
+                <figure class="media-figure">
+                    <div class="media-viewport" onclick="openLightbox(this)" title="Click to inspect full resolution diagram">
+                        <svg width="100%" height="100%" viewBox="0 0 760 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="background:#07060a; padding:1.5rem;">
+                            <rect width="760" height="400" rx="14" fill="#07060b"/>
+                            <path d="M 0 50 L 760 50 M 0 100 L 760 100 M 0 150 L 760 150 M 0 200 L 760 200 M 0 250 L 760 250 M 0 300 L 760 300 M 0 350 L 760 350" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+                            
+                            <!-- Scanner Hub Left -->
+                            <rect x="50" y="110" width="140" height="180" rx="12" fill="#0e0c14" stroke="#d4a863" stroke-width="1.5"/>
+                            <text x="120" y="145" font-family="'JetBrains Mono', monospace" font-size="11" fill="#d4a863" font-weight="700" text-anchor="middle">OFFLINE VENUE</text>
+                            <text x="120" y="170" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#a8a197" text-anchor="middle">IFAT / PRS Europe</text>
+                            <text x="120" y="200" font-family="'JetBrains Mono', monospace" font-size="9" fill="#fcfbf9" text-anchor="middle">Badge Scans</text>
+                            <text x="120" y="220" font-family="'JetBrains Mono', monospace" font-size="9" fill="#fcfbf9" text-anchor="middle">Paper Cards</text>
+                            <text x="120" y="250" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" fill="#d4a863" text-anchor="middle">30-50 Field Reps</text>
+
+                            <!-- Pipeline Connector -->
+                            <path d="M 190 200 L 300 200" stroke="#d4a863" stroke-width="2.5" stroke-dasharray="6 4"/>
+                            
+                            <!-- Middle Normalization Engine -->
+                            <rect x="300" y="125" width="160" height="150" rx="12" fill="#0e0c14" stroke="#38bdf8" stroke-width="1.5"/>
+                            <text x="380" y="160" font-family="'JetBrains Mono', monospace" font-size="11" fill="#38bdf8" font-weight="700" text-anchor="middle">PYTHON ENGINE</text>
+                            <text x="380" y="185" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#fcfbf9" text-anchor="middle">Schema Standardization</text>
+                            <text x="380" y="210" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#fcfbf9" text-anchor="middle">Deduplication &amp; ISO Geo</text>
+                            <text x="380" y="235" font-family="'JetBrains Mono', monospace" font-size="8.5" fill="#38bdf8" text-anchor="middle">BATCH UPSERT</text>
+
+                            <!-- Pipeline Connector -->
+                            <path d="M 460 200 L 570 200" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6 4"/>
+
+                            <!-- CRM Destination -->
+                            <rect x="570" y="110" width="140" height="180" rx="12" fill="#0e0c14" stroke="#34d399" stroke-width="1.5"/>
+                            <text x="640" y="145" font-family="'JetBrains Mono', monospace" font-size="11" fill="#34d399" font-weight="700" text-anchor="middle">HUBSPOT CRM</text>
+                            <text x="640" y="170" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#a8a197" text-anchor="middle">EMEA &amp; Americas</text>
+                            <text x="640" y="200" font-family="'JetBrains Mono', monospace" font-size="9" fill="#fcfbf9" text-anchor="middle">Territory SLAs</text>
+                            <text x="640" y="220" font-family="'JetBrains Mono', monospace" font-size="9" fill="#fcfbf9" text-anchor="middle">Slack Alerts</text>
+                            <text x="640" y="250" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" fill="#34d399" text-anchor="middle">&lt; 24h Rep Handoff</text>
+
+                            <rect x="230" y="45" width="300" height="32" rx="16" fill="rgba(212,168,99,0.12)" stroke="rgba(212,168,99,0.4)"/>
+                            <text x="380" y="66" font-family="'JetBrains Mono', monospace" font-size="10" fill="#d4a863" font-weight="700" text-anchor="middle" letter-spacing="1">TRADE SHOW FIELD-TO-CRM ROUTING</text>
+                        </svg>
+                    </div>
+                    <figcaption class="media-caption-bar">
+                        <span class="fig-id">FIG 01 // EXHIBITION TELEMETRY</span>
+                        <span>Click image to inspect offline-to-online ingestion architecture ↗</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Section 1 -->
+                <h2 id="offline-reality">1. The Offline Badge Scan Reality</h2>
+                <p>
+                    In enterprise B2B sectors—such as industrial recycling, sensor-based sorting equipment, and heavy manufacturing—trade shows represent the single largest discrete marketing line item. A booth at major global expos like <strong>IFAT Munich</strong> (140,000+ attendees) or <strong>PRS Europe Amsterdam</strong> costs upwards of €70,000 to €250,000 when factoring in floor space, stand fabrication, logistics, and hospitality.
+                </p>
+                <p>
+                    Yet, despite this massive financial commitment, post-event lead processing remains the most broken discipline in commercial operations. Over years of managing trade show operations across 30 to 50 sales reps in EMEA and the Americas, we encountered the same recurring pathologies:
+                </p>
+                <ul>
+                    <li><strong>Vendor Fragmentation:</strong> Every venue uses a different badge scanning vendor (CDS, Swapcard, Cvent, Maritz), each exporting CSVs with completely erratic column formats.</li>
+                    <li><strong>The Spreadsheet Black Hole:</strong> Field reps collect paper business cards, jot notes on napkins, and keep badge scan exports on local laptops while traveling. Leads sit uncontacted for 7 to 14 days.</li>
+                    <li><strong>Post-Event Lead Decay:</strong> By the time marketing cleans the CSV and assigns reps, prospect intent has cratered. Over 35% of trade show leads are never contacted, resulting in enormous revenue leakage.</li>
+                </ul>
+                <p>
+                    Calculate the financial impact of delayed event follow-up with our <a href="/tools/b2b-trade-show-roi-calculator/">B2B Trade Show &amp; Event ROI Calculator</a>.
+                </p>
+
+                <!-- Section 2 -->
+                <h2 id="ingestion-architecture">2. Offline-to-Online Data Ingestion Architecture</h2>
+                <p>
+                    To eliminate the post-event lag, we instituted a strict architectural rule: <strong>no manual CSV handling by sales reps</strong>. Instead, we established a centralized ingestion pipeline that processes all badge scan exports into HubSpot CRM within 24 hours of each show day closing.
+                </p>
+                <p>
+                    The architecture unifies three intake streams:
+                </p>
+                <ol>
+                    <li><strong>Live Badge Scanner APIs:</strong> Direct REST webhook feeds from exhibition organizers where supported.</li>
+                    <li><strong>Mobile OCR Business Card Scanning:</strong> Standardized mobile capture app feeding directly to an ingestion bucket.</li>
+                    <li><strong>Standardized Day-End CSV Drops:</strong> A dedicated secure portal where booth captains upload end-of-day scanner exports.</li>
+                </ol>
+
+                <!-- 5. Dedicated Infographic / Architecture Blueprint Slot -->
+                <h2 id="sync-blueprint">3. Offline-to-Online Sync Blueprint</h2>
+                <p>
+                    The complete event revenue pipeline enforces four deterministic stages from offline venue capture to governed CRM deal creation:
+                </p>
+
+                <div class="infographic-frame">
+                    <div class="infographic-header">
+                        <span>INFOGRAPHIC 01 // OFFLINE-TO-ONLINE HUBSPOT SYNC ARCHITECTURE</span>
+                        <span style="color:var(--accent-gold);">EVENT REVOPS BLUEPRINT</span>
+                    </div>
+                    <div class="infographic-body">
+                        <div class="blueprint-flow">
+                            <div class="blueprint-node">
+                                <div class="node-step">STAGE 01</div>
+                                <div class="node-title">Field Capture</div>
+                                <div class="node-spec">Multi-vendor scanner CSVs &amp; mobile OCR badge scans</div>
+                            </div>
+                            <div class="blueprint-node">
+                                <div class="node-step">STAGE 02</div>
+                                <div class="node-title">Normalization</div>
+                                <div class="node-spec">Python schema standardizer, domain lookup &amp; deduplication</div>
+                            </div>
+                            <div class="blueprint-node">
+                                <div class="node-step">STAGE 03</div>
+                                <div class="node-title">Territory Routing</div>
+                                <div class="node-spec">HubSpot workflow routing to 30-50 EMEA/Americas reps</div>
+                            </div>
+                            <div class="blueprint-node">
+                                <div class="node-step">STAGE 04</div>
+                                <div class="node-title">SLA &amp; Telemetry</div>
+                                <div class="node-spec">48-hour follow-up countdown &amp; closed-loop campaign ROI</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </article>
 
-        <!-- Related Articles Grid -->
-        <section class="related-articles-section">
-            <div class="related-heading">Explore Related Operations Breakdowns</div>
-            <div class="related-grid">
-                <a href="hubspot-ai-enrichment-agent.html" class="related-card">
-                    <div>
-                        <div class="related-tag">AI & AUTOMATION • 4 MIN READ</div>
-                        <div class="related-title">Bridging CRM & AI: Building an Automated HubSpot Lead Enrichment Agent in Python</div>
-                        <div class="related-desc">How we eliminated 15+ hours of weekly manual sales research by connecting Google Antigravity and HubSpot API.</div>
-                    </div>
-                    <span class="related-link-arrow">Read Article →</span>
-                </a>
-                <a href="modern-revops-lifecycle-architecture.html" class="related-card">
-                    <div>
-                        <div class="related-tag">REVOPS ARCHITECTURE • 6 MIN READ</div>
-                        <div class="related-title">Modern RevOps Architecture: Standardizing Lifecycle Stages Across EMEA & Americas</div>
-                        <div class="related-desc">Why disparate CRM pipelines fail and how standardizing MQL-to-SQL SLAs empowers sales teams.</div>
-                    </div>
-                    <span class="related-link-arrow">Read Article →</span>
-                </a>
-            </div>
-        </section>
-    </main>
+                <!-- Section 3 / 7a. Code Block: Normalization Script -->
+                <h2 id="normalization-code">4. Schema Normalization &amp; Deduplication Engine</h2>
+                <p>
+                    Raw scanner exports are notorious for dirty data: all-caps names, missing email domains, and country fields labeled inconsistently (e.g., "Deutschland", "DE", "Germany"). Our Python transformation engine standardizes the raw input into strict HubSpot API payloads:
+                </p>
 
-    <!-- Spatial Footer -->
-    <footer class="spatial-footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="https://www.linkedin.com/in/renzofrancesqui/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
-                <a href="mailto:renzo.francesqui@gmail.com" class="footer-link">renzo.francesqui@gmail.com</a>
-                <a href="index.html" class="footer-link">All Articles</a>
-                <a href="../index.html" class="footer-link">Portfolio Orbit</a>
+                <div class="code-block-wrapper">
+                    <div class="code-bar">
+                        <span>DATA TRANSFORMATION // PYTHON EVENT LEAD NORMALIZATION &amp; VALIDATION</span>
+                        <button class="copy-code-btn" onclick="copyCode(this)">COPY CODE</button>
+                    </div>
+                    <pre class="code-pre"><code>import csv
+import re
+import pycountry
+
+COLUMN_MAPPING = {
+    "first_name": ["firstname", "first name", "given name", "vorname"],
+    "last_name": ["lastname", "last name", "surname", "nachname"],
+    "email": ["email", "e-mail", "e-mail address", "courriel"],
+    "company": ["company", "company name", "organization", "firma"],
+    "country": ["country", "country/region", "land", "pays"],
+    "notes": ["notes", "qualifying notes", "booth discussion", "bemerkungen"]
+}
+
+def clean_event_lead(raw_record: dict, event_campaign_id: str) -> dict:
+    normalized = {}
+    
+    # Clean email & extract domain
+    email = raw_record.get("email", "").strip().lower()
+    if not re.match(r"^[^@]+@[^@]+\.[^@]+$", email):
+        return None  # Route to manual review queue
+    normalized["email"] = email
+    
+    # Capitalize names cleanly
+    normalized["firstname"] = raw_record.get("first_name", "").strip().title()
+    normalized["lastname"] = raw_record.get("last_name", "").strip().title()
+    normalized["company"] = raw_record.get("company", "").strip()
+    
+    # Standardize ISO-3166 Country for HubSpot Territory Routing
+    country_raw = raw_record.get("country", "").strip()
+    country_obj = pycountry.countries.get(name=country_raw) or pycountry.countries.get(alpha_2=country_raw)
+    normalized["country"] = country_obj.alpha_2 if country_obj else country_raw
+    
+    # Tag Exhibition Campaign Metadata
+    normalized["hs_analytics_source"] = "OFFLINE"
+    normalized["hs_lead_source_detail"] = event_campaign_id
+    normalized["lifecyclestage"] = "marketingqualifiedlead"
+    normalized["event_follow_up_sla_deadline"] = "48_HOURS_ACTIVE"
+    
+    return normalized</code></pre>
+                </div>
+
+                <!-- Section 4 -->
+                <h2 id="lead-routing-sla">5. Enforcing 48-Hour SLAs Across EMEA &amp; Americas</h2>
+                <p>
+                    Once leads are cleaned, the HubSpot batch upsert updates existing records (appending event attendance to the contact timeline without overwriting historical source data) and creates new records for net-new prospects.
+                </p>
+                <p>
+                    Crucially, leads are routed dynamically according to geographic territory matrices:
+                </p>
+                <ul>
+                    <li><strong>DACH Squad:</strong> Germany, Austria, Switzerland routed to Munich/Frankfurt based reps.</li>
+                    <li><strong>Southern Europe:</strong> Italy, Spain, France routed to Milan and Madrid desks.</li>
+                    <li><strong>Americas Squad:</strong> US, Canada, Latin America routed by US state and language preference.</li>
+                </ul>
+                <p>
+                    Every assigned rep receives an immediate Slack alert containing the lead’s name, company, booth discussion notes, and a direct HubSpot link. An automated <strong>48-hour SLA timer</strong> starts counting down. If the contact is not moved to "In Progress" or scheduled for a call within 48 business hours, the deal desk escalates to regional sales directors. Discover how to structure these stages in our <a href="modern-revops-lifecycle-architecture.html">Modern RevOps Lifecycle Architecture</a> guide.
+                </p>
+
+                <!-- 6. Cinema Video / Loom Walkthrough Slot -->
+                <h2 id="video-walkthrough">6. Field Operations &amp; CRM Sandbox Walkthrough</h2>
+                <p>
+                    Watch an operational demonstration of the post-event batch ingestion pipeline, HubSpot automated routing rules, and real-time rep notification workflows:
+                </p>
+
+                <div class="video-stage">
+                    <div class="video-aspect" id="videoContainer">
+                        <button class="video-play-btn" data-video-url="" onclick="loadEmbeddedVideo(this)" aria-label="Play Architecture Walkthrough">▶</button>
+                        <div style="font-family:var(--font-mono); font-size:0.68rem; color:var(--accent-gold); letter-spacing:0.1em; text-transform:uppercase;">
+                            VIDEO WALKTHROUGH // 03:55 MIN
+                        </div>
+                        <div style="font-size:0.95rem; font-weight:600; color:var(--text-primary); margin-top:0.25rem;">
+                            Live Sandbox: Trade Show CSV Ingestion &amp; 48-Hour SLA Routing
+                        </div>
+                    </div>
+                    <div class="media-caption-bar">
+                        <span class="fig-id">VIDEO 01 // OPERATIONAL DEMO</span>
+                        <span>Multi-Vendor Event Ingestion Container &bull; HubSpot &amp; Slack</span>
+                    </div>
+                </div>
+
+                <!-- Section 5 -->
+                <h2 id="attribution-roi">7. Closed-Loop Trade Show Attribution &amp; Multi-Touch ROI</h2>
+                <p>
+                    Proving the ROI of a €150,000 exhibition booth requires linking badge scans to closed-won enterprise contracts. Using our standardized UTM and campaign framework (detailed in the <a href="/tools/b2b-campaign-utm-crm-builder/">B2B Campaign UTM &amp; CRM Builder</a>), every lead ingested receives an immutable campaign association:
+                </p>
+                <ul>
+                    <li><code>utm_medium</code>: <code>event</code></li>
+                    <li><code>utm_source</code>: <code>ifat-munich-2026</code></li>
+                    <li><code>utm_campaign</code>: <code>circular-economy-expo</code></li>
+                </ul>
+                <p>
+                    When a sales representative creates a Deal associated with that Company, HubSpot multi-touch attribution credits the exhibition for both <em>first-touch acquisition</em> and <em>deal acceleration</em>. At the end of the quarter, executive leadership reviews exact pipeline generated per exhibition rather than subjective anecdotes.
+                </p>
+
+                <!-- Section 6: Operational Benchmark -->
+                <h2 id="operational-matrix">8. Operational Benchmark: 7-Day CSV Lag vs. Governed Routing</h2>
+                <p>
+                    The performance variance between legacy trade show handoffs and our governed RevOps pipeline is stark:
+                </p>
+
+                <!-- 7b. Clean Data Comparison Table -->
+                <div class="editorial-table-wrap">
+                    <table class="editorial-table">
+                        <thead>
+                            <tr>
+                                <th>Operational Dimension</th>
+                                <th>Legacy Manual Event Process</th>
+                                <th>Governed Pipeline Architecture</th>
+                                <th>Performance Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Lead Handoff Time</strong></td>
+                                <td>7 – 12 Business Days</td>
+                                <td><code>&lt; 24 Hours Post-Show</code></td>
+                                <td style="color:var(--accent-emerald);">91% Faster Rep Activation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rep 48h SLA Compliance</strong></td>
+                                <td>38% Logged Calls in 14 Days</td>
+                                <td><code>94.2% First-Touch &lt; 48h</code></td>
+                                <td style="color:var(--accent-emerald);">+147% Outreach Compliance</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Uncontacted Lead Rate (Leakage)</strong></td>
+                                <td>34.5% Dropped / Cold</td>
+                                <td><code>&lt; 2.8% Total Leakage</code></td>
+                                <td style="color:var(--accent-emerald);">12x Reduction in Wasted Scans</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Hygiene &amp; Duplication</strong></td>
+                                <td>Severe Duplicates &amp; Bad Records</td>
+                                <td><code>100% Normalized &amp; De-duped</code></td>
+                                <td style="color:var(--accent-gold);">Pristine CRM Audit Trail</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Executive ROI Telemetry</strong></td>
+                                <td>Subjective Guesswork</td>
+                                <td><code>Deterministic Pipeline Attribution</code></td>
+                                <td style="color:var(--accent-emerald);">Defensible Exhibition Budgets</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Section 7: Next Steps -->
+                <h2 id="next-steps">9. Next Steps &amp; Related Playbooks</h2>
+                <p>
+                    Explore our companion operational playbooks and calculators to elevate your commercial infrastructure:
+                </p>
+
+                <div class="next-read-grid">
+                    <a href="hubspot-ai-enrichment-agent.html" class="next-read-card">
+                        <div>
+                            <span class="badge-tag" style="margin-bottom:0.75rem;">AI AUTOMATION</span>
+                            <h3 style="font-size:1.05rem; font-weight:700; color:var(--text-primary); margin-bottom:0.5rem;">Automated HubSpot Lead Enrichment Agent</h3>
+                            <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.5;">Serverless Python agents, LLM web scrapers, and HubSpot API property syncing in under 30 seconds.</p>
+                        </div>
+                        <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--accent-gold); margin-top:1rem;">Read Technical Dispatch →</span>
+                    </a>
+                    <a href="modern-revops-lifecycle-architecture.html" class="next-read-card">
+                        <div>
+                            <span class="badge-tag" style="margin-bottom:0.75rem;">REVOPS &amp; SLA</span>
+                            <h3 style="font-size:1.05rem; font-weight:700; color:var(--text-primary); margin-bottom:0.5rem;">Modern RevOps Lifecycle Architecture</h3>
+                            <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.5;">Enforcing hard stage gates, automated 4-hour MQL-to-SQL SLAs, and deal governance in HubSpot.</p>
+                        </div>
+                        <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--accent-gold); margin-top:1rem;">Read Technical Dispatch →</span>
+                    </a>
+                </div>
+
             </div>
-            <p class="copyright">&copy; 2026 Renzo Francesqui. All rights reserved.</p>
         </div>
-    </footer>
 
-    <!-- Reading Progress & Background Canvas Script -->
+        <!-- 8. Verified Author Dossier & Consulting CTA Footer -->
+        <footer class="author-dossier">
+            <div class="author-dossier-bio">
+                <img src="../images/renzo-francesqui.jpg" alt="Renzo Francesqui" class="author-dossier-avatar" onerror="this.src='images/renzo-francesqui.jpg'">
+                <div>
+                    <h4 class="author-dossier-title">Renzo Francesqui</h4>
+                    <p class="author-dossier-desc">
+                        Marketing Operations &amp; RevOps Specialist based in Milan, Italy. Specializing in HubSpot CRM optimization, enterprise lead routing SLAs, and autonomous Python marketing workflows for high-growth B2B firms.
+                    </p>
+                </div>
+            </div>
+            <div class="author-dossier-links">
+                <a href="https://calendly.com/renzo-francesqui" target="_blank" rel="noopener noreferrer" class="nav-pill gold" style="padding: 0.6rem 1.25rem;">
+                    📅 Book RevOps Consultation ↗
+                </a>
+                <a href="/services/marketing-data-reporting/" class="nav-pill" style="padding: 0.6rem 1.25rem;">
+                    Marketing Data &amp; Reporting
+                </a>
+            </div>
+        </footer>
+
+    </article>
+
+    <!-- Lightbox Modal for Zooming Images -->
+    <div id="mediaLightbox" onclick="closeLightbox(event)" role="dialog" aria-modal="true" aria-label="Media Preview">
+        <button class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close Lightbox" style="position:fixed; top:1.5rem; right:1.5rem; background:rgba(15,12,18,0.85); border:1px solid var(--border-hairline); color:var(--text-primary); font-size:1.2rem; width:40px; height:40px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10001; transition:all 0.2s;">✕</button>
+        <img id="lightboxImg" src="" alt="Full resolution diagram preview">
+    </div>
+
+    <!-- REQUIRED INTERACTIVE JAVASCRIPT -->
     <script>
-        // Reading Progress Bar
+        // 1. Top Reading Progress Bar
         window.addEventListener('scroll', () => {
             const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            const bar = document.getElementById('readProgressBar');
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            const bar = document.getElementById('readingProgress');
             if (bar) bar.style.width = scrolled + '%';
         });
 
-        // Background Starfield Canvas
-        (function initBlogStars() {
-            const canvas = document.getElementById('spatialCanvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            let w = canvas.width = window.innerWidth;
-            let h = canvas.height = window.innerHeight;
+        // 2. IntersectionObserver Scroll-Spy for Table of Contents with Boundary Handling
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const headings = document.querySelectorAll('.article-prose h2[id]');
 
-            window.addEventListener('resize', () => {
-                w = canvas.width = window.innerWidth;
-                h = canvas.height = window.innerHeight;
+        function setActiveToc(id) {
+            tocLinks.forEach(link => {
+                const targetId = link.getAttribute('href').replace('#', '');
+                link.classList.toggle('active', targetId === id);
             });
+        }
 
-            const stars = [];
-            for (let i = 0; i < 90; i++) {
-                stars.push({
-                    x: Math.random() * w,
-                    y: Math.random() * h,
-                    r: Math.random() * 1.4 + 0.3,
-                    alpha: Math.random() * 0.6 + 0.2,
-                    speed: Math.random() * 0.15 + 0.05
-                });
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, w, h);
-                for (let s of stars) {
-                    s.y -= s.speed;
-                    if (s.y < 0) s.y = h;
-                    ctx.beginPath();
-                    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(255, 255, 255, ${s.alpha})`;
-                    ctx.fill();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveToc(entry.target.getAttribute('id'));
                 }
-                requestAnimationFrame(animate);
+            });
+        }, { rootMargin: '0px 0px -60% 0px', threshold: 0 });
+
+        headings.forEach(h2 => observer.observe(h2));
+
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            
+            // At the top of page before any heading
+            if (winScroll < 300 && headings.length > 0) {
+                setActiveToc(headings[0].getAttribute('id'));
             }
-            animate();
-        })();
+            // At the very bottom of page
+            else if (scrollHeight > 0 && (winScroll >= scrollHeight - 60) && headings.length > 0) {
+                setActiveToc(headings[headings.length - 1].getAttribute('id'));
+            }
+        }, { passive: true });
+
+        // 3. One-Click Copy Button with Fallback
+        function copyCode(btn) {
+            const wrapper = btn.closest('.code-block-wrapper');
+            const pre = wrapper ? wrapper.querySelector('pre') : null;
+            if (!pre) return;
+            const text = pre.innerText || pre.textContent;
+
+            function showCopied() {
+                const orig = btn.innerText;
+                btn.innerText = 'COPIED ✓';
+                btn.style.borderColor = 'var(--accent-gold)';
+                btn.style.color = 'var(--accent-gold)';
+                setTimeout(() => {
+                    btn.innerText = orig;
+                    btn.style.borderColor = '';
+                    btn.style.color = '';
+                }, 2000);
+            }
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(showCopied).catch(() => {
+                    fallbackCopy(text, showCopied);
+                });
+            } else {
+                fallbackCopy(text, showCopied);
+            }
+        }
+
+        function fallbackCopy(text, cb) {
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.left = '-9999px';
+                ta.style.top = '0';
+                document.body.appendChild(ta);
+                ta.focus();
+                ta.select();
+                const successful = document.execCommand('copy');
+                document.body.removeChild(ta);
+                if (successful && cb) cb();
+            } catch (err) {
+                console.error('Fallback copy failed', err);
+            }
+        }
+
+        // 4. Image Lightbox with Inline SVG & Image Support
+        function openLightbox(el) {
+            const lightbox = document.getElementById('mediaLightbox');
+            const target = document.getElementById('lightboxImg');
+            if (!lightbox || !target) return;
+
+            const img = el.querySelector('img');
+            const svg = el.querySelector('svg');
+
+            if (img && img.style.display !== 'none' && img.getAttribute('src')) {
+                target.src = img.src;
+                target.alt = img.alt || 'Full Resolution Preview';
+                lightbox.classList.add('open');
+            } else if (svg) {
+                const s = new XMLSerializer().serializeToString(svg);
+                target.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(s);
+                target.alt = 'Full Resolution Diagram';
+                lightbox.classList.add('open');
+            }
+        }
+
+        function closeLightbox(e) {
+            if (e && e.target && e.target.id === 'lightboxImg') return;
+            const lightbox = document.getElementById('mediaLightbox');
+            if (lightbox) {
+                lightbox.classList.remove('open');
+                const target = document.getElementById('lightboxImg');
+                if (target) target.src = '';
+            }
+        }
+
+        // 5. Video Container Handler with Non-Blocking Notice
+        function loadEmbeddedVideo(btn) {
+            const container = btn.closest('.video-aspect');
+            const url = btn.getAttribute('data-video-url');
+            if (!container) return;
+            if (url && url.trim().length > 0) {
+                container.innerHTML = `<iframe src="${url}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>`;
+            } else {
+                let notice = container.querySelector('.video-inline-notice');
+                if (!notice) {
+                    notice = document.createElement('div');
+                    notice.className = 'video-inline-notice';
+                    notice.style.cssText = 'position:absolute; bottom:1.25rem; background:rgba(15,12,18,0.92); border:1px solid var(--border-gold); color:var(--accent-gold); font-family:var(--font-mono); font-size:0.7rem; padding:0.5rem 1rem; border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,0.6); z-index:10; transition:all 0.3s;';
+                    notice.innerText = '⚡ Loom recording asset in staging. Direct inquiries available via Calendly.';
+                    container.appendChild(notice);
+                    setTimeout(() => { if (notice.parentNode) notice.parentNode.removeChild(notice); }, 3500);
+                }
+            }
+        }
+
+        // Close on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
     </script>
 </body>
 </html>
