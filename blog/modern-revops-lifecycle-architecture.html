@@ -828,6 +828,42 @@ pre.code-pre {
     .blueprint-flow, .archive-grid, .next-read-grid { grid-template-columns: 1fr; }
     .author-dossier { flex-direction: column; align-items: flex-start; }
 }
+    
+.lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-hairline);
+    border-radius: 9999px;
+    padding: 2px 4px;
+    gap: 2px;
+}
+.lang-divider {
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    font-family: var(--font-mono);
+    opacity: 0.45;
+}
+.lang-btn {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    transition: all 0.2s var(--ease-out);
+    line-height: 1;
+}
+.lang-btn:hover {
+    color: var(--text-primary);
+}
+.lang-btn.active {
+    background: var(--bg-active);
+    color: var(--accent-gold);
+    border: 1px solid var(--border-gold);
+}
+
     </style>
 </head>
 <body>
@@ -846,6 +882,11 @@ pre.code-pre {
                 <a href="/tools/mql-to-sql-sla-lead-leakage-calculator/" class="nav-pill">SLA Calculator</a>
                 <a href="/services/hubspot-crm-optimization-startups/" class="nav-pill">RevOps Service</a>
                 <a href="https://calendly.com/renzo-francesqui" target="_blank" rel="noopener noreferrer" class="nav-pill gold">Book Call ↗</a>
+                            <div class="lang-switcher" aria-label="Language selector">
+                    <a href="/blog/" class="lang-btn active" title="English">EN</a>
+                    <span class="lang-divider">/</span>
+                    <a href="/it/" class="lang-btn" title="Italiano">IT</a>
+                </div>
             </nav>
         </header>
     </div>
@@ -1456,6 +1497,17 @@ ORDER BY days_in_stage DESC;</code></pre>
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
         });
+
+        // Protocol fallback for file:// protocol so local file browsing works without web server
+        if (window.location.protocol === 'file:') {
+            document.querySelectorAll('.lang-switcher .lang-btn').forEach(btn => {
+                if (btn.textContent.trim().toUpperCase() === 'IT') {
+                    btn.href = '../it/index.html';
+                } else {
+                    btn.href = 'index.html';
+                }
+            });
+        }
     </script>
 </body>
 </html>

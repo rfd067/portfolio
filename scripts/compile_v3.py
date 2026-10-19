@@ -4084,16 +4084,157 @@ UPGRADED_TOOLS_JS = '''        // ==============================================
             if (elHours) elHours.innerText = `${hoursSaved} ${isIt ? 'ore' : 'hrs'}`;
         }
 
+        // Protocol fallback for file:// protocol so local file browsing works without web server
+        function initLangSwitcherProtocolFallback() {
+            if (window.location.protocol === 'file:') {
+                const isCurrentIt = document.documentElement.lang === 'it' || window.location.pathname.toLowerCase().indexOf('/it/') !== -1;
+                const isV3 = window.location.pathname.toLowerCase().indexOf('version-3') !== -1;
+                document.querySelectorAll('.lang-switcher .lang-btn').forEach(btn => {
+                    const isItBtn = btn.textContent.trim().toUpperCase() === 'IT';
+                    if (isItBtn) {
+                        btn.href = isCurrentIt ? 'index.html' : 'it/index.html';
+                    } else {
+                        btn.href = isCurrentIt ? '../index.html' : 'index.html';
+                    }
+                });
+                const brandLink = document.querySelector('.brand-header-title');
+                if (brandLink) {
+                    brandLink.href = 'index.html';
+                }
+                document.querySelectorAll('a[href^="/"]').forEach(a => {
+                    const href = a.getAttribute('href');
+                    if (href.startsWith('/services/') || href.startsWith('/it/services/')) {
+                        const targetSlug = href.replace(/\\/$/, '').split('/').pop();
+                        const isItTarget = href.startsWith('/it/services/');
+                        if (isV3) {
+                            if (isCurrentIt) {
+                                a.href = isItTarget ? `../../it/services/${targetSlug}/index.html` : `../../services/${targetSlug}/index.html`;
+                            } else {
+                                a.href = isItTarget ? `../it/services/${targetSlug}/index.html` : `../services/${targetSlug}/index.html`;
+                            }
+                        } else {
+                            if (isCurrentIt) {
+                                a.href = isItTarget ? `services/${targetSlug}/index.html` : `../services/${targetSlug}/index.html`;
+                            } else {
+                                a.href = isItTarget ? `it/services/${targetSlug}/index.html` : `services/${targetSlug}/index.html`;
+                            }
+                        }
+                    } else if (href.startsWith('/tools/') || href.startsWith('/it/tools/')) {
+                        const targetSlug = href.replace(/\\/$/, '').split('/').pop();
+                        const isItTarget = href.startsWith('/it/tools/');
+                        if (isV3) {
+                            if (isCurrentIt) {
+                                a.href = isItTarget ? `../../it/tools/${targetSlug}/index.html` : `../../tools/${targetSlug}/index.html`;
+                            } else {
+                                a.href = isItTarget ? `../it/tools/${targetSlug}/index.html` : `../tools/${targetSlug}/index.html`;
+                            }
+                        } else {
+                            if (isCurrentIt) {
+                                a.href = isItTarget ? `tools/${targetSlug}/index.html` : `../tools/${targetSlug}/index.html`;
+                            } else {
+                                a.href = isItTarget ? `it/tools/${targetSlug}/index.html` : `tools/${targetSlug}/index.html`;
+                            }
+                        }
+                    } else if (href.startsWith('/blog/')) {
+                        if (isV3) {
+                            a.href = isCurrentIt ? `../../${href.slice(1)}` : `../${href.slice(1)}`;
+                        } else {
+                            a.href = isCurrentIt ? `../${href.slice(1)}` : href.slice(1);
+                        }
+                    } else if (href.startsWith('/version-3/it/')) {
+                        a.href = isCurrentIt ? 'index.html' : 'it/index.html';
+                    } else if (href.startsWith('/version-3/')) {
+                        a.href = isCurrentIt ? '../index.html' : 'index.html';
+                    } else if (href === '/it/' || href === '/it/index.html') {
+                        a.href = isCurrentIt ? 'index.html' : (isV3 ? '../it/index.html' : 'it/index.html');
+                    } else if (href === '/' || href === '/index.html') {
+                        a.href = isCurrentIt ? (isV3 ? '../../index.html' : '../index.html') : (isV3 ? '../index.html' : 'index.html');
+                    }
+                });
+            }
+        }
+
+        // Global file:// link click safety handler
+        document.addEventListener('click', function(e) {
+            if (window.location.protocol !== 'file:') return;
+            const a = e.target.closest('a');
+            if (!a) return;
+            const href = a.getAttribute('href');
+            if (href && href.startsWith('/')) {
+                e.preventDefault();
+                const isCurrentIt = document.documentElement.lang === 'it' || window.location.pathname.toLowerCase().indexOf('/it/') !== -1;
+                const isV3 = window.location.pathname.toLowerCase().indexOf('version-3') !== -1;
+                
+                if (href === '/' || href === '/index.html') {
+                    if (isV3) {
+                        window.location.href = isCurrentIt ? '../../index.html' : '../index.html';
+                    } else {
+                        window.location.href = isCurrentIt ? '../index.html' : 'index.html';
+                    }
+                } else if (href === '/it/' || href === '/it/index.html') {
+                    if (isV3) {
+                        window.location.href = isCurrentIt ? '../it/index.html' : '../it/index.html';
+                    } else {
+                        window.location.href = isCurrentIt ? 'index.html' : 'it/index.html';
+                    }
+                } else if (href === '/version-3/' || href === '/version-3/index.html') {
+                    window.location.href = isCurrentIt ? '../index.html' : 'index.html';
+                } else if (href === '/version-3/it/' || href === '/version-3/it/index.html') {
+                    window.location.href = isCurrentIt ? 'index.html' : 'it/index.html';
+                } else if (href.startsWith('/services/') || href.startsWith('/it/services/')) {
+                    const slug = href.replace(/\\/$/, '').split('/').pop();
+                    const isItTarget = href.startsWith('/it/services/');
+                    if (isV3) {
+                        if (isCurrentIt) {
+                            window.location.href = isItTarget ? `../../it/services/${slug}/index.html` : `../../services/${slug}/index.html`;
+                        } else {
+                            window.location.href = isItTarget ? `../it/services/${slug}/index.html` : `../services/${slug}/index.html`;
+                        }
+                    } else {
+                        if (isCurrentIt) {
+                            window.location.href = isItTarget ? `services/${slug}/index.html` : `../services/${slug}/index.html`;
+                        } else {
+                            window.location.href = isItTarget ? `it/services/${slug}/index.html` : `services/${slug}/index.html`;
+                        }
+                    }
+                } else if (href.startsWith('/tools/') || href.startsWith('/it/tools/')) {
+                    const slug = href.replace(/\\/$/, '').split('/').pop();
+                    const isItTarget = href.startsWith('/it/tools/');
+                    if (isV3) {
+                        if (isCurrentIt) {
+                            window.location.href = isItTarget ? `../../it/tools/${slug}/index.html` : `../../tools/${slug}/index.html`;
+                        } else {
+                            window.location.href = isItTarget ? `../it/tools/${slug}/index.html` : `../tools/${slug}/index.html`;
+                        }
+                    } else {
+                        if (isCurrentIt) {
+                            window.location.href = isItTarget ? `tools/${slug}/index.html` : `../tools/${slug}/index.html`;
+                        } else {
+                            window.location.href = isItTarget ? `it/tools/${slug}/index.html` : `tools/${slug}/index.html`;
+                        }
+                    }
+                } else {
+                    if (isV3) {
+                        window.location.href = isCurrentIt ? `../../${href.slice(1)}` : `../${href.slice(1)}`;
+                    } else {
+                        window.location.href = isCurrentIt ? `..${href}` : href.slice(1);
+                    }
+                }
+            }
+        }, true);
+
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
                 updateSlaCalculator();
                 updateUtmBuilder();
                 updateTradeShowRoi();
+                initLangSwitcherProtocolFallback();
             });
         } else {
             updateSlaCalculator();
             updateUtmBuilder();
             updateTradeShowRoi();
+            initLangSwitcherProtocolFallback();
         }'''
 
 def build_en_html(src):
@@ -4147,12 +4288,12 @@ def build_en_html(src):
     extra_header_btns = r'(?:<a href="/" class="hud-action-pill"[^>]*>[\s\S]*?CLASSIC V1\.5[\s\S]*?</a>\s*|<button class="hud-action-pill" onclick="focusOnPlanet\(\'services\'\)"[^>]*>[\s\S]*?</button>\s*)'
     html = re.sub(extra_header_btns, '', html)
 
-    # Language Switcher links for EN
+    # Language Switcher links for EN (version-3)
     lang_switcher_pattern = r'<div class="lang-switcher" aria-label="Language selector">[\s\S]*?</div>'
     lang_switcher_en = '''<div class="lang-switcher" aria-label="Language selector">
-                    <a href="index.html" class="lang-btn active" title="English">EN</a>
+                    <a href="/version-3/" class="lang-btn active" title="English">EN</a>
                     <span class="lang-divider">/</span>
-                    <a href="it/index.html" class="lang-btn" title="Italiano">IT</a>
+                    <a href="/version-3/it/" class="lang-btn" title="Italiano">IT</a>
                 </div>'''
     html = re.sub(lang_switcher_pattern, lang_switcher_en, html)
 
@@ -4564,11 +4705,11 @@ def build_it_html(en_html):
     it = it.replace('<span>🔊</span> SOUND: ON', '<span>🔊</span> AUDIO: ON')
     it = it.replace('<span>🪐</span> ORBIT VIEW', '<span>🪐</span> VISTA ORBITA')
 
-    # Language Switcher
+    # Language Switcher (version-3 it)
     lang_switcher_it = '''<div class="lang-switcher" aria-label="Language selector">
-                    <a href="../index.html" class="lang-btn" title="English">EN</a>
+                    <a href="/version-3/" class="lang-btn" title="English">EN</a>
                     <span class="lang-divider">/</span>
-                    <a href="index.html" class="lang-btn active" title="Italiano">IT</a>
+                    <a href="/version-3/it/" class="lang-btn active" title="Italiano">IT</a>
                 </div>'''
     it = re.sub(r'<div class="lang-switcher" aria-label="Language selector">[\s\S]*?</div>', lang_switcher_it, it)
 
@@ -4689,7 +4830,10 @@ def build_it_html(en_html):
 
     it = it.replace('Inquire / Consult ✉️', 'Richiedi Consulenza ✉️')
     it = it.replace('Explore Scope ↗', 'Esplora Scheda ↗')
-    it = it.replace('/services/', '/it/services/')
+    # Targeted replacements for service links in HTML markup (leaves <script> blocks intact)
+    it = it.replace('href="/services/', 'href="/it/services/')
+    it = it.replace('value="https://renzo-francesqui.vercel.app/services/', 'value="https://renzo-francesqui.vercel.app/it/services/')
+    it = it.replace('https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/?utm_source=', 'https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups/?utm_source=')
 
     it = it.replace('Ready to scale your marketing engine?', 'Pronto a scalare il tuo motore di marketing?')
     it = it.replace('Get in touch directly or download verified CV for freelance engagement.', 'Contattami direttamente o scarica il CV verificato per collaborazioni freelance.')
@@ -4812,8 +4956,33 @@ def build_it_html(en_html):
             }"""
     it = re.sub(
         r'// Services & Freelance Query[\s\S]*?return "I offer \*\*4 specialized freelance solutions\*\*[\s\S]*?;\s*\}',
-        it_ai_services_response,
+        lambda m: it_ai_services_response,
         it
+    )
+
+    it = it.replace(
+        'My **HubSpot CRM Experience** spans over 5 years across platform administration, schema design, and pipeline operations. At TOMRA, I co-led the HubSpot buildout for 30–50 sales reps in EMEA and Americas. At IMBAREX, I standardized property schemas across 10+ countries. I hold certifications in **HubSpot CRM Administration**, **RevOps**, and **Marketing Automation**.',
+        'La mia esperienza su **HubSpot CRM** supera i 5 anni tra amministrazione di piattaforma, progettazione degli schemi e gestione delle pipeline. In TOMRA ho co-guidato l\'adozione di HubSpot per 30-50 commerciali in EMEA e Americhe. In IMBAREX ho standardizzato le proprietà in oltre 10 paesi. Ho certificazioni in **HubSpot CRM Administration**, **RevOps** e **Marketing Automation**.'
+    )
+    it = it.replace(
+        'I am currently **preparing for and actively pursuing the Salesforce Administrator certification** to expand multi-CRM interoperability alongside my 5+ years of advanced HubSpot administration.',
+        'Sto attualmente **preparando e conseguendo la certificazione Salesforce Administrator** per espandere l\'interoperabilità multi-CRM insieme ai miei 5+ anni di amministrazione avanzata su HubSpot.'
+    )
+    it = it.replace(
+        'I design and orchestrate **AI marketing automation workflows** using tools like Google Antigravity, LLM prompt architectures, and HubSpot webhooks. My **Automated CRM Enrichment Agent** extracts domain insights and classifies firmographics against ICP criteria in under 30 seconds, saving 15+ hours weekly.',
+        'Progetto e sviluppo **workflow di automazione marketing AI** con strumenti come Google Antigravity, architetture prompt LLM e webhook HubSpot. Il mio **Agente Automatizzato di Arricchimento CRM** estrae insight di dominio e classifica i dati firmografici secondo criteri ICP in meno di 30 secondi, risparmiando oltre 15 ore a settimana.'
+    )
+    it = it.replace(
+        'I currently work at **TOMRA** in Parma, Italy, as **Marketing Events Support | CRM & Marketing Operations** (since October 2024), managing lead capture operations for 15–20 global exhibitions and building lead scoring logic.',
+        'Lavoro attualmente in **TOMRA** a Parma come **Marketing Events Support | CRM & Marketing Operations** (da ottobre 2024), gestendo le operazioni di lead capture per 15-20 fiere globali e sviluppando logiche di lead scoring.'
+    )
+    it = it.replace(
+        'I am based in **Milan, Italy**. For inquiries and senior opportunities, reach out directly via the **Get in Touch** orb!',
+        'Ho base a **Milano**. Per richieste e collaborazioni, contattami direttamente tramite l\'orb **Contattami**!'
+    )
+    it = it.replace(
+        'At **The Pisonay Company**, I led the **Go-To-Market (GTM)** execution across SEO/SEM, email automations, and CRM workflows for high-value developments, achieving a 100% inventory sell-out before project completion.',
+        'In **The Pisonay Company** ho guidato l\'esecuzione del **Go-To-Market (GTM)** attraverso SEO/SEM, automazioni email e workflow CRM per sviluppi immobiliari ad alto valore, raggiungendo il 100% di vendite prima del completamento.'
     )
 
     # Audio toggle strings
@@ -4883,6 +5052,13 @@ def build_root_en_html(en_html):
         '<link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/">',
         root_en
     )
+    # 5. Language Switcher for Root EN
+    lang_switcher_root_en = '''<div class="lang-switcher" aria-label="Language selector">
+                    <a href="/" class="lang-btn active" title="English">EN</a>
+                    <span class="lang-divider">/</span>
+                    <a href="/it/" class="lang-btn" title="Italiano">IT</a>
+                </div>'''
+    root_en = re.sub(r'<div class="lang-switcher" aria-label="Language selector">[\s\S]*?</div>', lang_switcher_root_en, root_en)
     return root_en
 
 def build_root_it_html(it_html):
@@ -4951,6 +5127,15 @@ def build_root_it_html(it_html):
         '<link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/">',
         root_it
     )
+    # 5. Language Switcher for Root IT
+    lang_switcher_root_it = '''<div class="lang-switcher" aria-label="Language selector">
+                    <a href="/" class="lang-btn" title="English">EN</a>
+                    <span class="lang-divider">/</span>
+                    <a href="/it/" class="lang-btn active" title="Italiano">IT</a>
+                </div>'''
+    root_it = re.sub(r'<div class="lang-switcher" aria-label="Language selector">[\s\S]*?</div>', lang_switcher_root_it, root_it)
+    # 6. Brand header link to /it/
+    root_it = root_it.replace('<a href="/" class="brand-header-title">', '<a href="/it/" class="brand-header-title">')
     return root_it
 
 def main():
@@ -4990,6 +5175,28 @@ def main():
         shutil.copy2(cv_src, ROOT_IT_DIR / "RenzoFrancesquiCV2026.pdf")
         shutil.copy2(cv_src, V3_IT_DIR / "RenzoFrancesquiCV2026.pdf")
         print(f"[OK] Synced CV PDF to {ROOT_IT_DIR / 'RenzoFrancesquiCV2026.pdf'} and {V3_IT_DIR / 'RenzoFrancesquiCV2026.pdf'}")
+
+    # Ensure images directory is present in it/ and version-3/it/
+    images_src = BASE_DIR / "images"
+    if images_src.exists():
+        shutil.copytree(images_src, ROOT_IT_DIR / "images", dirs_exist_ok=True)
+        shutil.copytree(images_src, V3_IT_DIR / "images", dirs_exist_ok=True)
+        print(f"[OK] Synced images to {ROOT_IT_DIR / 'images'} and {V3_IT_DIR / 'images'}")
+
+    # Ensure assets directory is present in it/ and version-3/it/
+    assets_src = BASE_DIR / "assets"
+    if assets_src.exists():
+        shutil.copytree(assets_src, ROOT_IT_DIR / "assets", dirs_exist_ok=True)
+        shutil.copytree(assets_src, V3_DIR / "assets", dirs_exist_ok=True)
+        shutil.copytree(assets_src, V3_IT_DIR / "assets", dirs_exist_ok=True)
+        print(f"[OK] Synced assets to {ROOT_IT_DIR / 'assets'} and {V3_IT_DIR / 'assets'}")
+
+    # Ensure favicons and robots.txt are synced to it/ and version-3/it/
+    for asset_name in ["favicon.svg", "favicon.ico", "favicon-32x32.png", "robots.txt"]:
+        asset_file = BASE_DIR / asset_name
+        if asset_file.exists():
+            shutil.copy2(asset_file, ROOT_IT_DIR / asset_name)
+            shutil.copy2(asset_file, V3_IT_DIR / asset_name)
 
 if __name__ == "__main__":
     main()

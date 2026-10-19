@@ -2380,7 +2380,7 @@
 
         <!-- Top Header Navigation -->
         <header class="hud-header">
-            <a href="/" class="brand-header-title">
+            <a href="/it/" class="brand-header-title">
                 <h1 class="brand-name">Renzo Francesqui<span>.</span></h1>
                 <span class="brand-tag-badge">Marketing Digitale · Architettura CRM · Business Insights</span>
             </a>
@@ -2393,9 +2393,9 @@
                     <span>🪐</span> VISTA ORBITA
                 </button>
                 <div class="lang-switcher" aria-label="Language selector">
-                    <a href="../index.html" class="lang-btn" title="English">EN</a>
+                    <a href="/" class="lang-btn" title="English">EN</a>
                     <span class="lang-divider">/</span>
-                    <a href="index.html" class="lang-btn active" title="Italiano">IT</a>
+                    <a href="/it/" class="lang-btn active" title="Italiano">IT</a>
                 </div>
             </div>
         </header>
@@ -5766,7 +5766,7 @@
             if (!urlInput || !campInput) return;
 
             const isIt = document.documentElement.lang === 'it';
-            let defaultBase = isIt ? 'https://renzo-francesqui.vercel.app/it/it/services/hubspot-crm-optimization-startups/' : 'https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups/';
+            let defaultBase = isIt ? 'https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups/' : 'https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/';
             let rawUrl = urlInput.value.trim() || defaultBase;
             const hashIdx = rawUrl.indexOf('#');
             let hashPart = '';
@@ -5894,16 +5894,157 @@
             if (elHours) elHours.innerText = `${hoursSaved} ${isIt ? 'ore' : 'hrs'}`;
         }
 
+        // Protocol fallback for file:// protocol so local file browsing works without web server
+        function initLangSwitcherProtocolFallback() {
+            if (window.location.protocol === 'file:') {
+                const isCurrentIt = document.documentElement.lang === 'it' || window.location.pathname.toLowerCase().indexOf('/it/') !== -1;
+                const isV3 = window.location.pathname.toLowerCase().indexOf('version-3') !== -1;
+                document.querySelectorAll('.lang-switcher .lang-btn').forEach(btn => {
+                    const isItBtn = btn.textContent.trim().toUpperCase() === 'IT';
+                    if (isItBtn) {
+                        btn.href = isCurrentIt ? 'index.html' : 'it/index.html';
+                    } else {
+                        btn.href = isCurrentIt ? '../index.html' : 'index.html';
+                    }
+                });
+                const brandLink = document.querySelector('.brand-header-title');
+                if (brandLink) {
+                    brandLink.href = 'index.html';
+                }
+                document.querySelectorAll('a[href^="/"]').forEach(a => {
+                    const href = a.getAttribute('href');
+                    if (href.startsWith('/services/') || href.startsWith('/it/services/')) {
+                        const targetSlug = href.replace(/\/$/, '').split('/').pop();
+                        const isItTarget = href.startsWith('/it/services/');
+                        if (isV3) {
+                            if (isCurrentIt) {
+                                a.href = isItTarget ? `../../it/services/${targetSlug}/index.html` : `../../services/${targetSlug}/index.html`;
+                            } else {
+                                a.href = isItTarget ? `../it/services/${targetSlug}/index.html` : `../services/${targetSlug}/index.html`;
+                            }
+                        } else {
+                            if (isCurrentIt) {
+                                a.href = isItTarget ? `services/${targetSlug}/index.html` : `../services/${targetSlug}/index.html`;
+                            } else {
+                                a.href = isItTarget ? `it/services/${targetSlug}/index.html` : `services/${targetSlug}/index.html`;
+                            }
+                        }
+                    } else if (href.startsWith('/tools/') || href.startsWith('/it/tools/')) {
+                        const targetSlug = href.replace(/\/$/, '').split('/').pop();
+                        const isItTarget = href.startsWith('/it/tools/');
+                        if (isV3) {
+                            if (isCurrentIt) {
+                                a.href = isItTarget ? `../../it/tools/${targetSlug}/index.html` : `../../tools/${targetSlug}/index.html`;
+                            } else {
+                                a.href = isItTarget ? `../it/tools/${targetSlug}/index.html` : `../tools/${targetSlug}/index.html`;
+                            }
+                        } else {
+                            if (isCurrentIt) {
+                                a.href = isItTarget ? `tools/${targetSlug}/index.html` : `../tools/${targetSlug}/index.html`;
+                            } else {
+                                a.href = isItTarget ? `it/tools/${targetSlug}/index.html` : `tools/${targetSlug}/index.html`;
+                            }
+                        }
+                    } else if (href.startsWith('/blog/')) {
+                        if (isV3) {
+                            a.href = isCurrentIt ? `../../${href.slice(1)}` : `../${href.slice(1)}`;
+                        } else {
+                            a.href = isCurrentIt ? `../${href.slice(1)}` : href.slice(1);
+                        }
+                    } else if (href.startsWith('/version-3/it/')) {
+                        a.href = isCurrentIt ? 'index.html' : 'it/index.html';
+                    } else if (href.startsWith('/version-3/')) {
+                        a.href = isCurrentIt ? '../index.html' : 'index.html';
+                    } else if (href === '/it/' || href === '/it/index.html') {
+                        a.href = isCurrentIt ? 'index.html' : (isV3 ? '../it/index.html' : 'it/index.html');
+                    } else if (href === '/' || href === '/index.html') {
+                        a.href = isCurrentIt ? (isV3 ? '../../index.html' : '../index.html') : (isV3 ? '../index.html' : 'index.html');
+                    }
+                });
+            }
+        }
+
+        // Global file:// link click safety handler
+        document.addEventListener('click', function(e) {
+            if (window.location.protocol !== 'file:') return;
+            const a = e.target.closest('a');
+            if (!a) return;
+            const href = a.getAttribute('href');
+            if (href && href.startsWith('/')) {
+                e.preventDefault();
+                const isCurrentIt = document.documentElement.lang === 'it' || window.location.pathname.toLowerCase().indexOf('/it/') !== -1;
+                const isV3 = window.location.pathname.toLowerCase().indexOf('version-3') !== -1;
+                
+                if (href === '/' || href === '/index.html') {
+                    if (isV3) {
+                        window.location.href = isCurrentIt ? '../../index.html' : '../index.html';
+                    } else {
+                        window.location.href = isCurrentIt ? '../index.html' : 'index.html';
+                    }
+                } else if (href === '/it/' || href === '/it/index.html') {
+                    if (isV3) {
+                        window.location.href = isCurrentIt ? '../it/index.html' : '../it/index.html';
+                    } else {
+                        window.location.href = isCurrentIt ? 'index.html' : 'it/index.html';
+                    }
+                } else if (href === '/version-3/' || href === '/version-3/index.html') {
+                    window.location.href = isCurrentIt ? '../index.html' : 'index.html';
+                } else if (href === '/version-3/it/' || href === '/version-3/it/index.html') {
+                    window.location.href = isCurrentIt ? 'index.html' : 'it/index.html';
+                } else if (href.startsWith('/services/') || href.startsWith('/it/services/')) {
+                    const slug = href.replace(/\/$/, '').split('/').pop();
+                    const isItTarget = href.startsWith('/it/services/');
+                    if (isV3) {
+                        if (isCurrentIt) {
+                            window.location.href = isItTarget ? `../../it/services/${slug}/index.html` : `../../services/${slug}/index.html`;
+                        } else {
+                            window.location.href = isItTarget ? `../it/services/${slug}/index.html` : `../services/${slug}/index.html`;
+                        }
+                    } else {
+                        if (isCurrentIt) {
+                            window.location.href = isItTarget ? `services/${slug}/index.html` : `../services/${slug}/index.html`;
+                        } else {
+                            window.location.href = isItTarget ? `it/services/${slug}/index.html` : `services/${slug}/index.html`;
+                        }
+                    }
+                } else if (href.startsWith('/tools/') || href.startsWith('/it/tools/')) {
+                    const slug = href.replace(/\/$/, '').split('/').pop();
+                    const isItTarget = href.startsWith('/it/tools/');
+                    if (isV3) {
+                        if (isCurrentIt) {
+                            window.location.href = isItTarget ? `../../it/tools/${slug}/index.html` : `../../tools/${slug}/index.html`;
+                        } else {
+                            window.location.href = isItTarget ? `../it/tools/${slug}/index.html` : `../tools/${slug}/index.html`;
+                        }
+                    } else {
+                        if (isCurrentIt) {
+                            window.location.href = isItTarget ? `tools/${slug}/index.html` : `../tools/${slug}/index.html`;
+                        } else {
+                            window.location.href = isItTarget ? `it/tools/${slug}/index.html` : `tools/${slug}/index.html`;
+                        }
+                    }
+                } else {
+                    if (isV3) {
+                        window.location.href = isCurrentIt ? `../../${href.slice(1)}` : `../${href.slice(1)}`;
+                    } else {
+                        window.location.href = isCurrentIt ? `..${href}` : href.slice(1);
+                    }
+                }
+            }
+        }, true);
+
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
                 updateSlaCalculator();
                 updateUtmBuilder();
                 updateTradeShowRoi();
+                initLangSwitcherProtocolFallback();
             });
         } else {
             updateSlaCalculator();
             updateUtmBuilder();
             updateTradeShowRoi();
+            initLangSwitcherProtocolFallback();
         }
 
         function dismissFloatingHint(e) {
@@ -6148,36 +6289,29 @@ const modalMap = {
             const query = q.toLowerCase();
                         // Services & Freelance Query
             if (query.includes('serviz') || query.includes('freelance') || query.includes('service') || query.includes('cost') || query.includes('prezz') || query.includes('offer') || query.includes('hire') || query.includes('consulenz')) {
-                return "Offro **4 soluzioni freelance specializzate** per aiutare aziende B2B e startup a scalare il fatturato in modo prevedibile:
-
-1. **Setup & Architettura HubSpot CRM & RevOps (Architettura CRM & RevOps Startup)**: Architettura HubSpot/Salesforce, modellazione lifecycle e automazione SLA.
-2. **Gestione Paid Media (Google, LinkedIn, Meta)**: Acquisizione lead ad alta intenzione con riduzione del CAC.
-3. **SEO & GEO Optimization**: Posizionamento su Google e visibilità su motori generativi (ChatGPT, Perplexity, Claude).
-4. **Dati Marketing & Reportistica KPI**: Attribuzione GA4 multi-touch, query SQL e dashboard executive Looker Studio.
-
-Esplora l'orb **Servizi** o inviami un messaggio in **Contattami** per discutere del tuo progetto!";
+                return "Offro **4 soluzioni freelance specializzate** per aiutare aziende B2B e startup a scalare il fatturato in modo prevedibile:\n\n1. **Setup & Architettura HubSpot CRM & RevOps (Architettura CRM & RevOps Startup)**: Architettura HubSpot/Salesforce, modellazione lifecycle e automazione SLA.\n2. **Gestione Paid Media (Google, LinkedIn, Meta)**: Acquisizione lead ad alta intenzione con riduzione del CAC.\n3. **SEO & GEO Optimization**: Posizionamento su Google e visibilità su motori generativi (ChatGPT, Perplexity, Claude).\n4. **Dati Marketing & Reportistica KPI**: Attribuzione GA4 multi-touch, query SQL e dashboard executive Looker Studio.\n\nEsplora l'orb **Servizi** o inviami un messaggio in **Contattami** per discutere del tuo progetto!";
             }
 
             if (query.includes('hubspot') || query.includes('crm')) {
-                return "My **HubSpot CRM Experience** spans over 5 years across platform administration, schema design, and pipeline operations. At TOMRA, I co-led the HubSpot buildout for 30–50 sales reps in EMEA and Americas. At IMBAREX, I standardized property schemas across 10+ countries. I hold certifications in **HubSpot CRM Administration**, **RevOps**, and **Marketing Automation**.";
+                return "La mia esperienza su **HubSpot CRM** supera i 5 anni tra amministrazione di piattaforma, progettazione degli schemi e gestione delle pipeline. In TOMRA ho co-guidato l'adozione di HubSpot per 30-50 commerciali in EMEA e Americhe. In IMBAREX ho standardizzato le proprietà in oltre 10 paesi. Ho certificazioni in **HubSpot CRM Administration**, **RevOps** e **Marketing Automation**.";
             }
             if (query.includes('salesforce')) {
-                return "I am currently **preparing for and actively pursuing the Salesforce Administrator certification** to expand multi-CRM interoperability alongside my 5+ years of advanced HubSpot administration.";
+                return "Sto attualmente **preparando e conseguendo la certificazione Salesforce Administrator** per espandere l'interoperabilità multi-CRM insieme ai miei 5+ anni di amministrazione avanzata su HubSpot.";
             }
             if (query.includes('automation') || query.includes('agent') || query.includes('ai')) {
-                return "I design and orchestrate **AI marketing automation workflows** using tools like Google Antigravity, LLM prompt architectures, and HubSpot webhooks. My **Automated CRM Enrichment Agent** extracts domain insights and classifies firmographics against ICP criteria in under 30 seconds, saving 15+ hours weekly.";
+                return "Progetto e sviluppo **workflow di automazione marketing AI** con strumenti come Google Antigravity, architetture prompt LLM e webhook HubSpot. Il mio **Agente Automatizzato di Arricchimento CRM** estrae insight di dominio e classifica i dati firmografici secondo criteri ICP in meno di 30 secondi, risparmiando oltre 15 ore a settimana.";
             }
             if (query.includes('tomra') || query.includes('current') || query.includes('job') || query.includes('work')) {
-                return "I currently work at **TOMRA** in Parma, Italy, as **Marketing Events Support | CRM & Marketing Operations** (since October 2024), managing lead capture operations for 15–20 global exhibitions and building lead scoring logic.";
+                return "Lavoro attualmente in **TOMRA** a Parma come **Marketing Events Support | CRM & Marketing Operations** (da ottobre 2024), gestendo le operazioni di lead capture per 15-20 fiere globali e sviluppando logiche di lead scoring.";
             }
             if (query.includes('locate') || query.includes('location') || query.includes('milan') || query.includes('parma') || query.includes('italy') || query.includes('emea')) {
-                return "I am based in **Milan, Italy**. For inquiries and senior opportunities, reach out directly via the **Get in Touch** orb!";
+                return "Ho base a **Milano**. Per richieste e collaborazioni, contattami direttamente tramite l'orb **Contattami**!";
             }
             if (query.includes('cert') || query.includes('degree') || query.includes('master') || query.includes('sql') || query.includes('education')) {
                 return "I hold a **Master's in International Business & Development** from *Università degli Studi di Parma*. Certifications completed: **HubSpot CRM Administration, RevOps, Marketing Automation, Google Digital Marketing, Meta Associate**. Currently in progress (2026): **Salesforce Administrator** and **SQL Oracle Database**.";
             }
             if (query.includes('gtm') || query.includes('pisonay')) {
-                return "At **The Pisonay Company**, I led the **Go-To-Market (GTM)** execution across SEO/SEM, email automations, and CRM workflows for high-value developments, achieving a 100% inventory sell-out before project completion.";
+                return "In **The Pisonay Company** ho guidato l'esecuzione del **Go-To-Market (GTM)** attraverso SEO/SEM, automazioni email e workflow CRM per sviluppi immobiliari ad alto valore, raggiungendo il 100% di vendite prima del completamento.";
             }
             if (query.includes('skill') || query.includes('seo') || query.includes('sem') || query.includes('ads') || query.includes('analytics')) {
                 return "My skills span 6 core areas: **CRM Architecture** (HubSpot CRM), **Marketing Operations** (Lifecycle SLAs, Lead Scoring), **AI Marketing Automation** (Google Antigravity, Webhooks), **Performance Marketing** (Google Ads, Meta Ads, LinkedIn), **Technical SEO** (+40% organic growth), and **Analytics / BI** (GA4, SQL, KPI dashboards). Check the **Skills** orb!";

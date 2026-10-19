@@ -1144,6 +1144,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', updateOrbitalThread, { passive: true });
     updateOrbitalThread();
+
+    // Protocol fallback for file:// protocol so local file browsing works without web server
+    if (window.location.protocol === 'file:') {
+        const isCurrentIt = document.documentElement.lang === 'it' || window.location.pathname.toLowerCase().indexOf('/it/') !== -1;
+        document.querySelectorAll('.lang-switcher .switch-pill').forEach(btn => {
+            const isItBtn = btn.textContent.trim().toUpperCase() === 'IT';
+            const parts = window.location.pathname.split(/[/\]/);
+            const toolIdx = parts.indexOf('tools');
+            const toolSlug = (toolIdx !== -1 && parts[toolIdx + 1]) ? parts[toolIdx + 1] : '';
+            if (isItBtn) {
+                btn.href = isCurrentIt ? 'index.html' : `../../it/tools/${toolSlug}/index.html`;
+            } else {
+                btn.href = isCurrentIt ? `../../../tools/${toolSlug}/index.html` : 'index.html';
+            }
+        });
+        document.querySelectorAll('.tool-switcher .switch-pill').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('/')) {
+                if (isCurrentIt) {
+                    link.href = href.replace('/it/tools/', '../').replace('/tools/', '../../tools/');
+                } else {
+                    link.href = href.replace('/tools/', '../');
+                }
+            }
+        });
+    }
 });
 
 

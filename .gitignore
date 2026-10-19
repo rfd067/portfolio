@@ -28,3 +28,23 @@ yarn-debug.log*
 yarn-error.log*
 .temp/
 .cache/
+
+# Temporary test artifacts & screenshots
+/*.png
+screenshot_*.png
+test_*.png
+file_service_*.png
+it_service_*.png
+mobile_service_*.png
+service_*.png
+vercel_*.png
+
+# Scratch / debug test scripts
+scripts/check_*.py
+scripts/debug_*.py
+scripts/deep_*.py
+scripts/diagnose_*.py
+scripts/find_*.py
+scripts/inspect_*.py
+scripts/test_*.py
+scripts/audit_*.py

@@ -232,46 +232,44 @@ def verify():
         it_exists = it_path.exists() and len(it_text) > 5000
         
         en_sections_ok = (
-            "nav-Wrapper" in en_text and
-            "hud-header" in en_text and
-            "editorial-container" in en_text and
-            "hero-title" in en_text and
-            "metrics-strip" in en_text and
-            "contrast-grid" in en_text and
-            "orbital-timeline" in en_text and
-            "stage-card" in en_text and
-            "cta-console" in en_text and
-            "btn-gold" in en_text and
-            "btn-ghost" in en_text and
-            "mailto:renzo.francesqui@gmail.com?subject=Consulting%20Inquiry%20" in en_text and
+            "starshieldCanvas" in en_text and
+            "telemetry-rail" in en_text and
+            "sx-header" in en_text and
+            "sx-hero" in en_text and
+            "sx-stats-section" in en_text and
+            "sx-pillars-section" in en_text and
+            "sx-specs-section" in en_text and
+            "sx-sequence-section" in en_text and
+            "sx-footer" in en_text and
+            "sx-btn" in en_text and
+            "mailto:renzo.francesqui@gmail.com?subject=Mission%20Inquiry%20" in en_text and
             'href="../../index.html"' in en_text
         )
         it_sections_ok = (
-            "nav-Wrapper" in it_text and
-            "hud-header" in it_text and
-            "editorial-container" in it_text and
-            "hero-title" in it_text and
-            "metrics-strip" in it_text and
-            "contrast-grid" in it_text and
-            "orbital-timeline" in it_text and
-            "stage-card" in it_text and
-            "cta-console" in it_text and
-            "btn-gold" in it_text and
-            "btn-ghost" in it_text and
-            "mailto:renzo.francesqui@gmail.com?subject=Richiesta%20Consulenza%20" in it_text and
+            "starshieldCanvas" in it_text and
+            "telemetry-rail" in it_text and
+            "sx-header" in it_text and
+            "sx-hero" in it_text and
+            "sx-stats-section" in it_text and
+            "sx-pillars-section" in it_text and
+            "sx-specs-section" in it_text and
+            "sx-sequence-section" in it_text and
+            "sx-footer" in it_text and
+            "sx-btn" in it_text and
+            "mailto:renzo.francesqui@gmail.com?subject=Richiesta%20Missione%20" in it_text and
             'href="../../index.html"' in it_text
         )
         
         # 3a. Skeleton Components Check
         service_check_count += 2
         if en_exists and en_sections_ok:
-            print(f"  [PASS] EN Service Page: /services/{slug}/ (Minimalist Editorial HUD + Hero + Contrast Grid + Orbital Stages + CTA Console)")
+            print(f"  [PASS] EN Service Page: /services/{slug}/ (SpaceX Starshield Hero + Stats + Pillars + Specs + Sequence + Footer)")
         else:
             print(f"  [FAIL] EN Service Page Missing or Incomplete: /services/{slug}/ (exists={en_exists}, sections={en_sections_ok})")
             all_passed = False
             
         if it_exists and it_sections_ok:
-            print(f"  [PASS] IT Service Page: /it/services/{slug}/ (Minimalist Editorial HUD + Hero + Contrast Grid + Orbital Stages + CTA Console)")
+            print(f"  [PASS] IT Service Page: /it/services/{slug}/ (SpaceX Starshield Hero + Stats + Pillars + Specs + Sequence + Footer)")
         else:
             print(f"  [FAIL] IT Service Page Missing or Incomplete: /it/services/{slug}/ (exists={it_exists}, sections={it_sections_ok})")
             all_passed = False
@@ -316,8 +314,8 @@ def verify():
 
         # 3d. Hero Lead Section Check
         service_check_count += 2
-        en_lead_match = re.search(r'<p class="hero-lead">([^<]+)</p>', en_text)
-        it_lead_match = re.search(r'<p class="hero-lead">([^<]+)</p>', it_text)
+        en_lead_match = re.search(r'<p class="sx-hero-lead">([^<]+)</p>', en_text)
+        it_lead_match = re.search(r'<p class="sx-hero-lead">([^<]+)</p>', it_text)
         en_lead_ok = bool(en_lead_match and len(en_lead_match.group(1).strip()) >= 50)
         it_lead_ok = bool(it_lead_match and len(it_lead_match.group(1).strip()) >= 50)
 
@@ -333,49 +331,38 @@ def verify():
             print(f"  [FAIL] IT Hero Lead Section missing or too short")
             all_passed = False
 
-        # 3e. Minimalist Contrast Grid Check (Before vs After)
+        # 3e. Strict SpaceX Starshield Zero Emojis Compliance Check
         service_check_count += 2
-        en_grid_ok = (
-            '<div class="contrast-grid">' in en_text and
-            'contrast-header muted' in en_text and
-            'contrast-header gold' in en_text and
-            en_text.count('<span class="marker">–</span>') >= 4 and
-            en_text.count('<span class="marker">→</span>') >= 4
-        )
-        it_grid_ok = (
-            '<div class="contrast-grid">' in it_text and
-            'contrast-header muted' in it_text and
-            'contrast-header gold' in it_text and
-            it_text.count('<span class="marker">–</span>') >= 4 and
-            it_text.count('<span class="marker">→</span>') >= 4
-        )
+        emoji_pattern = re.compile(r'[\U00010000-\U0010ffff]')
+        en_emoji_ok = not emoji_pattern.search(en_text)
+        it_emoji_ok = not emoji_pattern.search(it_text)
 
-        if en_grid_ok:
-            print(f"  [PASS] EN Contrast Grid: Unstructured vs Engineered states verified")
+        if en_emoji_ok:
+            print(f"  [PASS] EN Strict Zero Emojis Compliance for {slug}")
         else:
-            print(f"  [FAIL] EN Contrast Grid missing or incomplete")
+            print(f"  [FAIL] EN Contains Banned Emojis in {slug}")
             all_passed = False
 
-        if it_grid_ok:
-            print(f"  [PASS] IT Contrast Grid: Unstructured vs Engineered states verified")
+        if it_emoji_ok:
+            print(f"  [PASS] IT Strict Zero Emojis Compliance for {slug}")
         else:
-            print(f"  [FAIL] IT Contrast Grid missing or incomplete")
+            print(f"  [FAIL] IT Contains Banned Emojis in {slug}")
             all_passed = False
 
-        # 3f. Deliverable Pills in Accordion Stages Check
+        # 3f. Strict SpaceX Starshield Zero Rounded Bubbles Check
         service_check_count += 2
-        en_pills_count = en_text.count('class="deliverable-pill"')
-        it_pills_count = it_text.count('class="deliverable-pill"')
-        if en_pills_count >= 16:
-            print(f"  [PASS] EN Deliverables Pills across stages ({en_pills_count} pills verified)")
+        en_corners_ok = "border-radius: 0 !important;" in en_text
+        it_corners_ok = "border-radius: 0 !important;" in it_text
+        if en_corners_ok:
+            print(f"  [PASS] EN Sharp 90-Degree Corners (border-radius: 0) verified for {slug}")
         else:
-            print(f"  [FAIL] EN Deliverables Pills incomplete ({en_pills_count} pills found, expected >= 16)")
+            print(f"  [FAIL] EN Sharp corners rule missing in {slug}")
             all_passed = False
 
-        if it_pills_count >= 16:
-            print(f"  [PASS] IT Deliverables Pills across stages ({it_pills_count} pills verified)")
+        if it_corners_ok:
+            print(f"  [PASS] IT Sharp 90-Degree Corners (border-radius: 0) verified for {slug}")
         else:
-            print(f"  [FAIL] IT Deliverables Pills incomplete ({it_pills_count} pills found, expected >= 16)")
+            print(f"  [FAIL] IT Sharp corners rule missing in {slug}")
             all_passed = False
 
         # 3g. Schema.org JSON-LD Schemas Check (Service, WebPage, BreadcrumbList & Geographic Schema)
@@ -431,158 +418,130 @@ def verify():
             print(f"  [FAIL] IT Canonical or Hreflang Tags invalid for /it/services/{slug}/")
             all_passed = False
 
-        # 3i. 4 Execution Stages with Stage 01 Default Open Check
+        # 3i. 4-Stage Launch Sequence Check
         service_check_count += 2
-        en_stages_ok = ('stage-card open' in en_text) and en_text.count('class="stage-card') == 4 and all(f">{step}<" in en_text for step in ['01', '02', '03', '04'])
-        it_stages_ok = ('stage-card open' in it_text) and it_text.count('class="stage-card') == 4 and all(f">{step}<" in it_text for step in ['01', '02', '03', '04'])
+        en_stages_ok = ('sx-sequence-grid' in en_text) and en_text.count('class="sx-seq-step"') == 4 and all(f"STAGE 0{step}" in en_text for step in [1, 2, 3, 4])
+        it_stages_ok = ('sx-sequence-grid' in it_text) and it_text.count('class="sx-seq-step"') == 4 and all(f"STAGE 0{step}" in it_text for step in [1, 2, 3, 4])
         if en_stages_ok:
-            print(f"  [PASS] EN 4 Execution Stages with Stage 01 default open verified")
+            print(f"  [PASS] EN 4-Stage Launch Sequence verified")
         else:
-            print(f"  [FAIL] EN Execution Stages incomplete or Stage 01 not open")
+            print(f"  [FAIL] EN 4-Stage Launch Sequence incomplete")
             all_passed = False
 
         if it_stages_ok:
-            print(f"  [PASS] IT 4 Execution Stages with Stage 01 default open verified")
+            print(f"  [PASS] IT 4-Stage Launch Sequence verified")
         else:
-            print(f"  [FAIL] IT Execution Stages incomplete or Stage 01 not open")
+            print(f"  [FAIL] IT 4-Stage Launch Sequence incomplete")
             all_passed = False
 
-        # 3j. Mandatory Master CSS Tokens & Editorial Styling Check
+        # 3j. Mandatory Master SpaceX CSS Tokens Check
         service_check_count += 2
-        en_css_ok = ('--accent-gold: #d4a863;' in en_text) and ('--border-hairline: rgba(255, 255, 255, 0.08);' in en_text) and ('editorial-container' in en_text)
-        it_css_ok = ('--accent-gold: #d4a863;' in it_text) and ('--border-hairline: rgba(255, 255, 255, 0.08);' in it_text) and ('editorial-container' in it_text)
+        en_css_ok = ('--bg-black: #000000;' in en_text) and ('--accent-gold: #D4A863;' in en_text) and ('Barlow Condensed' in en_text) and ('JetBrains Mono' in en_text)
+        it_css_ok = ('--bg-black: #000000;' in it_text) and ('--accent-gold: #D4A863;' in it_text) and ('Barlow Condensed' in it_text) and ('JetBrains Mono' in it_text)
         if en_css_ok:
-            print(f"  [PASS] EN Master Minimalist CSS tokens & Editorial Styling verified for {slug}")
+            print(f"  [PASS] EN Master SpaceX CSS tokens verified for {slug}")
         else:
-            print(f"  [FAIL] EN Master Minimalist CSS tokens missing for {slug}")
+            print(f"  [FAIL] EN Master SpaceX CSS tokens missing for {slug}")
             all_passed = False
 
         if it_css_ok:
-            print(f"  [PASS] IT Master Minimalist CSS tokens & Editorial Styling verified for {slug}")
+            print(f"  [PASS] IT Master SpaceX CSS tokens verified for {slug}")
         else:
-            print(f"  [FAIL] IT Master Minimalist CSS tokens missing for {slug}")
+            print(f"  [FAIL] IT Master SpaceX CSS tokens missing for {slug}")
             all_passed = False
 
-        # 3k. Scroll-Driven Orbital Light Thread & JavaScript Check
+        # 3k. Global Background Canvas & Scroll Telemetry Script Check
         service_check_count += 2
-        en_orbital_ok = (
-            ('orbital-timeline' in en_text) and ('orbital-track-bg' in en_text) and 
-            ('orbital-track-fill' in en_text) and ('orbital-node' in en_text) and
-            ('updateOrbitalThread' in en_text) and ('active-stage' in en_text)
-        )
-        it_orbital_ok = (
-            ('orbital-timeline' in it_text) and ('orbital-track-bg' in it_text) and 
-            ('orbital-track-fill' in it_text) and ('orbital-node' in it_text) and
-            ('updateOrbitalThread' in it_text) and ('active-stage' in it_text)
-        )
+        en_orbital_ok = ('starshieldCanvas' in en_text) and ('telemetry-rail' in en_text) and ('telemetry-readout' in en_text) and ('IntersectionObserver' in en_text)
+        it_orbital_ok = ('starshieldCanvas' in it_text) and ('telemetry-rail' in it_text) and ('telemetry-readout' in it_text) and ('IntersectionObserver' in it_text)
         if en_orbital_ok:
-            print(f"  [PASS] EN Scroll-Driven Orbital Light Thread & Telemetry Node verified for {slug}")
+            print(f"  [PASS] EN Starshield Canvas & Scroll Telemetry verified for {slug}")
         else:
-            print(f"  [FAIL] EN Scroll-Driven Orbital Light Thread missing for {slug}")
+            print(f"  [FAIL] EN Starshield Canvas or Telemetry missing for {slug}")
             all_passed = False
 
         if it_orbital_ok:
-            print(f"  [PASS] IT Scroll-Driven Orbital Light Thread & Telemetry Node verified for {slug}")
+            print(f"  [PASS] IT Starshield Canvas & Scroll Telemetry verified for {slug}")
         else:
-            print(f"  [FAIL] IT Scroll-Driven Orbital Light Thread missing for {slug}")
+            print(f"  [FAIL] IT Starshield Canvas or Telemetry missing for {slug}")
             all_passed = False
 
-        # 3l. Anti-Clutter Strict Rule Check (Absence of Banned Widgets, Simulators & Cartoon Rockets)
+        # 3l. Falcon-9 Style Technical Spec Table + CAD Schematic Check
         service_check_count += 2
-        en_no_clutter = (
-            ('crmLeakageSimulator' not in en_text) and
-            ('paidMediaSimulator' not in en_text) and
-            ('seoGeoSimulator' not in en_text) and
-            ('marketingDataSimulator' not in en_text) and
-            ('rocketSpine' not in en_text) and
-            ('spaceBgCanvas' not in en_text) and
-            ('playSynthTone' not in en_text) and
-            ('type="range"' not in en_text)
-        )
-        it_no_clutter = (
-            ('crmLeakageSimulator' not in it_text) and
-            ('paidMediaSimulator' not in it_text) and
-            ('seoGeoSimulator' not in it_text) and
-            ('marketingDataSimulator' not in it_text) and
-            ('rocketSpine' not in it_text) and
-            ('spaceBgCanvas' not in it_text) and
-            ('playSynthTone' not in it_text) and
-            ('type="range"' not in it_text)
-        )
+        en_specs_ok = ('sx-specs-layout' in en_text) and ('sx-spec-table' in en_text) and ('sx-wireframe-box' in en_text) and ('<svg' in en_text)
+        it_specs_ok = ('sx-specs-layout' in it_text) and ('sx-spec-table' in it_text) and ('sx-wireframe-box' in it_text) and ('<svg' in it_text)
 
-        if en_no_clutter:
-            print(f"  [PASS] EN Strict Anti-Clutter Compliance (Zero simulators/sliders/rockets) for {slug}")
+        if en_specs_ok:
+            print(f"  [PASS] EN Falcon-9 Technical Spec Table + CAD Schematic verified for {slug}")
         else:
-            print(f"  [FAIL] EN Contains Banned Clutter (simulators, rockets, or sliders) in {slug}")
+            print(f"  [FAIL] EN Technical Spec Table or CAD Schematic missing in {slug}")
             all_passed = False
 
-        if it_no_clutter:
-            print(f"  [PASS] IT Strict Anti-Clutter Compliance (Zero simulators/sliders/rockets) for {slug}")
+        if it_specs_ok:
+            print(f"  [PASS] IT Falcon-9 Technical Spec Table + CAD Schematic verified for {slug}")
         else:
-            print(f"  [FAIL] IT Contains Banned Clutter (simulators, rockets, or sliders) in {slug}")
+            print(f"  [FAIL] IT Technical Spec Table or CAD Schematic missing in {slug}")
             all_passed = False
 
-        # 3m. Clean Removal of Quote Section Check
+        # 3m. Flight Heritage Bar Check
         service_check_count += 2
-        en_no_quote = ('proof-card' not in en_text) and ('proof-quote' not in en_text)
-        it_no_quote = ('proof-card' not in it_text) and ('proof-quote' not in it_text)
+        en_heritage_ok = ('sx-heritage-bar' in en_text) and ('FLIGHT HERITAGE //' in en_text)
+        it_heritage_ok = ('sx-heritage-bar' in it_text) and ('FLIGHT HERITAGE //' in it_text)
 
-        if en_no_quote:
-            print(f"  [PASS] EN Quote Section cleanly removed for {slug}")
+        if en_heritage_ok:
+            print(f"  [PASS] EN Flight Heritage Bar verified for {slug}")
         else:
-            print(f"  [FAIL] EN Quote Section (proof-card / proof-quote) still present for {slug}")
+            print(f"  [FAIL] EN Flight Heritage Bar missing for {slug}")
             all_passed = False
 
-        if it_no_quote:
-            print(f"  [PASS] IT Quote Section cleanly removed for {slug}")
+        if it_heritage_ok:
+            print(f"  [PASS] IT Flight Heritage Bar verified for {slug}")
         else:
-            print(f"  [FAIL] IT Quote Section (proof-card / proof-quote) still present for {slug}")
+            print(f"  [FAIL] IT Flight Heritage Bar missing for {slug}")
             all_passed = False
 
-        # 3n. Sticky Minimalist HUD Header & Switcher Pills Check
+        # 3n. Top SpaceX Header & Navigation Check
         service_check_count += 2
-        en_hud_ok = ('nav-Wrapper' in en_text) and ('hud-header' in en_text) and ('service-switcher' in en_text) and ('switch-pill active' in en_text) and ('../../index.html' in en_text)
-        it_hud_ok = ('nav-Wrapper' in it_text) and ('hud-header' in it_text) and ('service-switcher' in it_text) and ('switch-pill active' in it_text) and ('../../index.html' in it_text)
+        en_hud_ok = ('sx-header' in en_text) and ('sx-brand' in en_text) and ('sx-nav' in en_text) and ('sx-lang-switcher' in en_text)
+        it_hud_ok = ('sx-header' in it_text) and ('sx-brand' in it_text) and ('sx-nav' in it_text) and ('sx-lang-switcher' in it_text)
         if en_hud_ok:
-            print(f"  [PASS] EN Minimalist HUD Header & Switcher Pills verified for {slug}")
+            print(f"  [PASS] EN SpaceX Header & Nav Switcher verified for {slug}")
         else:
-            print(f"  [FAIL] EN Minimalist HUD Header or Service Pills missing for {slug}")
+            print(f"  [FAIL] EN SpaceX Header or Nav Switcher missing for {slug}")
             all_passed = False
 
         if it_hud_ok:
-            print(f"  [PASS] IT Minimalist HUD Header & Switcher Pills verified for {slug}")
+            print(f"  [PASS] IT SpaceX Header & Nav Switcher verified for {slug}")
         else:
-            print(f"  [FAIL] IT Minimalist HUD Header or Service Pills missing for {slug}")
+            print(f"  [FAIL] IT SpaceX Header or Nav Switcher missing for {slug}")
             all_passed = False
 
-        # 3o. Minimalist Executive CTA Console Check
+        # 3o. Signature SpaceX Sliding-Fill Button & Footer Check
         service_check_count += 2
         en_cta_ok = (
-            ('cta-console' in en_text) and
-            ('btn-gold' in en_text) and
-            ('btn-ghost' in en_text) and
-            ('mailto:renzo.francesqui@gmail.com?subject=Consulting%20Inquiry%20' in en_text) and
-            ('Back to 3D Solar Matrix 🪐' in en_text) and
-            ('Ready to architect this system?' in en_text)
+            ('sx-footer' in en_text) and
+            ('sx-vertical-line' in en_text) and
+            ('sx-btn' in en_text) and
+            ('mailto:renzo.francesqui@gmail.com?subject=Mission%20Inquiry%20' in en_text) and
+            ('READY TO DEPLOY THIS ARCHITECTURE?' in en_text)
         )
         it_cta_ok = (
-            ('cta-console' in it_text) and
-            ('btn-gold' in it_text) and
-            ('btn-ghost' in it_text) and
-            ('mailto:renzo.francesqui@gmail.com?subject=Richiesta%20Consulenza%20' in it_text) and
-            ('Ritorna alla Matrice Solare 🪐' in it_text) and
-            ('Pronto a ingegnerizzare questo sistema?' in it_text)
+            ('sx-footer' in it_text) and
+            ('sx-vertical-line' in it_text) and
+            ('sx-btn' in it_text) and
+            ('mailto:renzo.francesqui@gmail.com?subject=Richiesta%20Missione%20' in it_text) and
+            ('PRONTO A DISTRIBUIRE QUESTA ARCHITETTURA?' in it_text)
         )
         if en_cta_ok:
-            print(f"  [PASS] EN Executive CTA Console verified for {slug}")
+            print(f"  [PASS] EN Starshield Sliding-Fill Buttons & Footer verified for {slug}")
         else:
-            print(f"  [FAIL] EN Executive CTA Console invalid for {slug}")
+            print(f"  [FAIL] EN Starshield Footer invalid for {slug}")
             all_passed = False
 
         if it_cta_ok:
-            print(f"  [PASS] IT Executive CTA Console verified for {slug}")
+            print(f"  [PASS] IT Starshield Sliding-Fill Buttons & Footer verified for {slug}")
         else:
-            print(f"  [FAIL] IT Executive CTA Console invalid for {slug}")
+            print(f"  [FAIL] IT Starshield Footer invalid for {slug}")
             all_passed = False
 
     # 4. Minimalist Editorial Tool Landing Pages Verification

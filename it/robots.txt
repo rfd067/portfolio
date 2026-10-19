@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /draft
+Disallow: /draft/
+Disallow: /*?draft=*
+
+Sitemap: https://renzo-francesqui.vercel.app/sitemap.xml
+Host: https://renzo-francesqui.vercel.app
