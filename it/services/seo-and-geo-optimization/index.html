@@ -370,6 +370,40 @@ main {
     color: var(--accent-gold);
 }
 
+/* SpaceX Header Client Login Button */
+.sx-client-btn {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    border: 1px solid rgba(212, 168, 99, 0.35);
+    background: rgba(212, 168, 99, 0.08);
+    border-radius: 0;
+    padding: 0.35rem 0.85rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.sx-client-btn:hover {
+    background: rgba(212, 168, 99, 0.22);
+    border-color: var(--accent-gold);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(212, 168, 99, 0.25);
+}
+
+@media (max-width: 480px) {
+    .sx-client-btn {
+        padding: 0.25rem 0.55rem;
+        font-size: 0.58rem;
+    }
+}
+
 /* Signature SpaceX Sliding-Fill Button */
 .sx-btn {
     position: relative;
@@ -959,7 +993,7 @@ main {
             <span class="sub">MISSION CONTROL</span>
         </a>
 
-        <div style="display: flex; align-items: center; gap: 2rem;">
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
             <nav class="sx-nav">
                 <a href="/it/services/hubspot-crm-optimization-startups/" class="sx-nav-link">01 ARCHITETTURA CRM</a>
             <a href="/it/services/paid-media-management/" class="sx-nav-link">02 PAID MEDIA</a>
@@ -967,6 +1001,9 @@ main {
             <a href="/it/services/marketing-data-reporting/" class="sx-nav-link">04 DATI & BI</a>
                 <a href="../../index.html" class="sx-nav-link">RITORNO ALLA MATRICE SOLARE</a>
             </nav>
+            <a href="/it/#client-login" class="sx-client-btn" title="Area Clienti">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: -1px; margin-right: 0.2rem;"><rect x="3" y="11" width="18" height="11" rx="1" ry="1"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Area Clienti
+            </a>
             <div class="sx-lang-switcher">
                 <a href="/services/seo-and-geo-optimization/" class="sx-lang-btn">EN</a>
                 <span class="sx-lang-divider">/</span>

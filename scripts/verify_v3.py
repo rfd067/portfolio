@@ -119,6 +119,14 @@ def verify():
         ("Tool 2 Ingestion JSON Prefill in #modalTools", '"utm_source": "linkedin"' in en_content),
         ("UTM Builder Hash Fragment Sanitization Logic", "hashPart" in en_content and "indexOf('#')" in en_content),
         ("UTM Builder Clipboard Fallback Logic", "fallbackCopy" in en_content and "execCommand" in en_content),
+        # Client Login Portal Checks (English):
+        ("EN Header Client Login Button Present", 'id="clientLoginBtn"' in header_part and "Client Login" in header_part),
+        ("EN Modal #modalClientLogin Present", 'id="modalClientLogin"' in en_content and 'clientLoginEmail' in en_content and 'clientLoginPassword' in en_content),
+        ("EN Client Login Sign In Button Present", 'Sign In' in en_content and 'clientLoginSubmitBtn' in en_content),
+        ("EN Client Login Mock Error Message Present", "Account not found. Please verify your credentials or contact your administrator." in en_content),
+        ("EN Client Login Interactive Logic Present", "openClientLoginModal" in en_content and "handleClientLogin" in en_content and "togglePasswordVisibility" in en_content),
+        ("EN Client Login FAB Concealment Logic", "floatingAiChatBtn" in en_content and "hidden" in en_content and "openClientLoginModal" in en_content),
+        ("EN Client Login Double Submit Guard", "submitBtn.disabled" in en_content and "handleClientLogin" in en_content),
     ]
     
     all_passed = True
@@ -206,6 +214,13 @@ def verify():
         ("Italian Tool 2 Ingestion JSON Prefill in #modalTools", '"utm_source": "linkedin"' in it_content),
         ("Italian UTM Builder Hash Fragment Sanitization Logic", "hashPart" in it_content and "indexOf('#')" in it_content),
         ("Italian UTM Builder Clipboard Fallback Logic", "fallbackCopy" in it_content and "execCommand" in it_content),
+        # Client Login Portal Checks (Italian):
+        ("IT Header Client Login Button Present (Area Clienti)", 'id="clientLoginBtn"' in it_header_part and "Area Clienti" in it_header_part),
+        ("IT Modal #modalClientLogin Present", 'id="modalClientLogin"' in it_content and 'clientLoginEmail' in it_content and 'clientLoginPassword' in it_content),
+        ("IT Client Login Accedi Button Present", 'Accedi' in it_content and 'clientLoginSubmitBtn' in it_content),
+        ("IT Client Login Mock Error Message Present", "Account non trovato. Verifica le tue credenziali o contatta l'amministratore." in it_content),
+        ("IT Client Login Form Labels Present", "Email Aziendale" in it_content and "Portale Clienti" in it_content),
+        ("IT Client Login Reset Logic Present", "resetClientLoginForm" in it_content and "openClientLoginModal" in it_content),
     ]
 
     for label, passed in it_checks:

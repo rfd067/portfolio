@@ -1809,6 +1809,9 @@ def render_tool_html(tool, lang="en"):
     tool_workspace_html = render_tool_workspace_html(tool['id'], is_it=is_it)
     tool_interactive_js = render_tool_interactive_js(tool['id'])
 
+    client_login_link = "/it/#client-login" if is_it else "/#client-login"
+    client_login_text = "Area Clienti" if is_it else "Client Login"
+
     # Schema.org JSON-LD
     schema_data = {
         "@context": "https://schema.org",
@@ -1933,9 +1936,14 @@ def render_tool_html(tool, lang="en"):
             <nav class="tool-switcher">{switcher_pills_html}
             </nav>
 
-            <div class="lang-switcher" style="display: flex; align-items: center; gap: 0.25rem;">
-                <a href="{en_toggle_href}" class="switch-pill{' active' if not is_it else ''}">EN</a>
-                <a href="{it_toggle_href}" class="switch-pill{' active' if is_it else ''}">IT</a>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <a href="{client_login_link}" class="switch-pill" style="color: var(--accent-gold); border-color: rgba(212, 168, 99, 0.4); text-decoration: none;" title="{client_login_text}">
+                    <span>🔒</span> {client_login_text}
+                </a>
+                <div class="lang-switcher" style="display: flex; align-items: center; gap: 0.25rem;">
+                    <a href="{en_toggle_href}" class="switch-pill{' active' if not is_it else ''}">EN</a>
+                    <a href="{it_toggle_href}" class="switch-pill{' active' if is_it else ''}">IT</a>
+                </div>
             </div>
         </header>
     </div>

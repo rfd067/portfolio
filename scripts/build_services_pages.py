@@ -263,6 +263,40 @@ main {
     color: var(--accent-gold);
 }
 
+/* SpaceX Header Client Login Button */
+.sx-client-btn {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    border: 1px solid rgba(212, 168, 99, 0.35);
+    background: rgba(212, 168, 99, 0.08);
+    border-radius: 0;
+    padding: 0.35rem 0.85rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.sx-client-btn:hover {
+    background: rgba(212, 168, 99, 0.22);
+    border-color: var(--accent-gold);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(212, 168, 99, 0.25);
+}
+
+@media (max-width: 480px) {
+    .sx-client-btn {
+        padding: 0.25rem 0.55rem;
+        font-size: 0.58rem;
+    }
+}
+
 /* Signature SpaceX Sliding-Fill Button */
 .sx-btn {
     position: relative;
@@ -1558,6 +1592,9 @@ def render_spacex_page(service, lang="en", current_slug=None):
         nav_links_html.append(f'<a href="{s_href}" class="sx-nav-link{active_class}">{s_label}</a>')
     nav_links_str = "\n            ".join(nav_links_html)
 
+    client_login_link = "/it/#client-login" if is_it else "/#client-login"
+    client_login_text = "Area Clienti" if is_it else "Client Login"
+
     # Stats HTML
     stats_cells = []
     for num, label in stats:
@@ -1753,11 +1790,14 @@ def render_spacex_page(service, lang="en", current_slug=None):
             <span class="sub">{brand_sub}</span>
         </a>
 
-        <div style="display: flex; align-items: center; gap: 2rem;">
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
             <nav class="sx-nav">
                 {nav_links_str}
                 <a href="{solar_matrix_link}" class="sx-nav-link">{solar_matrix_text}</a>
             </nav>
+            <a href="{client_login_link}" class="sx-client-btn" title="{client_login_text}">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: -1px; margin-right: 0.2rem;"><rect x="3" y="11" width="18" height="11" rx="1" ry="1"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>{client_login_text}
+            </a>
             <div class="sx-lang-switcher">
                 <a href="{en_toggle_href}" class="sx-lang-btn{' active' if not is_it else ''}">EN</a>
                 <span class="sx-lang-divider">/</span>

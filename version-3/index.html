@@ -2178,13 +2178,22 @@
             }
 
             .hud-header-actions {
-                gap: 0.35rem;
+                gap: 0.25rem;
+                flex-shrink: 1;
+                overflow-x: auto;
+                scrollbar-width: none;
+            }
+
+            .hud-header-actions::-webkit-scrollbar {
+                display: none;
             }
 
             .hud-action-pill {
-                padding: 0.28rem 0.55rem;
-                font-size: 0.60rem;
-                gap: 0.25rem;
+                padding: 0.25rem 0.45rem;
+                font-size: 0.58rem;
+                gap: 0.2rem;
+                white-space: nowrap;
+                flex-shrink: 0;
             }
 
             .lang-switcher {
@@ -2291,19 +2300,256 @@
         @media (max-width: 375px) {
             .hud-header {
                 padding: 0.25rem 0.4rem;
-                gap: 0.25rem;
+                gap: 0.2rem;
             }
             .brand-name {
-                font-size: 0.78rem;
+                font-size: 0.74rem;
             }
             .hud-action-pill {
-                padding: 0.22rem 0.4rem;
-                font-size: 0.56rem;
+                padding: 0.2rem 0.35rem;
+                font-size: 0.52rem;
+                white-space: nowrap;
+                flex-shrink: 0;
             }
             .lang-btn {
-                padding: 1px 4px;
-                font-size: 0.56rem;
+                padding: 1px 3px;
+                font-size: 0.52rem;
             }
+        }
+
+        /* ======================================================== */
+        /* CLIENT LOGIN PORTAL MODAL & AUTH GATEWAY                 */
+        /* ======================================================== */
+        .hud-action-pill {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .client-login-modal {
+            max-width: 440px !important;
+            width: 92vw;
+            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.92), 0 0 30px rgba(212, 168, 99, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .client-login-body {
+            padding: 1.5rem 1.75rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .client-login-hero {
+            text-align: center;
+        }
+
+        .client-login-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: rgba(212, 168, 99, 0.1);
+            border: 1px solid rgba(212, 168, 99, 0.3);
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .client-login-subtitle {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .client-login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .client-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            text-align: left;
+        }
+
+        .client-form-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .client-form-label {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .client-forgot-link {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.2s, text-decoration 0.2s;
+            cursor: pointer;
+        }
+
+        .client-forgot-link:hover {
+            color: var(--accent-gold-bright, #fcd34d);
+            text-decoration: underline;
+        }
+
+        .client-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .client-input-icon {
+            position: absolute;
+            left: 0.9rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .client-input-field {
+            width: 100%;
+            height: 44px;
+            padding: 0 2.5rem 0 2.6rem;
+            background: rgba(10, 8, 14, 0.75);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            color: #ffffff;
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            transition: all 0.2s var(--spring-snappy);
+        }
+
+        .client-input-field::placeholder {
+            color: rgba(148, 163, 184, 0.45);
+        }
+
+        .client-input-field:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background: rgba(16, 12, 22, 0.9);
+            box-shadow: 0 0 0 3px rgba(212, 168, 99, 0.18);
+        }
+
+        .client-password-toggle {
+            position: absolute;
+            right: 0.65rem;
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 0.35rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: color 0.2s;
+        }
+
+        .client-password-toggle:hover {
+            color: var(--text-primary);
+        }
+
+        .client-submit-btn {
+            height: 44px;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(212, 168, 99, 0.95), rgba(180, 130, 60, 0.95));
+            border: 1px solid rgba(212, 168, 99, 0.5);
+            border-radius: 12px;
+            color: #030204;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s var(--spring-snappy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 16px rgba(212, 168, 99, 0.25);
+            margin-top: 0.4rem;
+        }
+
+        .client-submit-btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(212, 168, 99, 0.4);
+            border-color: var(--accent-gold);
+        }
+
+        .client-submit-btn:disabled {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
+        .client-login-alert {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            border-radius: 10px;
+            padding: 0.75rem 0.95rem;
+            color: #fca5a5;
+            font-size: 0.78rem;
+            line-height: 1.45;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.55rem;
+            animation: alertShake 0.4s ease;
+        }
+
+        .client-login-alert.info {
+            background: rgba(212, 168, 99, 0.12);
+            border-color: rgba(212, 168, 99, 0.35);
+            color: #f3c77c;
+        }
+
+        @keyframes alertShake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+
+        .client-login-footer {
+            text-align: center;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .client-footer-hint {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+        }
+
+        .client-spinner {
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(3, 2, 4, 0.25);
+            border-top-color: #030204;
+            border-radius: 50%;
+            animation: clientSpin 0.7s linear infinite;
+        }
+
+        @keyframes clientSpin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -2352,6 +2598,9 @@
                 </button>
                 <button class="hud-action-pill" id="camModeBtn" onclick="toggleCameraView()" title="Toggle Camera Mode">
                     <span>🪐</span> ORBIT VIEW
+                </button>
+<button class="hud-action-pill" id="clientLoginBtn" onclick="openClientLoginModal()" title="Client Portal Login">
+                    <span>🔒</span> Client Login
                 </button>
                 <div class="lang-switcher" aria-label="Language selector">
                     <a href="/version-3/" class="lang-btn active" title="English">EN</a>
@@ -3161,6 +3410,58 @@
                 <a href="https://www.linkedin.com/in/renzofrancesqui/" target="_blank" rel="noopener noreferrer" class="inspect-btn-secondary" style="text-align: center; text-decoration: none; padding: 0.8rem 1rem; color: var(--text-primary);">
                     CONNECT ON LINKEDIN 🔗
                 </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: CLIENT LOGIN -->
+    <div class="spatial-modal-card client-login-modal" id="modalClientLogin" role="dialog" aria-modal="true" aria-labelledby="clientLoginTitle">
+        <div class="modal-top-bar">
+            <h3 class="modal-title-text" id="clientLoginTitle"><span>🔒</span> Client Portal</h3>
+            <button class="modal-close-trigger" onclick="closeActiveModal()" aria-label="Close modal">✕</button>
+        </div>
+        <div class="modal-body-scroll client-login-body">
+            <div class="client-login-hero">
+                <div class="client-login-badge"><span class="hint-pulse-dot"></span> AUTHENTICATION GATEWAY</div>
+                <p class="client-login-subtitle">Access your RevOps telemetry dashboard, deal pipelines, and client deliverables.</p>
+            </div>
+
+            <div id="clientLoginAlert" class="client-login-alert" role="alert" style="display: none;">
+                <span class="client-alert-icon" id="clientLoginAlertIcon">⚠️</span>
+                <span class="client-alert-text" id="clientLoginAlertMsg">Account not found. Please verify your credentials or contact your administrator.</span>
+            </div>
+
+            <form id="clientLoginForm" class="client-login-form" onsubmit="handleClientLogin(event)" novalidate>
+                <div class="client-form-group">
+                    <label for="clientLoginEmail" class="client-form-label">Client Email</label>
+                    <div class="client-input-wrapper">
+                        <span class="client-input-icon">✉️</span>
+                        <input type="email" id="clientLoginEmail" name="email" class="client-input-field" placeholder="client@company.com" required autocomplete="email" oninput="clearClientLoginAlert()" />
+                    </div>
+                </div>
+
+                <div class="client-form-group">
+                    <div class="client-form-label-row">
+                        <label for="clientLoginPassword" class="client-form-label">Password</label>
+                        <a href="javascript:void(0)" onclick="handleForgotPassword(event)" class="client-forgot-link">Forgot?</a>
+                    </div>
+                    <div class="client-input-wrapper">
+                        <span class="client-input-icon">🔑</span>
+                        <input type="password" id="clientLoginPassword" name="password" class="client-input-field" placeholder="••••••••••••" required autocomplete="current-password" oninput="clearClientLoginAlert()" />
+                        <button type="button" class="client-password-toggle" onclick="togglePasswordVisibility()" aria-label="Toggle password visibility" title="Show/Hide Password">
+                            <span id="passwordToggleIcon">👁️</span>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" id="clientLoginSubmitBtn" class="client-submit-btn">
+                    <span id="clientLoginBtnText">Sign In</span>
+                    <span id="clientLoginSpinner" class="client-spinner" style="display: none;"></span>
+                </button>
+            </form>
+
+            <div class="client-login-footer">
+                <span class="client-footer-hint">🔒 256-bit Encrypted Client Access</span>
             </div>
         </div>
     </div>
@@ -6008,6 +6309,165 @@
             initLangSwitcherProtocolFallback();
         }
 
+        // ========================================================
+        // CLIENT LOGIN PORTAL MODAL LOGIC (#modalClientLogin)
+        // ========================================================
+        let clientLoginTimer = null;
+
+        function resetClientLoginForm() {
+            if (clientLoginTimer) {
+                clearTimeout(clientLoginTimer);
+                clientLoginTimer = null;
+            }
+            const isIt = document.documentElement.lang === 'it';
+            const submitBtn = document.getElementById('clientLoginSubmitBtn');
+            const btnText = document.getElementById('clientLoginBtnText');
+            const spinner = document.getElementById('clientLoginSpinner');
+            const pwdInput = document.getElementById('clientLoginPassword');
+            const icon = document.getElementById('passwordToggleIcon');
+            if (submitBtn) submitBtn.disabled = false;
+            if (btnText) btnText.textContent = isIt ? "Accedi" : "Sign In";
+            if (spinner) spinner.style.display = 'none';
+            if (pwdInput) pwdInput.type = 'password';
+            if (icon) icon.textContent = '👁️';
+            clearClientLoginAlert();
+        }
+
+        function openClientLoginModal() {
+            if (typeof dismissFloatingHint === 'function') dismissFloatingHint();
+            if (typeof playSynthTone === 'function') playSynthTone(440, 'sine', 0.06);
+            closeActiveModal(false);
+            const modal = document.getElementById('modalClientLogin');
+            const backdrop = document.getElementById('chatExpandBackdrop');
+            const fab = document.getElementById('floatingAiChatBtn');
+            if (modal) modal.classList.add('active');
+            if (backdrop) backdrop.classList.add('active');
+            if (fab) fab.classList.add('hidden');
+            resetClientLoginForm();
+            setTimeout(() => {
+                const emailInput = document.getElementById('clientLoginEmail');
+                if (emailInput) emailInput.focus();
+            }, 150);
+        }
+
+        function clearClientLoginAlert() {
+            const alert = document.getElementById('clientLoginAlert');
+            if (alert) alert.style.display = 'none';
+        }
+
+        function togglePasswordVisibility() {
+            const pwdInput = document.getElementById('clientLoginPassword');
+            const icon = document.getElementById('passwordToggleIcon');
+            if (!pwdInput) return;
+            if (pwdInput.type === 'password') {
+                pwdInput.type = 'text';
+                if (icon) icon.textContent = '🙈';
+            } else {
+                pwdInput.type = 'password';
+                if (icon) icon.textContent = '👁️';
+            }
+        }
+
+        function handleForgotPassword(e) {
+            if (e) e.preventDefault();
+            if (typeof playSynthTone === 'function') playSynthTone(380, 'sine', 0.05);
+            const alert = document.getElementById('clientLoginAlert');
+            const alertMsg = document.getElementById('clientLoginAlertMsg');
+            const alertIcon = document.getElementById('clientLoginAlertIcon');
+            const emailInput = document.getElementById('clientLoginEmail');
+            const email = (emailInput?.value || '').trim();
+            const isIt = document.documentElement.lang === 'it';
+            if (alert && alertMsg) {
+                if (alertIcon) alertIcon.textContent = 'ℹ️';
+                if (!email) {
+                    alert.className = 'client-login-alert info';
+                    alertMsg.textContent = isIt
+                        ? "Inserisci prima la tua email per ricevere le istruzioni di ripristino."
+                        : "Please enter your email address to receive password reset instructions.";
+                    alert.style.display = 'flex';
+                    if (emailInput) emailInput.focus();
+                } else {
+                    alert.className = 'client-login-alert info';
+                    alertMsg.textContent = isIt
+                        ? "Richiesta inviata. Se l'indirizzo corrisponde a un account attivo, riceverai le istruzioni di ripristino."
+                        : "Password recovery link dispatched if this email is registered in the client registry.";
+                    alert.style.display = 'flex';
+                }
+            }
+        }
+
+        function handleClientLogin(e) {
+            if (e) e.preventDefault();
+            const isIt = document.documentElement.lang === 'it';
+            const emailInput = document.getElementById('clientLoginEmail');
+            const pwdInput = document.getElementById('clientLoginPassword');
+            const submitBtn = document.getElementById('clientLoginSubmitBtn');
+            const btnText = document.getElementById('clientLoginBtnText');
+            const spinner = document.getElementById('clientLoginSpinner');
+            const alert = document.getElementById('clientLoginAlert');
+            const alertMsg = document.getElementById('clientLoginAlertMsg');
+            const alertIcon = document.getElementById('clientLoginAlertIcon');
+
+            if (submitBtn && submitBtn.disabled) return;
+
+            const email = (emailInput?.value || '').trim();
+            const pwd = (pwdInput?.value || '').trim();
+
+            if (!email || !pwd) {
+                if (alert && alertMsg) {
+                    if (alertIcon) alertIcon.textContent = '⚠️';
+                    alert.className = 'client-login-alert';
+                    alertMsg.textContent = isIt
+                        ? "Inserisci sia l'email che la password."
+                        : "Please enter both email and password.";
+                    alert.style.display = 'flex';
+                }
+                if (!email && emailInput) emailInput.focus();
+                else if (!pwd && pwdInput) pwdInput.focus();
+                return;
+            }
+
+            if (submitBtn) submitBtn.disabled = true;
+            if (btnText) btnText.textContent = isIt ? "Autenticazione in corso..." : "Authenticating...";
+            if (spinner) spinner.style.display = 'inline-block';
+            if (alert) alert.style.display = 'none';
+
+            if (typeof playSynthTone === 'function') playSynthTone(520, 'triangle', 0.08);
+
+            if (clientLoginTimer) clearTimeout(clientLoginTimer);
+            clientLoginTimer = setTimeout(() => {
+                clientLoginTimer = null;
+                const modal = document.getElementById('modalClientLogin');
+                if (!modal || !modal.classList.contains('active')) {
+                    resetClientLoginForm();
+                    return;
+                }
+
+                if (submitBtn) submitBtn.disabled = false;
+                if (btnText) btnText.textContent = isIt ? "Accedi" : "Sign In";
+                if (spinner) spinner.style.display = 'none';
+
+                if (alert && alertMsg) {
+                    if (alertIcon) alertIcon.textContent = '⚠️';
+                    alert.className = 'client-login-alert';
+                    alertMsg.textContent = isIt
+                        ? "Account non trovato. Verifica le tue credenziali o contatta l'amministratore."
+                        : "Account not found. Please verify your credentials or contact your administrator.";
+                    alert.style.display = 'flex';
+                    alert.style.animation = 'none';
+                    void alert.offsetWidth;
+                    alert.style.animation = 'alertShake 0.4s ease';
+                }
+
+                if (typeof playSynthTone === 'function') playSynthTone(240, 'sawtooth', 0.15, 0.1);
+
+                if (pwdInput) {
+                    pwdInput.value = '';
+                    pwdInput.focus();
+                }
+            }, 650);
+        }
+
         function dismissFloatingHint(e) {
             if (e && e.stopPropagation) e.stopPropagation();
             const hint = document.getElementById('orbitFloatingHint');
@@ -6084,7 +6544,12 @@
                 return;
             }
 
-const modalMap = {
+if (id === 'client_login') {
+                openClientLoginModal();
+                return;
+            }
+
+            const modalMap = {
                 'services': 'modalServices',
                 'experience': 'modalExperience',
                 'projects': 'modalProjects',
@@ -6092,7 +6557,8 @@ const modalMap = {
                 'tools': 'modalTools',
                 'credentials': 'modalCredentials',
                 'blog': 'modalBlog',
-                'contact': 'modalContact'
+                'contact': 'modalContact',
+                'client_login': 'modalClientLogin'
             };
 
             const targetId = modalMap[id];
@@ -6114,14 +6580,24 @@ const modalMap = {
             if (backdrop) backdrop.classList.remove('active');
             if (fab) fab.classList.remove('hidden');
 
+            if (typeof resetClientLoginForm === "function") resetClientLoginForm();
+
             if (resetCamera) {
                 resetCameraToOverview();
             }
         }
 
         function handleUrlHash() {
-            const rawHash = (window.location.hash || '').replace('#', '').trim();
+const rawHash = (window.location.hash || '').replace('#', '').trim();
             if (!rawHash) return;
+            if (rawHash === 'client-login' || rawHash === 'login' || rawHash === 'modalClientLogin' || rawHash === 'area-clienti') {
+                const loader = document.getElementById('loaderOverlay');
+                const delay = (loader && !loader.classList.contains('loaded')) ? 750 : 100;
+                setTimeout(() => {
+                    if (typeof openClientLoginModal === 'function') openClientLoginModal();
+                }, delay);
+                return;
+            }
             const hashToPlanet = {
                 'modalServices': 'services',
                 'modalExperience': 'experience',
