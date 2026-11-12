@@ -25,6 +25,10 @@ import urllib.parse
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+BASE_URL = "https://renzo-francesqui.vercel.app"
+BRAND_TITLE = "Marketing Operations Specialist | CRM & RevOps Architect | Automation & AI Workflows"
+PERSON_NAME = "Renzo Francesqui"
+
 TOOLS_DATA = [
     {
         "id": "sla_calculator",
@@ -1272,7 +1276,7 @@ def render_tool_workspace_html(tool_id, is_it=False):
         </div>"""
 
     elif tool_id == "utm_builder":
-        default_url = "https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups/" if is_it else "https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/"
+        default_url = f"{BASE_URL}/it/services/hubspot-crm-optimization-startups" if is_it else f"{BASE_URL}/services/hubspot-crm-optimization-startups"
         url_label = "URL Pagina di Destinazione (Landing Page)" if is_it else "Landing Page Destination URL"
         source_label = "Sorgente di Acquisizione (utm_source)" if is_it else "Acquisition Channel / Source (utm_source)"
         medium_label = "Mezzo di Campagna (utm_medium)" if is_it else "Campaign Medium (utm_medium)"
@@ -1563,7 +1567,7 @@ def render_tool_interactive_js(tool_id):
             const campInput = document.getElementById('utmCampaignInput');
             if (!urlInput || !campInput) return;
             const isIt = document.documentElement.lang === 'it';
-            let defaultBase = isIt ? 'https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups/' : 'https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/';
+            let defaultBase = isIt ? 'https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups' : 'https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups';
             let rawUrl = urlInput.value.trim() || defaultBase;
             const hashIdx = rawUrl.indexOf('#');
             let hashPart = '';
@@ -1701,14 +1705,14 @@ def render_tool_interactive_js(tool_id):
 
 def render_tool_html(tool, lang="en"):
     is_it = (lang == "it")
-    canonical_base = "https://renzo-francesqui.vercel.app"
+    canonical_base = BASE_URL
     slug = tool['slug']
-    en_canonical_url = f"{canonical_base}/tools/{slug}/"
-    it_canonical_url = f"{canonical_base}/it/tools/{slug}/"
+    en_canonical_url = f"{canonical_base}/tools/{slug}"
+    it_canonical_url = f"{canonical_base}/it/tools/{slug}"
     page_canonical = it_canonical_url if is_it else en_canonical_url
     page_url = page_canonical
-    en_toggle_href = f"/tools/{slug}/"
-    it_toggle_href = f"/it/tools/{slug}/"
+    en_toggle_href = f"/tools/{slug}"
+    it_toggle_href = f"/it/tools/{slug}"
 
     meta_title = tool['meta_title_it'] if is_it else tool['meta_title_en']
     meta_desc = tool['meta_desc_it'] if is_it else tool['meta_desc_en']
@@ -1801,7 +1805,7 @@ def render_tool_html(tool, lang="en"):
         active_cls = " active" if t['id'] == tool['id'] else ""
         target_slug = t['slug']
         pill_label = t['pill_label_it'] if is_it else t['pill_label_en']
-        pill_href = f"/it/tools/{target_slug}/" if is_it else f"/tools/{target_slug}/"
+        pill_href = f"/it/tools/{target_slug}" if is_it else f"/tools/{target_slug}"
         switcher_pills_html += f"""
             <a href="{pill_href}" class="switch-pill{active_cls}">{pill_label}</a>"""
 
@@ -1809,6 +1813,7 @@ def render_tool_html(tool, lang="en"):
     tool_workspace_html = render_tool_workspace_html(tool['id'], is_it=is_it)
     tool_interactive_js = render_tool_interactive_js(tool['id'])
 
+    home_link = "/it/" if is_it else "/"
     client_login_link = "/it/#client-login" if is_it else "/#client-login"
     client_login_text = "Area Clienti" if is_it else "Client Login"
 
@@ -1846,8 +1851,8 @@ def render_tool_html(tool, lang="en"):
                 "creator": {
                     "@type": "Person",
                     "@id": f"{canonical_base}/it/#person" if is_it else f"{canonical_base}/#person",
-                    "name": "Renzo Francesqui",
-                    "jobTitle": "Specialista Marketing Operations, Architetture CRM & RevOps" if is_it else "Marketing Operations & RevOps Specialist",
+                    "name": PERSON_NAME,
+                    "jobTitle": "Specialista Marketing Operations | Architetto CRM & RevOps | Automazioni & Flussi AI" if is_it else BRAND_TITLE,
                     "address": {
                         "@type": "PostalAddress",
                         "addressLocality": "Milano" if is_it else "Milan",
@@ -1929,7 +1934,7 @@ def render_tool_html(tool, lang="en"):
     <!-- Sticky Minimalist HUD Header -->
     <div class="nav-Wrapper">
         <header class="hud-header">
-            <a href="../../index.html" class="back-link">
+            <a href="{home_link}" class="back-link">
                 <span>←</span> {back_text}
             </a>
 
@@ -2006,7 +2011,7 @@ def render_tool_html(tool, lang="en"):
             <div class="cta-actions">
                 <a href="https://calendly.com/renzo-francesqui" target="_blank" rel="noopener noreferrer" class="btn-gold">{cta_btn_primary}</a>
                 <a href="mailto:renzo.francesqui@gmail.com?subject={encoded_subject}" class="btn-ghost">{cta_btn_inquire}</a>
-                <a href="../../index.html" class="btn-ghost">{cta_btn_secondary}</a>
+                <a href="{home_link}" class="btn-ghost">{cta_btn_secondary}</a>
             </div>
         </div>
     </main>

@@ -1,24 +1,45 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     {
+      "source": "/version-1.5",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/version-1.5/(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/services/small-startup-business-crm-setup-optimization",
-      "destination": "/services/hubspot-crm-optimization-startups/",
+      "destination": "/services/hubspot-crm-optimization-startups",
       "permanent": true
     },
     {
       "source": "/services/small-startup-business-crm-setup-optimization/",
-      "destination": "/services/hubspot-crm-optimization-startups/",
+      "destination": "/services/hubspot-crm-optimization-startups",
       "permanent": true
     },
     {
       "source": "/it/services/small-startup-business-crm-setup-optimization",
-      "destination": "/it/services/hubspot-crm-optimization-startups/",
+      "destination": "/it/services/hubspot-crm-optimization-startups",
       "permanent": true
     },
     {
       "source": "/it/services/small-startup-business-crm-setup-optimization/",
-      "destination": "/it/services/hubspot-crm-optimization-startups/",
+      "destination": "/it/services/hubspot-crm-optimization-startups",
+      "permanent": true
+    },
+    {
+      "source": "/(.*).html",
+      "destination": "/$1",
       "permanent": true
     }
   ],

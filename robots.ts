@@ -16,11 +16,21 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         disallow: [
+          '/version-1.5/',
           '/api/',
-          '/draft',
-          '/draft/',
-          '/*?draft=*',
         ],
+      },
+      {
+        userAgent: 'GPTBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'PerplexityBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'ClaudeBot',
+        allow: '/',
       },
     ],
     sitemap: `${BASE_URL}/sitemap.xml`,

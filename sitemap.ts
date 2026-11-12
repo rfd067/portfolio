@@ -20,54 +20,96 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
-    // Italian Localized Route
+    // Service Pages
     {
-      url: `${BASE_URL}/it/`,
+      url: `${BASE_URL}/services/hubspot-crm-optimization-startups`,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.98,
+      changeFrequency: 'monthly',
+      priority: 0.9,
       alternates: {
         languages: {
-          en: `${BASE_URL}/`,
-          it: `${BASE_URL}/it/`,
-          'x-default': `${BASE_URL}/`,
+          en: `${BASE_URL}/services/hubspot-crm-optimization-startups`,
+          it: `${BASE_URL}/it/services/hubspot-crm-optimization-startups`,
+          'x-default': `${BASE_URL}/services/hubspot-crm-optimization-startups`,
         },
       },
     },
-    // Dedicated Blog Hub
     {
-      url: `${BASE_URL}/blog/`,
+      url: `${BASE_URL}/services/paid-media-management`,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
+      changeFrequency: 'monthly',
       priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${BASE_URL}/services/paid-media-management`,
+          it: `${BASE_URL}/it/services/paid-media-management`,
+          'x-default': `${BASE_URL}/services/paid-media-management`,
+        },
+      },
     },
-    // Version 1.5 Architecture
     {
-      url: `${BASE_URL}/version-1.5/`,
+      url: `${BASE_URL}/services/seo-and-geo-optimization`,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    // Standalone Blog Post: HubSpot AI Enrichment Agent
-    {
-      url: `${BASE_URL}/blog/hubspot-ai-enrichment-agent.html`,
-      lastModified: '2026-03-15',
       changeFrequency: 'monthly',
-      priority: 0.85,
+      priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${BASE_URL}/services/seo-and-geo-optimization`,
+          it: `${BASE_URL}/it/services/seo-and-geo-optimization`,
+          'x-default': `${BASE_URL}/services/seo-and-geo-optimization`,
+        },
+      },
     },
-    // Standalone Blog Post: B2B Event Lead Operations
     {
-      url: `${BASE_URL}/blog/b2b-event-lead-operations.html`,
-      lastModified: '2026-03-20',
+      url: `${BASE_URL}/services/marketing-data-reporting`,
+      lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.85,
+      priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${BASE_URL}/services/marketing-data-reporting`,
+          it: `${BASE_URL}/it/services/marketing-data-reporting`,
+          'x-default': `${BASE_URL}/services/marketing-data-reporting`,
+        },
+      },
     },
-    // Standalone Blog Post: Modern RevOps Lifecycle Architecture
+    // Interactive Utility Tools
     {
-      url: `${BASE_URL}/blog/modern-revops-lifecycle-architecture.html`,
-      lastModified: '2026-03-25',
+      url: `${BASE_URL}/tools/mql-to-sql-sla-lead-leakage-calculator`,
+      lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.85,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/tools/b2b-campaign-utm-crm-builder`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/tools/b2b-trade-show-roi-calculator`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    // Blog & Insights Articles
+    {
+      url: `${BASE_URL}/blog/hubspot-ai-enrichment-agent`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/blog/b2b-event-lead-operations`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/blog/modern-revops-lifecycle-architecture`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
   ];
 }

@@ -1,225 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <!-- Primary Main Portfolio & Interactive AI Representative (English Default) -->
+  <!-- Core Landing Pages -->
   <url>
     <loc>https://renzo-francesqui.vercel.app/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/" />
     <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/"/>
+    <priority>1.0</priority>
   </url>
 
-  <!-- Italian Localized Portfolio & Interactive AI Representative -->
+  <!-- Service Pages -->
   <url>
-    <loc>https://renzo-francesqui.vercel.app/it/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.98</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/"/>
+    <loc>https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups" />
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://renzo-francesqui.vercel.app/services/paid-media-management</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/services/paid-media-management" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/services/paid-media-management" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/services/paid-media-management" />
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://renzo-francesqui.vercel.app/services/seo-and-geo-optimization</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/services/seo-and-geo-optimization" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/services/seo-and-geo-optimization" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/services/seo-and-geo-optimization" />
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://renzo-francesqui.vercel.app/services/marketing-data-reporting</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/services/marketing-data-reporting" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/services/marketing-data-reporting" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/services/marketing-data-reporting" />
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Dedicated Blog Hub -->
+  <!-- Interactive Utility Tools -->
   <url>
-    <loc>https://renzo-francesqui.vercel.app/blog/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <loc>https://renzo-francesqui.vercel.app/tools/mql-to-sql-sla-lead-leakage-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://renzo-francesqui.vercel.app/tools/b2b-campaign-utm-crm-builder</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://renzo-francesqui.vercel.app/tools/b2b-trade-show-roi-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Version 3.0 (Next-Gen Photorealistic 3D Solar Matrix) -->
+  <!-- Blog & Insights Articles -->
   <url>
-    <loc>https://renzo-francesqui.vercel.app/version-3/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.92</priority>
-  </url>
-
-  <!-- Version 1.5 (Categorized Skills & Mobile Optimized) -->
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/version-1.5/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Classic Version (Version A) -->
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/classic/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://renzo-francesqui.vercel.app/blog/hubspot-ai-enrichment-agent</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
-  <!-- Article: Scaling B2B Trade Show Operations: From Offline Badge Scans to Same-Week SQLs -->
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/blog/b2b-event-lead-operations.html</loc>
-    <lastmod>2026-08-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Article: Building an Automated HubSpot Lead Enrichment Agent with Python & Webhooks -->
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/blog/hubspot-ai-enrichment-agent.html</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Article: Modern RevOps Lifecycle Architecture: Enforcing MQL-to-SQL SLAs & Deal Governance -->
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Service: HubSpot CRM Setup & RevOps Architecture (EN & IT) -->
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/"/>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://renzo-francesqui.vercel.app/blog/b2b-event-lead-operations</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/"/>
-  </url>
-
-  <!-- Service: Paid Media Management (EN & IT) -->
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/services/paid-media-management/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/services/paid-media-management/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/services/paid-media-management/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/services/paid-media-management/"/>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://renzo-francesqui.vercel.app/it/services/paid-media-management/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/services/paid-media-management/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/services/paid-media-management/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/services/paid-media-management/"/>
+    <priority>0.7</priority>
   </url>
-
-  <!-- Service: SEO & GEO Optimization (EN & IT) -->
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/services/seo-and-geo-optimization/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/services/seo-and-geo-optimization/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/services/seo-and-geo-optimization/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/services/seo-and-geo-optimization/"/>
-  </url>
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/it/services/seo-and-geo-optimization/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/services/seo-and-geo-optimization/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/services/seo-and-geo-optimization/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/services/seo-and-geo-optimization/"/>
-  </url>
-
-  <!-- Service: Marketing Data & Reporting (EN & IT) -->
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/services/marketing-data-reporting/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/services/marketing-data-reporting/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/services/marketing-data-reporting/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/services/marketing-data-reporting/"/>
-  </url>
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/it/services/marketing-data-reporting/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/services/marketing-data-reporting/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/services/marketing-data-reporting/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/services/marketing-data-reporting/"/>
-  </url>
-
-  <!-- Tool: MQL-to-SQL SLA & Lead Leakage Calculator (EN & IT) -->
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/tools/mql-to-sql-sla-lead-leakage-calculator/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/tools/mql-to-sql-sla-lead-leakage-calculator/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/tools/mql-to-sql-sla-lead-leakage-calculator/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/tools/mql-to-sql-sla-lead-leakage-calculator/"/>
-  </url>
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/it/tools/mql-to-sql-sla-lead-leakage-calculator/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/tools/mql-to-sql-sla-lead-leakage-calculator/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/tools/mql-to-sql-sla-lead-leakage-calculator/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/tools/mql-to-sql-sla-lead-leakage-calculator/"/>
-  </url>
-
-  <!-- Tool: B2B Campaign UTM & CRM Governance Builder (EN & IT) -->
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/tools/b2b-campaign-utm-crm-builder/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/tools/b2b-campaign-utm-crm-builder/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/tools/b2b-campaign-utm-crm-builder/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/tools/b2b-campaign-utm-crm-builder/"/>
-  </url>
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/it/tools/b2b-campaign-utm-crm-builder/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/tools/b2b-campaign-utm-crm-builder/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/tools/b2b-campaign-utm-crm-builder/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/tools/b2b-campaign-utm-crm-builder/"/>
-  </url>
-
-  <!-- Tool: B2B Trade Show & Exhibition ROI Modeler (EN & IT) -->
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/tools/b2b-trade-show-roi-calculator/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/tools/b2b-trade-show-roi-calculator/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/tools/b2b-trade-show-roi-calculator/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/tools/b2b-trade-show-roi-calculator/"/>
-  </url>
-  <url>
-    <loc>https://renzo-francesqui.vercel.app/it/tools/b2b-trade-show-roi-calculator/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renzo-francesqui.vercel.app/tools/b2b-trade-show-roi-calculator/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://renzo-francesqui.vercel.app/it/tools/b2b-trade-show-roi-calculator/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renzo-francesqui.vercel.app/tools/b2b-trade-show-roi-calculator/"/>
-  </url>
-
 </urlset>

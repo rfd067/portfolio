@@ -3359,7 +3359,7 @@ UPGRADED_MODAL_SERVICES_HTML = '''    <!-- MODAL: SERVICES (FREELANCE SOLUTIONS)
                         <a href="mailto:renzo.francesqui@gmail.com?subject=Inquiry%20regarding%20HubSpot%20CRM%20Setup%20and%20RevOps" class="service-btn-primary">
                             <span>Inquire / Consult ✉️</span>
                         </a>
-                        <a href="/services/hubspot-crm-optimization-startups/" target="_blank" class="service-btn-secondary">
+                        <a href="/services/hubspot-crm-optimization-startups" target="_blank" class="service-btn-secondary">
                             <span>Explore Scope ↗</span>
                         </a>
                     </div>
@@ -3383,7 +3383,7 @@ UPGRADED_MODAL_SERVICES_HTML = '''    <!-- MODAL: SERVICES (FREELANCE SOLUTIONS)
                         <a href="mailto:renzo.francesqui@gmail.com?subject=Inquiry%20regarding%20Paid%20Media%20Management" class="service-btn-primary">
                             <span>Inquire / Consult ✉️</span>
                         </a>
-                        <a href="/services/paid-media-management/" target="_blank" class="service-btn-secondary">
+                        <a href="/services/paid-media-management" target="_blank" class="service-btn-secondary">
                             <span>Explore Scope ↗</span>
                         </a>
                     </div>
@@ -3407,7 +3407,7 @@ UPGRADED_MODAL_SERVICES_HTML = '''    <!-- MODAL: SERVICES (FREELANCE SOLUTIONS)
                         <a href="mailto:renzo.francesqui@gmail.com?subject=Inquiry%20regarding%20SEO%20and%20GEO%20Optimization" class="service-btn-primary">
                             <span>Inquire / Consult ✉️</span>
                         </a>
-                        <a href="/services/seo-and-geo-optimization/" target="_blank" class="service-btn-secondary">
+                        <a href="/services/seo-and-geo-optimization" target="_blank" class="service-btn-secondary">
                             <span>Explore Scope ↗</span>
                         </a>
                     </div>
@@ -3431,7 +3431,7 @@ UPGRADED_MODAL_SERVICES_HTML = '''    <!-- MODAL: SERVICES (FREELANCE SOLUTIONS)
                         <a href="mailto:renzo.francesqui@gmail.com?subject=Inquiry%20regarding%20Marketing%20Data%20and%20KPI%20Reporting" class="service-btn-primary">
                             <span>Inquire / Consult ✉️</span>
                         </a>
-                        <a href="/services/marketing-data-reporting/" target="_blank" class="service-btn-secondary">
+                        <a href="/services/marketing-data-reporting" target="_blank" class="service-btn-secondary">
                             <span>Explore Scope ↗</span>
                         </a>
                     </div>
@@ -3488,7 +3488,7 @@ UPGRADED_MODAL_TOOLS_HTML = '''    <!-- MODAL: TOOLS -->
                         <h4 class="tool-pane-title">MQL-to-SQL SLA &amp; Lead Leakage Calculator</h4>
                         <p class="tool-pane-desc">Quantify how follow-up response latency degrades inbound pipeline conversion. Sub-5-minute routing consistently delivers up to 8x higher lead-to-opportunity velocity compared to manual spreadsheets.</p>
                     </div>
-                    <a href="/tools/mql-to-sql-sla-lead-leakage-calculator/" target="_blank" rel="noopener noreferrer" class="tool-dedicated-btn">
+                    <a href="/tools/mql-to-sql-sla-lead-leakage-calculator" target="_blank" rel="noopener noreferrer" class="tool-dedicated-btn">
                         <span>↗</span> Open Full Tool &amp; Guide
                     </a>
                 </div>
@@ -3552,7 +3552,7 @@ UPGRADED_MODAL_TOOLS_HTML = '''    <!-- MODAL: TOOLS -->
                         <h4 class="tool-pane-title">B2B Campaign UTM &amp; CRM Governance Builder</h4>
                         <p class="tool-pane-desc">Enforce standard tracking taxonomy across paid acquisition and map attribution keys into hidden HubSpot/Salesforce form properties.</p>
                     </div>
-                    <a href="/tools/b2b-campaign-utm-crm-builder/" target="_blank" rel="noopener noreferrer" class="tool-dedicated-btn">
+                    <a href="/tools/b2b-campaign-utm-crm-builder" target="_blank" rel="noopener noreferrer" class="tool-dedicated-btn">
                         <span>↗</span> Open Full Tool &amp; Guide
                     </a>
                 </div>
@@ -3560,7 +3560,7 @@ UPGRADED_MODAL_TOOLS_HTML = '''    <!-- MODAL: TOOLS -->
                     <div class="tool-inputs-card">
                         <div class="tool-input-group">
                             <label for="utmUrlInput" class="tool-input-label">Landing Page URL</label>
-                            <input type="url" class="tool-text-input" id="utmUrlInput" value="https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/" oninput="updateUtmBuilder()">
+                            <input type="url" class="tool-text-input" id="utmUrlInput" value="https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups" oninput="updateUtmBuilder()">
                         </div>
                         <div class="tool-input-group">
                             <label class="tool-input-label">Channel / Source</label>
@@ -3603,7 +3603,7 @@ UPGRADED_MODAL_TOOLS_HTML = '''    <!-- MODAL: TOOLS -->
                                 <button class="terminal-copy-btn" id="btnCopyUtm" onclick="copyGovernedUrl()">📋 Copy Governed URL</button>
                             </div>
                             <div class="terminal-content" id="utmOutputUrl" style="word-break: break-all; font-family: var(--font-mono); font-size: 0.72rem; color: #38bdf8; line-height: 1.5; padding: 0.75rem; background: rgba(0,0,0,0.4); border-radius: 8px;">
-                                https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/?utm_source=linkedin&amp;utm_medium=cpc&amp;utm_campaign=2026_q2_enterprise_revops_scale&amp;custom_icp_region=emea
+                                https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups?utm_source=linkedin&amp;utm_medium=cpc&amp;utm_campaign=2026_q2_enterprise_revops_scale&amp;custom_icp_region=emea
                             </div>
                         </div>
 
@@ -3635,7 +3635,7 @@ UPGRADED_MODAL_TOOLS_HTML = '''    <!-- MODAL: TOOLS -->
                         <h4 class="tool-pane-title">B2B Trade Show &amp; Exhibition ROI Calculator</h4>
                         <p class="tool-pane-desc">Modeled on real-world industrial exhibition operations (IFAT Munich, PRS Europe). Measure pipeline creation, qualified cost per opportunity, and automated sync hours saved.</p>
                     </div>
-                    <a href="/tools/b2b-trade-show-roi-calculator/" target="_blank" rel="noopener noreferrer" class="tool-dedicated-btn">
+                    <a href="/tools/b2b-trade-show-roi-calculator" target="_blank" rel="noopener noreferrer" class="tool-dedicated-btn">
                         <span>↗</span> Open Full Tool &amp; Guide
                     </a>
                 </div>
@@ -3743,7 +3743,7 @@ UPGRADED_MODAL_TOOLS_HTML_IT = '''    <!-- MODAL: TOOLS -->
                         <h4 class="tool-pane-title">Calcolatore SLA MQL-to-SQL &amp; Dispersione Pipeline</h4>
                         <p class="tool-pane-desc">Quantifica come la latenza di risposta commerciale degrada la conversione della pipeline inbound. Il routing sotto i 5 minuti genera fino a 8 volte più conversioni rispetto ai tradizionali fogli di calcolo.</p>
                     </div>
-                    <a href="/it/tools/mql-to-sql-sla-lead-leakage-calculator/" target="_blank" rel="noopener noreferrer" class="tool-dedicated-btn">
+                    <a href="/it/tools/mql-to-sql-sla-lead-leakage-calculator" target="_blank" rel="noopener noreferrer" class="tool-dedicated-btn">
                         <span>↗</span> Apri Tool Dedicato
                     </a>
                 </div>
@@ -3807,7 +3807,7 @@ UPGRADED_MODAL_TOOLS_HTML_IT = '''    <!-- MODAL: TOOLS -->
                         <h4 class="tool-pane-title">Builder UTM Campagne B2B &amp; Governance CRM</h4>
                         <p class="tool-pane-desc">Definisci convenzioni di tracciamento standard per l'acquisizione a pagamento e mappa i parametri nei campi modulo nascosti di HubSpot/Salesforce.</p>
                     </div>
-                    <a href="/it/tools/b2b-campaign-utm-crm-builder/" target="_blank" rel="noopener noreferrer" class="tool-dedicated-btn">
+                    <a href="/it/tools/b2b-campaign-utm-crm-builder" target="_blank" rel="noopener noreferrer" class="tool-dedicated-btn">
                         <span>↗</span> Apri Tool Dedicato
                     </a>
                 </div>
@@ -3815,7 +3815,7 @@ UPGRADED_MODAL_TOOLS_HTML_IT = '''    <!-- MODAL: TOOLS -->
                     <div class="tool-inputs-card">
                         <div class="tool-input-group">
                             <label for="utmUrlInput" class="tool-input-label">URL Landing Page di Destinazione</label>
-                            <input type="url" class="tool-text-input" id="utmUrlInput" value="https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups/" oninput="updateUtmBuilder()">
+                            <input type="url" class="tool-text-input" id="utmUrlInput" value="https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups" oninput="updateUtmBuilder()">
                         </div>
                         <div class="tool-input-group">
                             <label class="tool-input-label">Canale / Sorgente</label>
@@ -3858,7 +3858,7 @@ UPGRADED_MODAL_TOOLS_HTML_IT = '''    <!-- MODAL: TOOLS -->
                                 <button class="terminal-copy-btn" id="btnCopyUtm" onclick="copyGovernedUrl()">📋 Copia URL con Governance</button>
                             </div>
                             <div class="terminal-content" id="utmOutputUrl" style="word-break: break-all; font-family: var(--font-mono); font-size: 0.72rem; color: #38bdf8; line-height: 1.5; padding: 0.75rem; background: rgba(0,0,0,0.4); border-radius: 8px;">
-                                https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups/?utm_source=linkedin&amp;utm_medium=cpc&amp;utm_campaign=2026_q2_enterprise_revops_scale&amp;custom_icp_region=emea
+                                https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups?utm_source=linkedin&amp;utm_medium=cpc&amp;utm_campaign=2026_q2_enterprise_revops_scale&amp;custom_icp_region=emea
                             </div>
                         </div>
 
@@ -3890,7 +3890,7 @@ UPGRADED_MODAL_TOOLS_HTML_IT = '''    <!-- MODAL: TOOLS -->
                         <h4 class="tool-pane-title">Calcolatore ROI Fiere &amp; Stand B2B</h4>
                         <p class="tool-pane-desc">Modellato sulle reali dinamiche fieristiche industriali internazionali (IFAT Monaco, PRS Europe). Calcola la generazione di pipeline, il costo per opportunità e le ore risparmiate tramite automazione.</p>
                     </div>
-                    <a href="/it/tools/b2b-trade-show-roi-calculator/" target="_blank" rel="noopener noreferrer" class="tool-dedicated-btn">
+                    <a href="/it/tools/b2b-trade-show-roi-calculator" target="_blank" rel="noopener noreferrer" class="tool-dedicated-btn">
                         <span>↗</span> Apri Tool Dedicato
                     </a>
                 </div>
@@ -4306,7 +4306,7 @@ UPGRADED_TOOLS_JS = '''        // ==============================================
             if (!urlInput || !campInput) return;
 
             const isIt = document.documentElement.lang === 'it';
-            let defaultBase = isIt ? 'https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups/' : 'https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/';
+            let defaultBase = isIt ? 'https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups' : 'https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups';
             let rawUrl = urlInput.value.trim() || defaultBase;
             const hashIdx = rawUrl.indexOf('#');
             let hashPart = '';
@@ -4757,39 +4757,39 @@ def build_en_html(src):
     # 1. Update Title and Meta Tags
     html = re.sub(
         r'<title>.*?</title>',
-        '<title>Renzo Francesqui — Digital Marketing, CRM Architecture & Business Insights</title>',
+        '<title>Renzo Francesqui | Marketing Operations Specialist | CRM & RevOps Architect</title>',
         html
     )
     html = re.sub(
         r'<meta name="description" content=".*?">',
-        '<meta name="description" content="Photorealistic 3D WebGL Solar System Portfolio & Interactive AI Representative for Renzo Francesqui — Digital Marketing, CRM Architecture, RevOps & Freelance Solutions.">',
+        '<meta name="description" content="Marketing Operations Specialist & CRM/RevOps Architect specializing in HubSpot & Salesforce architecture, B2B pipeline automation, and custom AI enrichment workflows.">',
         html
     )
     html = re.sub(
         r'<meta property="og:title" content=".*?">',
-        '<meta property="og:title" content="Renzo Francesqui — Digital Marketing, CRM Architecture & Business Insights">',
+        '<meta property="og:title" content="Renzo Francesqui | Marketing Operations Specialist | CRM & RevOps Architect | Automation & AI Workflows">',
         html
     )
     html = re.sub(
         r'<meta property="og:description" content=".*?">',
-        '<meta property="og:description" content="Photorealistic 3D WebGL Solar System Portfolio & Interactive AI Representative for Renzo Francesqui — Digital Marketing, CRM Architecture, RevOps & Freelance Solutions.">',
+        '<meta property="og:description" content="Marketing Operations Specialist & CRM/RevOps Architect specializing in HubSpot & Salesforce architecture, B2B pipeline automation, and custom AI enrichment workflows.">',
         html
     )
     html = re.sub(
         r'<meta name="twitter:title" content=".*?">',
-        '<meta name="twitter:title" content="Renzo Francesqui — Digital Marketing, CRM Architecture & Business Insights">',
+        '<meta name="twitter:title" content="Renzo Francesqui | Marketing Operations Specialist | CRM & RevOps Architect | Automation & AI Workflows">',
         html
     )
     html = re.sub(
         r'<meta name="twitter:description" content=".*?">',
-        '<meta name="twitter:description" content="Photorealistic 3D WebGL Solar System Portfolio & Interactive AI Representative for Renzo Francesqui — Digital Marketing, CRM Architecture, RevOps & Freelance Solutions.">',
+        '<meta name="twitter:description" content="Marketing Operations Specialist & CRM/RevOps Architect specializing in HubSpot & Salesforce architecture, B2B pipeline automation, and custom AI enrichment workflows.">',
         html
     )
 
     # 2. Update Header Brand Badge
     html = re.sub(
         r'<span class="brand-tag-badge">.*?</span>',
-        '<span class="brand-tag-badge">Digital Marketing · CRM Architecture · Business Insights</span>',
+        '<span class="brand-tag-badge">Marketing Operations Specialist | CRM & RevOps Architect | Automation & AI Workflows</span>',
         html
     )
 
@@ -4821,7 +4821,7 @@ def build_en_html(src):
     hint_replacement = '''<div class="orbit-floating-hint" id="orbitFloatingHint">
             <button class="hint-close-btn" onclick="dismissFloatingHint(event)" aria-label="Close welcome HUD">✕</button>
             <div class="hint-eyebrow"><span class="hint-pulse-dot"></span> ONLINE // MILAN &amp; PARMA, ITALY • EMEA &amp; GLOBAL</div>
-            <div class="hint-headline">Renzo Francesqui — CRM Architecture, RevOps &amp; Digital Growth</div>
+            <div class="hint-headline">Renzo Francesqui — Marketing Operations Specialist | CRM &amp; RevOps Architect | Automation &amp; AI Workflows</div>
             <div class="hint-subtext">Drag to orbit the 3D Solar Matrix • Click any planet to inspect • Select a sector below</div>
             <div class="hint-actions">
                 <button class="hint-pill-btn" onclick="dismissFloatingHint(); openModalForPlanet('services');"><span>⚡</span> Explore Freelance Services</button>
@@ -5046,33 +5046,33 @@ def build_it_html(en_html):
     # 2. Page Title & Meta Tags
     it = re.sub(
         r'<title>.*?</title>',
-        '<title>Renzo Francesqui — Marketing Digitale, Architetture CRM & Business Insights</title>',
+        '<title>Renzo Francesqui | Specialista Marketing Operations | Architetto CRM & RevOps</title>',
         it
     )
     it = re.sub(
         r'<meta name="description" content=".*?">',
-        '<meta name="description" content="Matrice solare 3D WebGL fotorealistica e Rappresentante AI interattivo di Renzo Francesqui — Marketing Operations B2B, Architetture CRM HubSpot, Paid Media & Automazioni AI.">',
+        '<meta name="description" content="Specialista Marketing Operations & Architetto CRM/RevOps specializzato in architetture HubSpot e Salesforce, automazione pipeline B2B e flussi AI personalizzati.">',
         it
     )
     it = it.replace('content="https://renzo-francesqui.vercel.app/version-3/"', 'content="https://renzo-francesqui.vercel.app/version-3/it/"')
     it = re.sub(
         r'<meta property="og:title" content=".*?">',
-        '<meta property="og:title" content="Renzo Francesqui — Marketing Digitale, Architetture CRM & Business Insights">',
+        '<meta property="og:title" content="Renzo Francesqui | Specialista Marketing Operations | Architetto CRM & RevOps | Automazioni & Flussi AI">',
         it
     )
     it = re.sub(
         r'<meta property="og:description" content=".*?">',
-        '<meta property="og:description" content="Matrice solare 3D WebGL fotorealistica e Rappresentante AI interattivo di Renzo Francesqui — Marketing Operations B2B, Architetture CRM HubSpot, Paid Media & Automazioni AI.">',
+        '<meta property="og:description" content="Specialista Marketing Operations & Architetto CRM/RevOps specializzato in architetture HubSpot e Salesforce, automazione pipeline B2B e flussi AI personalizzati.">',
         it
     )
     it = re.sub(
         r'<meta name="twitter:title" content=".*?">',
-        '<meta name="twitter:title" content="Renzo Francesqui — Marketing Digitale, Architetture CRM & Business Insights">',
+        '<meta name="twitter:title" content="Renzo Francesqui | Specialista Marketing Operations | Architetto CRM & RevOps | Automazioni & Flussi AI">',
         it
     )
     it = re.sub(
         r'<meta name="twitter:description" content=".*?">',
-        '<meta name="twitter:description" content="Matrice solare 3D WebGL fotorealistica e Rappresentante AI interattivo di Renzo Francesqui — Marketing Operations B2B, Architetture CRM HubSpot, Paid Media & Automazioni AI.">',
+        '<meta name="twitter:description" content="Specialista Marketing Operations & Architetto CRM/RevOps specializzato in architetture HubSpot e Salesforce, automazione pipeline B2B e flussi AI personalizzati.">',
         it
     )
 
@@ -5091,10 +5091,14 @@ def build_it_html(en_html):
           "@type": "Person",
           "@id": "https://renzo-francesqui.vercel.app/version-3/#person",
           "name": "Renzo Francesqui",
-          "jobTitle": "Marketing Operations & CRM Specialist",
+          "jobTitle": "Marketing Operations Specialist | CRM & RevOps Architect | Automation & AI Workflows",
           "url": "https://renzo-francesqui.vercel.app/version-3/",
+          "description": "Marketing Operations Specialist and CRM & RevOps Architect engineering enterprise pipeline governance, lead scoring, and automated AI enrichment workflows.",
           "image": "https://renzo-francesqui.vercel.app/images/renzo-francesqui.jpg",
           "alumniOf": "Università degli Studi di Parma",
+          "sameAs": [
+            "https://www.linkedin.com/in/renzofrancesqui"
+          ],
           "worksFor": {
             "@id": "https://renzo-francesqui.vercel.app/version-3/#organization"
           },
@@ -5110,6 +5114,54 @@ def build_it_html(en_html):
           ]
         },
         {
+          "@type": "ProfessionalService",
+          "@id": "https://renzo-francesqui.vercel.app/version-3/#business",
+          "name": "Renzo Francesqui — RevOps Architecture & Growth Consulting",
+          "url": "https://renzo-francesqui.vercel.app/version-3/",
+          "founder": {
+            "@id": "https://renzo-francesqui.vercel.app/version-3/#person"
+          },
+          "areaServed": ["EMEA", "US", "IT"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "B2B RevOps & Growth Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "HubSpot & Salesforce CRM Architecture",
+                  "description": "Lifecycle modeling, MQL-to-SQL routing SLAs, and pipeline hygiene."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "B2B Paid Media & ABM Management",
+                  "description": "Closed-loop offline CRM attribution and intent-driven search acquisition."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Technical SEO & Generative Engine Optimization",
+                  "description": "Core Web Vitals optimization and AI engine visibility modeling."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Marketing Data Modeling & Executive BI",
+                  "description": "SQL pipelines, Markov Chain attribution, and Looker Studio dashboards."
+                }
+              }
+            ]
+          }
+        },
+        {
           "@type": "Organization",
           "@id": "https://renzo-francesqui.vercel.app/version-3/#organization",
           "name": "TOMRA",
@@ -5120,7 +5172,7 @@ def build_it_html(en_html):
           "@id": "https://renzo-francesqui.vercel.app/version-3/#website",
           "name": "Renzo Francesqui Portfolio",
           "url": "https://renzo-francesqui.vercel.app/version-3/",
-          "description": "Photorealistic 3D WebGL Solar System Portfolio & Interactive AI Representative for Renzo Francesqui — Digital Marketing, CRM Architecture, RevOps & Freelance Solutions.",
+          "description": "Marketing Operations Specialist & CRM/RevOps Architect specializing in HubSpot & Salesforce architecture, B2B pipeline automation, and custom AI enrichment workflows.",
           "publisher": {
             "@id": "https://renzo-francesqui.vercel.app/version-3/#person"
           }
@@ -5156,10 +5208,14 @@ def build_it_html(en_html):
           "@type": "Person",
           "@id": "https://renzo-francesqui.vercel.app/version-3/it/#person",
           "name": "Renzo Francesqui",
-          "jobTitle": "Specialista Marketing Operations, Architetture CRM & RevOps",
+          "jobTitle": "Specialista Marketing Operations | Architetto CRM & RevOps | Automazioni & Flussi AI",
           "url": "https://renzo-francesqui.vercel.app/version-3/it/",
+          "description": "Specialista Marketing Operations & Architetto CRM/RevOps specializzato in architetture HubSpot e Salesforce, automazione pipeline B2B e flussi AI personalizzati.",
           "image": "https://renzo-francesqui.vercel.app/images/renzo-francesqui.jpg",
           "alumniOf": "Università degli Studi di Parma",
+          "sameAs": [
+            "https://www.linkedin.com/in/renzofrancesqui"
+          ],
           "areaServed": [
             {
               "@type": "City",
@@ -5193,6 +5249,54 @@ def build_it_html(en_html):
             "Salesforce Administration",
             "Oracle SQL"
           ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://renzo-francesqui.vercel.app/version-3/it/#business",
+          "name": "Renzo Francesqui — Consulenza Architetture RevOps & Crescita",
+          "url": "https://renzo-francesqui.vercel.app/version-3/it/",
+          "founder": {
+            "@id": "https://renzo-francesqui.vercel.app/version-3/it/#person"
+          },
+          "areaServed": ["EMEA", "US", "IT"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servizi B2B RevOps & Crescita",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Architetture CRM HubSpot & Salesforce",
+                  "description": "Modellazione lifecycle, SLA di routing MQL-to-SQL e pipeline hygiene."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Gestione Paid Media B2B & ABM",
+                  "description": "Attribuzione offline a ciclo chiuso nel CRM e acquisizione search ad alto intento."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "SEO Tecnico & Ottimizzazione per Motori Generativi (GEO)",
+                  "description": "Ottimizzazione Core Web Vitals e modellazione di visibilità per motori di risposta AI."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Modellazione Dati Marketing & BI Executive",
+                  "description": "Pipeline SQL, attribuzione con catene di Markov e dashboard Looker Studio."
+                }
+              }
+            ]
+          }
         },
         {
           "@type": "Organization",
@@ -5255,7 +5359,7 @@ def build_it_html(en_html):
     # 3. Header Brand Badge
     it = re.sub(
         r'<span class="brand-tag-badge">.*?</span>',
-        '<span class="brand-tag-badge">Marketing Digitale · Architettura CRM · Business Insights</span>',
+        '<span class="brand-tag-badge">Specialista Marketing Operations | Architetto CRM & RevOps | Automazioni & Flussi AI</span>',
         it
     )
 
@@ -5282,7 +5386,7 @@ def build_it_html(en_html):
     hint_it = '''<div class="orbit-floating-hint" id="orbitFloatingHint">
             <button class="hint-close-btn" onclick="dismissFloatingHint(event)" aria-label="Chiudi guida benvenuto">✕</button>
             <div class="hint-eyebrow"><span class="hint-pulse-dot"></span> ONLINE // MILANO &amp; PARMA, ITALIA • EMEA &amp; GLOBALE</div>
-            <div class="hint-headline">Renzo Francesqui — Architettura CRM, RevOps &amp; Crescita Digitale</div>
+            <div class="hint-headline">Renzo Francesqui — Specialista Marketing Operations | Architetto CRM &amp; RevOps | Automazioni &amp; Flussi AI</div>
             <div class="hint-subtext">🌌 <strong>Matrice Solare Fotorealistica</strong><br>Trascina per orbitare attorno al sole in 3D • Pizzica/scorri per lo zoom • Clicca o tocca qualsiasi pianeta per esplorare.</div>
             <div class="hint-actions">
                 <button class="hint-pill-btn" onclick="dismissFloatingHint(); openModalForPlanet('services');"><span>⚡</span> Esplora Servizi</button>
@@ -5397,7 +5501,7 @@ def build_it_html(en_html):
     # Targeted replacements for service links in HTML markup (leaves <script> blocks intact)
     it = it.replace('href="/services/', 'href="/it/services/')
     it = it.replace('value="https://renzo-francesqui.vercel.app/services/', 'value="https://renzo-francesqui.vercel.app/it/services/')
-    it = it.replace('https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups/?utm_source=', 'https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups/?utm_source=')
+    it = it.replace('https://renzo-francesqui.vercel.app/services/hubspot-crm-optimization-startups?utm_source=', 'https://renzo-francesqui.vercel.app/it/services/hubspot-crm-optimization-startups?utm_source=')
 
     it = it.replace('Ready to scale your marketing engine?', 'Pronto a scalare il tuo motore di marketing?')
     it = it.replace('Get in touch directly or download verified CV for freelance engagement.', 'Contattami direttamente o scarica il CV verificato per collaborazioni freelance.')
@@ -5584,6 +5688,10 @@ def build_root_en_html(en_html):
         '"@id": "https://renzo-francesqui.vercel.app/#person"'
     )
     root_en = root_en.replace(
+        '"@id": "https://renzo-francesqui.vercel.app/version-3/#business"',
+        '"@id": "https://renzo-francesqui.vercel.app/#business"'
+    )
+    root_en = root_en.replace(
         '"@id": "https://renzo-francesqui.vercel.app/version-3/#organization"',
         '"@id": "https://renzo-francesqui.vercel.app/#organization"'
     )
@@ -5652,6 +5760,10 @@ def build_root_it_html(it_html):
     root_it = root_it.replace(
         '"@id": "https://renzo-francesqui.vercel.app/version-3/it/#person"',
         '"@id": "https://renzo-francesqui.vercel.app/it/#person"'
+    )
+    root_it = root_it.replace(
+        '"@id": "https://renzo-francesqui.vercel.app/version-3/it/#business"',
+        '"@id": "https://renzo-francesqui.vercel.app/it/#business"'
     )
     root_it = root_it.replace(
         '"url": "https://renzo-francesqui.vercel.app/version-3/it/"',

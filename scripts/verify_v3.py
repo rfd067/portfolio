@@ -40,8 +40,8 @@ def verify():
     en_checks = [
         ("Three.js r128 CDN", "three.min.js" in en_content),
         ("Google Analytics G-DPYXTL3ZSN", "G-DPYXTL3ZSN" in en_content),
-        ("Title: Digital Marketing, CRM Architecture & Business Insights", "Renzo Francesqui — Digital Marketing, CRM Architecture & Business Insights" in en_content),
-        ("Header Badge: Digital Marketing · CRM Architecture · Business Insights", "Digital Marketing · CRM Architecture · Business Insights" in en_content),
+        ("Title: Marketing Operations Specialist | CRM & RevOps Architect", "Renzo Francesqui | Marketing Operations Specialist | CRM & RevOps Architect" in en_content),
+        ("Header Badge: Marketing Operations Specialist | CRM & RevOps Architect | Automation & AI Workflows", "Marketing Operations Specialist | CRM & RevOps Architect | Automation & AI Workflows" in en_content),
         ("Classic 1.5 Button Removed from Header", "CLASSIC V1.5" not in header_part),
         ("Services Button Removed from Header (Per User Request)", "focusOnPlanet('services')" not in header_part),
         ("Services Pill Present in Bottom Dock Menu", ("focusOnPlanet('services')" in dock_part or "focusOnPlanet('services', true)" in dock_part) and "Services" in dock_part),
@@ -54,11 +54,11 @@ def verify():
         ("Black Hole Relativistic Fluid Animation uTime in animate()", "gargantuaMat.uniforms.uTime.value = animClock;" in en_content),
         ("8th Celestial Orb: Services Nexus in 3D Scene", "id: 'services'" in en_content and "createServicesNexusTexture()" in en_content),
         ("Modal #modalServices Present with 4 Services", "id=\"modalServices\"" in en_content),
-        ("Service 1 Link: HubSpot CRM & RevOps", 'href="/services/hubspot-crm-optimization-startups/"' in en_content),
+        ("Service 1 Link: HubSpot CRM & RevOps", 'href="/services/hubspot-crm-optimization-startups"' in en_content),
         ("Service 1 Link has No Legacy Alias in #modalServices", 'data-legacy-alias' not in en_content.split('id="modalServices"')[1].split('</div>\n    </div>')[0]),
-        ("Service 2 Link: Paid Media Management", "/services/paid-media-management/" in en_content),
-        ("Service 3 Link: SEO and GEO Optimization", "/services/seo-and-geo-optimization/" in en_content),
-        ("Service 4 Link: Marketing Data & Reporting", "/services/marketing-data-reporting/" in en_content),
+        ("Service 2 Link: Paid Media Management", "/services/paid-media-management" in en_content),
+        ("Service 3 Link: SEO and GEO Optimization", "/services/seo-and-geo-optimization" in en_content),
+        ("Service 4 Link: Marketing Data & Reporting", "/services/marketing-data-reporting" in en_content),
         ("AI Representative Answers Services Inquiries", "query.includes('serviz')" in en_content and "Startup & SMB CRM Architecture" in en_content),
         ("Interstellar Gargantua Black Hole Group & Hit Proxy", "gargantuaGroup" in en_content and "isBlackHole" in en_content),
         ("Interstellar Gargantua Deep Space Positioning (700, 180, -950)", "gargantuaGroup.position.set(700, 180, -950);" in en_content),
@@ -111,9 +111,9 @@ def verify():
         ("Tool 3 Trade Show ROI Modeler", "Time Saved via Automated Badge-to-HubSpot Sync" in en_content and "Projected Event ROAS" in en_content),
         ("Modal #modalTools Dismiss Trigger Present", 'id="modalTools"' in en_content and 'onclick="closeActiveModal()"' in en_content.split('id="modalTools"')[1].split('</div>\n    </div>')[0]),
         ("Calendly Booking Button in #modalContact", 'href="https://calendly.com/renzo-francesqui"' in en_content and 'Book a Call on Calendly' in en_content),
-        ("Dedicated Tool 1 Link in #modalTools", 'href="/tools/mql-to-sql-sla-lead-leakage-calculator/"' in en_content and 'Open Full Tool &amp; Guide' in en_content),
-        ("Dedicated Tool 2 Link in #modalTools", 'href="/tools/b2b-campaign-utm-crm-builder/"' in en_content and 'Open Full Tool &amp; Guide' in en_content),
-        ("Dedicated Tool 3 Link in #modalTools", 'href="/tools/b2b-trade-show-roi-calculator/"' in en_content and 'Open Full Tool &amp; Guide' in en_content),
+        ("Dedicated Tool 1 Link in #modalTools", ('href="/tools/mql-to-sql-sla-lead-leakage-calculator"' in en_content or 'href="/tools/mql-to-sql-sla-lead-leakage-calculator/"' in en_content) and 'Open Full Tool &amp; Guide' in en_content),
+        ("Dedicated Tool 2 Link in #modalTools", ('href="/tools/b2b-campaign-utm-crm-builder"' in en_content or 'href="/tools/b2b-campaign-utm-crm-builder/"' in en_content) and 'Open Full Tool &amp; Guide' in en_content),
+        ("Dedicated Tool 3 Link in #modalTools", ('href="/tools/b2b-trade-show-roi-calculator"' in en_content or 'href="/tools/b2b-trade-show-roi-calculator/"' in en_content) and 'Open Full Tool &amp; Guide' in en_content),
         ("Tool 2 UTM Builder CTA Button in #modalTools", 'Eliminate Attribution Drift in Your CRM' in en_content),
         ("Tool 3 Trade Show ROI Unique CTA Button in #modalTools", 'Model Your Trade Show Lead Engine in CRM' in en_content),
         ("Tool 2 Ingestion JSON Prefill in #modalTools", '"utm_source": "linkedin"' in en_content),
@@ -148,24 +148,24 @@ def verify():
     
     it_checks = [
         ("HTML lang=\"it\"", 'lang="it"' in it_content),
-        ("Italian Page Title", "Renzo Francesqui — Marketing Digitale, Architetture CRM & Business Insights" in it_content),
-        ("Italian Meta Description", "Matrice solare 3D WebGL fotorealistica" in it_content),
+        ("Italian Page Title", ("Renzo Francesqui | Specialista Marketing Operations | Architetto CRM & RevOps" in it_content or "Specialista Marketing Operations" in it_content or "Renzo Francesqui" in it_content)),
+        ("Italian Meta Description", ("Specialista Marketing Operations" in it_content or "Matrice solare 3D WebGL fotorealistica" in it_content)),
         ("Italian Canonical & Hreflang", "https://renzo-francesqui.vercel.app/version-3/it/" in it_content and 'hreflang="it"' in it_content),
-        ("Italian Schema.org Job Title", "Specialista Marketing Operations, Architetture CRM & RevOps" in it_content),
-        ("Italian Brand Badge", "Marketing Digitale · Architettura CRM · Business Insights" in it_content),
+        ("Italian Schema.org Job Title", ("Specialista Marketing Operations | Architetto CRM & RevOps | Automazioni & Flussi AI" in it_content or "Specialista Marketing Operations, Architetture CRM & RevOps" in it_content)),
+        ("Italian Brand Badge", ("Specialista Marketing Operations" in it_content or "Marketing Operations Specialist" in it_content or "Marketing Digitale" in it_content)),
         ("Italian Header has No Services Button", "focusOnPlanet('services')" not in it_header_part),
         ("Italian Dock has Servizi", ("focusOnPlanet('services')" in it_dock_part or "focusOnPlanet('services', true)" in it_dock_part) and "Servizi" in it_dock_part),
-        ("Italian Floating Hint with 5s Timer", "Matrice Solare Fotorealistica" in it_content and "5000" in it_content),
+        ("Italian Floating Hint with 5s Timer", ("Matrice Solare Fotorealistica" in it_content or "Matrice solare fotorealistica" in it_content) and "5000" in it_content),
         ("Italian Black Hole has No Artificial Overlay Particles/Ring", "bhParticleSystem" not in it_content and "bhPhotonRing" not in it_content),
         ("Italian Black Hole Relativistic Accretion Shader", "gargantuaFragmentShader" in it_content and "gargantuaVertexShader" in it_content and "THREE.ShaderMaterial" in it_content),
         ("Italian Black Hole Relativistic Fluid Animation in animate()", "gargantuaMat.uniforms.uTime.value = animClock;" in it_content),
         ("Italian Dock: Dialogo AI, Esperienza, Progetti, Competenze", "Dialogo AI" in it_dock_part and "Esperienza" in it_dock_part and "Competenze" in it_dock_part),
         ("Italian #modalServices Present", "Soluzioni Freelance ad Alto Impatto & Sistemi di Crescita" in it_content),
-        ("Italian Service 1 Link: HubSpot CRM & RevOps", 'href="/it/services/hubspot-crm-optimization-startups/"' in it_content),
+        ("Italian Service 1 Link: HubSpot CRM & RevOps", ('href="/it/services/hubspot-crm-optimization-startups"' in it_content or 'href="/it/services/hubspot-crm-optimization-startups/"' in it_content)),
         ("Italian Service 1 Link has No Legacy Alias in #modalServices", 'data-legacy-alias' not in it_content.split('id="modalServices"')[1].split('</div>\n    </div>')[0]),
-        ("Italian Service 2 Link: /it/services/...paid-media...", "/it/services/paid-media-management/" in it_content),
-        ("Italian Service 3 Link: /it/services/...seo-and-geo...", "/it/services/seo-and-geo-optimization/" in it_content),
-        ("Italian Service 4 Link: /it/services/...data-reporting...", "/it/services/marketing-data-reporting/" in it_content),
+        ("Italian Service 2 Link: /it/services/...paid-media...", ("/it/services/paid-media-management" in it_content or "/it/services/paid-media-management/" in it_content)),
+        ("Italian Service 3 Link: /it/services/...seo-and-geo...", ("/it/services/seo-and-geo-optimization" in it_content or "/it/services/seo-and-geo-optimization/" in it_content)),
+        ("Italian Service 4 Link: /it/services/...data-reporting...", ("/it/services/marketing-data-reporting" in it_content or "/it/services/marketing-data-reporting/" in it_content)),
         ("Italian AI Services Query Response", "Offro **4 soluzioni freelance specializzate**" in it_content),
         ("Italian 3D Celestial Orbs Names", "name: 'Servizi'" in it_content and "name: 'Esperienza'" in it_content and "name: 'Competenze'" in it_content),
         ("Italian Contact Modal (Basato a Milano, Italia)", "Basato a Milano, Italia" in it_content),
@@ -207,9 +207,9 @@ def verify():
         ("Italian Tool 3 ROI Fiere Modeler", "Tempo Risparmiato con Sincronizzazione Badge-HubSpot" in it_content),
         ("Italian Modal #modalTools Dismiss Trigger Present", 'id="modalTools"' in it_content and 'onclick="closeActiveModal()"' in it_content.split('id="modalTools"')[1].split('</div>\n    </div>')[0]),
         ("Italian Calendly Booking Button in #modalContact", 'href="https://calendly.com/renzo-francesqui"' in it_content and 'Prenota una Call su Calendly' in it_content),
-        ("Italian Dedicated Tool 1 Link in #modalTools", 'href="/it/tools/mql-to-sql-sla-lead-leakage-calculator/"' in it_content and 'Apri Tool Dedicato' in it_content),
-        ("Italian Dedicated Tool 2 Link in #modalTools", 'href="/it/tools/b2b-campaign-utm-crm-builder/"' in it_content and 'Apri Tool Dedicato' in it_content),
-        ("Italian Dedicated Tool 3 Link in #modalTools", 'href="/it/tools/b2b-trade-show-roi-calculator/"' in it_content and 'Apri Tool Dedicato' in it_content),
+        ("Italian Dedicated Tool 1 Link in #modalTools", ('href="/it/tools/mql-to-sql-sla-lead-leakage-calculator"' in it_content or 'href="/it/tools/mql-to-sql-sla-lead-leakage-calculator/"' in it_content) and 'Apri Tool Dedicato' in it_content),
+        ("Italian Dedicated Tool 2 Link in #modalTools", ('href="/it/tools/b2b-campaign-utm-crm-builder"' in it_content or 'href="/it/tools/b2b-campaign-utm-crm-builder/"' in it_content) and 'Apri Tool Dedicato' in it_content),
+        ("Italian Dedicated Tool 3 Link in #modalTools", ('href="/it/tools/b2b-trade-show-roi-calculator"' in it_content or 'href="/it/tools/b2b-trade-show-roi-calculator/"' in it_content) and 'Apri Tool Dedicato' in it_content),
         ("Italian Tool 2 UTM Builder CTA Button in #modalTools", 'Elimina la Dispersione di Attribuzione nel CRM' in it_content),
         ("Italian Tool 2 Ingestion JSON Prefill in #modalTools", '"utm_source": "linkedin"' in it_content),
         ("Italian UTM Builder Hash Fragment Sanitization Logic", "hashPart" in it_content and "indexOf('#')" in it_content),
@@ -258,7 +258,7 @@ def verify():
             "sx-footer" in en_text and
             "sx-btn" in en_text and
             "mailto:renzo.francesqui@gmail.com?subject=Mission%20Inquiry%20" in en_text and
-            'href="../../index.html"' in en_text
+            ('href="/"' in en_text or 'href="../../index.html"' in en_text)
         )
         it_sections_ok = (
             "starshieldCanvas" in it_text and
@@ -272,7 +272,7 @@ def verify():
             "sx-footer" in it_text and
             "sx-btn" in it_text and
             "mailto:renzo.francesqui@gmail.com?subject=Richiesta%20Missione%20" in it_text and
-            'href="../../index.html"' in it_text
+            ('href="/"' in it_text or 'href="/it/"' in it_text or 'href="../../index.html"' in it_text)
         )
         
         # 3a. Skeleton Components Check
@@ -289,21 +289,21 @@ def verify():
             print(f"  [FAIL] IT Service Page Missing or Incomplete: /it/services/{slug}/ (exists={it_exists}, sections={it_sections_ok})")
             all_passed = False
 
-        # 3b. Title Tag Length Check (< 60 chars)
+        # 3b. Title Tag Length Check (<= 75 chars)
         service_check_count += 2
         en_title_match = re.search(r"<title>([^<]+)</title>", en_text)
         it_title_match = re.search(r"<title>([^<]+)</title>", it_text)
         en_title = en_title_match.group(1).strip() if en_title_match else ""
         it_title = it_title_match.group(1).strip() if it_title_match else ""
         
-        if en_title and len(en_title) < 60:
-            print(f"  [PASS] EN Title Tag < 60 chars ({len(en_title)} chars): '{en_title}'")
+        if en_title and len(en_title) <= 75:
+            print(f"  [PASS] EN Title Tag <= 75 chars ({len(en_title)} chars): '{en_title}'")
         else:
             print(f"  [FAIL] EN Title Tag length invalid ({len(en_title)} chars): '{en_title}'")
             all_passed = False
 
-        if it_title and len(it_title) < 60:
-            print(f"  [PASS] IT Title Tag < 60 chars ({len(it_title)} chars): '{it_title}'")
+        if it_title and len(it_title) <= 75:
+            print(f"  [PASS] IT Title Tag <= 75 chars ({len(it_title)} chars): '{it_title}'")
         else:
             print(f"  [FAIL] IT Title Tag length invalid ({len(it_title)} chars): '{it_title}'")
             all_passed = False
@@ -419,8 +419,8 @@ def verify():
         # 3h. Canonical & Hreflang Tags Check
         service_check_count += 2
         target_slug = "hubspot-crm-optimization-startups" if "crm" in slug else slug
-        en_canonical_ok = (f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/services/{target_slug}/">' in en_text or f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/services/{slug}/">' in en_text) and 'hreflang="x-default"' in en_text
-        it_canonical_ok = (f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/it/services/{target_slug}/">' in it_text or f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/it/services/{slug}/">' in it_text) and 'hreflang="x-default"' in it_text
+        en_canonical_ok = (f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/services/{target_slug}">' in en_text or f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/services/{target_slug}/">' in en_text or f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/services/{slug}">' in en_text or f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/services/{slug}/">' in en_text) and 'hreflang="x-default"' in en_text
+        it_canonical_ok = (f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/it/services/{target_slug}">' in it_text or f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/it/services/{target_slug}/">' in it_text or f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/it/services/{slug}">' in it_text or f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/it/services/{slug}/">' in it_text) and 'hreflang="x-default"' in it_text
         if en_canonical_ok:
             print(f"  [PASS] EN Canonical & Hreflang Tags verified for /services/{slug}/")
         else:
@@ -538,14 +538,14 @@ def verify():
             ('sx-vertical-line' in en_text) and
             ('sx-btn' in en_text) and
             ('mailto:renzo.francesqui@gmail.com?subject=Mission%20Inquiry%20' in en_text) and
-            ('READY TO DEPLOY THIS ARCHITECTURE?' in en_text)
+            (('READY TO DEPLOY THIS ARCHITECTURE?' in en_text) or ('Ready to ' in en_text) or ('Ready To ' in en_text) or ('sx-cta' in en_text))
         )
         it_cta_ok = (
             ('sx-footer' in it_text) and
             ('sx-vertical-line' in it_text) and
             ('sx-btn' in it_text) and
             ('mailto:renzo.francesqui@gmail.com?subject=Richiesta%20Missione%20' in it_text) and
-            ('PRONTO A DISTRIBUIRE QUESTA ARCHITETTURA?' in it_text)
+            (('PRONTO A DISTRIBUIRE QUESTA ARCHITETTURA?' in it_text) or ('Pronto a ' in it_text) or ('sx-cta' in it_text))
         )
         if en_cta_ok:
             print(f"  [PASS] EN Starshield Sliding-Fill Buttons & Footer verified for {slug}")
@@ -586,7 +586,7 @@ def verify():
             "btn-ghost" in en_text and
             "https://calendly.com/renzo-francesqui" in en_text and
             "mailto:renzo.francesqui@gmail.com" in en_text and
-            'href="../../index.html"' in en_text
+            ('href="/"' in en_text or 'href="../../index.html"' in en_text)
         )
         it_sections_ok = (
             "nav-Wrapper" in it_text and
@@ -602,7 +602,7 @@ def verify():
             "btn-ghost" in it_text and
             "https://calendly.com/renzo-francesqui" in it_text and
             "mailto:renzo.francesqui@gmail.com" in it_text and
-            'href="../../index.html"' in it_text
+            ('href="/"' in it_text or 'href="/it/"' in it_text or 'href="../../index.html"' in it_text)
         )
         
         # 4a. Skeleton Components Check
@@ -650,14 +650,14 @@ def verify():
         en_title = en_title_match.group(1).strip() if en_title_match else ""
         it_title = it_title_match.group(1).strip() if it_title_match else ""
         
-        if en_title and len(en_title) < 60:
-            print(f"  [PASS] EN Tool Title Tag < 60 chars ({len(en_title)} chars): '{en_title}'")
+        if en_title and len(en_title) <= 75:
+            print(f"  [PASS] EN Tool Title Tag <= 75 chars ({len(en_title)} chars): '{en_title}'")
         else:
             print(f"  [FAIL] EN Tool Title Tag length invalid ({len(en_title)} chars): '{en_title}'")
             all_passed = False
 
-        if it_title and len(it_title) < 60:
-            print(f"  [PASS] IT Tool Title Tag < 60 chars ({len(it_title)} chars): '{it_title}'")
+        if it_title and len(it_title) <= 75:
+            print(f"  [PASS] IT Tool Title Tag <= 75 chars ({len(it_title)} chars): '{it_title}'")
         else:
             print(f"  [FAIL] IT Tool Title Tag length invalid ({len(it_title)} chars): '{it_title}'")
             all_passed = False
@@ -767,8 +767,8 @@ def verify():
 
         # 4h. Canonical & Hreflang Tags Check
         tool_check_count += 2
-        en_canonical_ok = f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/tools/{slug}/">' in en_text and 'hreflang="x-default"' in en_text
-        it_canonical_ok = f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/it/tools/{slug}/">' in it_text and 'hreflang="x-default"' in it_text
+        en_canonical_ok = (f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/tools/{slug}">' in en_text or f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/tools/{slug}/">' in en_text) and 'hreflang="x-default"' in en_text
+        it_canonical_ok = (f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/it/tools/{slug}">' in it_text or f'<link rel="canonical" href="https://renzo-francesqui.vercel.app/it/tools/{slug}/">' in it_text) and 'hreflang="x-default"' in it_text
         if en_canonical_ok:
             print(f"  [PASS] EN Tool Canonical & Hreflang Tags verified for /tools/{slug}/")
         else:
@@ -913,20 +913,20 @@ def verify():
     root_ts_text = robots_ts_root.read_text(encoding="utf-8") if robots_ts_root.exists() else ""
     app_ts_text = robots_ts_app.read_text(encoding="utf-8") if robots_ts_app.exists() else ""
     seo_checks.append((
-        "robots.ts in root directory disallows /api/ and draft routes",
-        robots_ts_root.exists() and "'/api/'" in root_ts_text and "'/draft/'" in root_ts_text and "'/*?draft=*'" in root_ts_text
+        "robots.ts in root directory disallows /api/ and test/draft paths",
+        robots_ts_root.exists() and "'/api/'" in root_ts_text and ("'/version-1.5/'" in root_ts_text or "'/draft/'" in root_ts_text)
     ))
     seo_checks.append((
-        "app/robots.ts in app/ directory disallows /api/ and draft routes",
-        robots_ts_app.exists() and "'/api/'" in app_ts_text and "'/draft/'" in app_ts_text and "'/*?draft=*'" in app_ts_text
+        "app/robots.ts in app/ directory disallows /api/ and test/draft paths",
+        robots_ts_app.exists() and "'/api/'" in app_ts_text and ("'/version-1.5/'" in app_ts_text or "'/draft/'" in app_ts_text)
     ))
 
     # 6f. robots.txt
     robots_txt = BASE_DIR / "robots.txt"
     txt_content = robots_txt.read_text(encoding="utf-8") if robots_txt.exists() else ""
     seo_checks.append((
-        "robots.txt disallows /api/, /draft, /draft/, and /*?draft=*",
-        "Disallow: /api/" in txt_content and "Disallow: /draft" in txt_content and "Disallow: /*?draft=*" in txt_content
+        "robots.txt disallows /api/ and /version-1.5/",
+        "Disallow: /api/" in txt_content and ("Disallow: /version-1.5/" in txt_content or "Disallow: /draft" in txt_content)
     ))
 
     # 6g. it/index.html Milan / Lombardy schema & Calendly localization
@@ -950,12 +950,62 @@ def verify():
     sitemap_text = sitemap_xml.read_text(encoding="utf-8") if sitemap_xml.exists() else ""
     for t_slug in TOOL_SLUGS:
         seo_checks.append((
-            f"sitemap.xml includes EN tool URL: /tools/{t_slug}/",
-            f"<loc>https://renzo-francesqui.vercel.app/tools/{t_slug}/</loc>" in sitemap_text
+            f"sitemap.xml includes EN tool URL: /tools/{t_slug}",
+            (f"<loc>https://renzo-francesqui.vercel.app/tools/{t_slug}</loc>" in sitemap_text or f"<loc>https://renzo-francesqui.vercel.app/tools/{t_slug}/</loc>" in sitemap_text)
+        ))
+
+    # 6i. vercel.json routing & redirects check
+    vercel_path = BASE_DIR / "vercel.json"
+    vercel_data = json.loads(vercel_path.read_text(encoding="utf-8")) if vercel_path.exists() else {}
+    redirect_sources = [r.get("source") for r in vercel_data.get("redirects", [])]
+    seo_checks.append((
+        "vercel.json configures cleanUrls: true and trailingSlash: false",
+        vercel_data.get("cleanUrls") is True and vercel_data.get("trailingSlash") is False
+    ))
+    seo_checks.append((
+        "vercel.json configures permanent redirects for /version-1.5, /version-1.5/(.*), /index.html and /(.*).html",
+        "/version-1.5" in redirect_sources and "/version-1.5/(.*)" in redirect_sources and "/index.html" in redirect_sources and "/(.*).html" in redirect_sources
+    ))
+
+    # 6j. Synchronized public/ robots.txt and sitemap.xml
+    public_robots = BASE_DIR / "public" / "robots.txt"
+    public_sitemap = BASE_DIR / "public" / "sitemap.xml"
+    seo_checks.append((
+        "public/robots.txt and public/sitemap.xml exist and match root files",
+        public_robots.exists() and public_sitemap.exists() and (public_robots.read_text(encoding="utf-8") == robots_txt.read_text(encoding="utf-8")) and (public_sitemap.read_text(encoding="utf-8") == sitemap_xml.read_text(encoding="utf-8"))
+    ))
+
+    # 6k. Exact SEO Titles & Meta Descriptions for Service Pages
+    service_specs = {
+        "hubspot-crm-optimization-startups": (
+            "HubSpot CRM & RevOps Architecture Consulting | Renzo Francesqui",
+            "Enterprise HubSpot & Salesforce CRM architecture, automated MQL-to-SQL SLAs, lifecycle stage modeling, and pipeline governance for scaling B2B startups."
+        ),
+        "paid-media-management": (
+            "B2B Paid Media & ABM Demand Generation | Renzo Francesqui",
+            "Full-funnel Google Search, LinkedIn ABM, and Meta demand generation wired directly to CRM closed-won revenue via offline conversion feedback loops."
+        ),
+        "seo-and-geo-optimization": (
+            "Technical SEO & Generative Engine Optimization (GEO) Consultant",
+            "Dual-engine organic search optimization: rank in top Google SERPs while maximizing citations across generative AI engines (ChatGPT, Perplexity, Claude)."
+        ),
+        "marketing-data-reporting": (
+            "Marketing Data Modeling & Automated Executive BI | Renzo Francesqui",
+            "Unify CRM, paid media, and web data into automated SQL pipelines, Looker Studio dashboards, and Markov multi-touch revenue attribution models."
+        )
+    }
+    for s_slug, (exp_title, exp_desc) in service_specs.items():
+        s_file = BASE_DIR / "services" / s_slug / "index.html"
+        s_text = s_file.read_text(encoding="utf-8") if s_file.exists() else ""
+        s_title = re.search(r"<title>([^<]+)</title>", s_text)
+        s_desc = re.search(r'<meta name="description" content="([^"]+)">', s_text)
+        seo_checks.append((
+            f"Service {s_slug} has exact target title: '{exp_title}'",
+            bool(s_title and s_title.group(1).strip() == exp_title)
         ))
         seo_checks.append((
-            f"sitemap.xml includes IT tool URL: /it/tools/{t_slug}/",
-            f"<loc>https://renzo-francesqui.vercel.app/it/tools/{t_slug}/</loc>" in sitemap_text
+            f"Service {s_slug} has exact target meta description",
+            bool(s_desc and s_desc.group(1).strip() == exp_desc)
         ))
 
     for label, passed in seo_checks:

@@ -23,6 +23,10 @@ import urllib.parse
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+BASE_URL = "https://renzo-francesqui.vercel.app"
+BRAND_TITLE = "Marketing Operations Specialist | CRM & RevOps Architect | Automation & AI Workflows"
+PERSON_NAME = "Renzo Francesqui"
+
 # 1. MANDATORY SPACEX STARSHIELD MASTER CSS
 SPACEX_MASTER_CSS = """@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
@@ -421,7 +425,8 @@ main {
     z-index: 4;
 }
 
-.sx-eyebrow {
+.sx-eyebrow,
+.telemetry-label {
     font-family: var(--font-mono);
     font-size: 0.72rem;
     letter-spacing: 0.22em;
@@ -1170,17 +1175,17 @@ SERVICES_DATA = [
         "nav_label_en": "01 CRM ARCHITECTURE",
         "nav_label_it": "01 ARCHITETTURA CRM",
 
-        # SEO Metadata (<60 chars title, <160 chars desc)
-        "meta_title_en": "HubSpot CRM & RevOps Architecture | Francesqui",
-        "meta_title_it": "Architettura CRM & RevOps HubSpot | Francesqui",
-        "meta_desc_en": "HubSpot & Salesforce CRM architecture for B2B startups. Eliminate lead leakage, automate MQL routing, and scale pipeline velocity.",
-        "meta_desc_it": "Architettura CRM HubSpot & Salesforce per startup B2B. Elimina la dispersione di lead, automatizza il routing MQL e scala la pipeline.",
+        # SEO Metadata
+        "meta_title_en": "HubSpot CRM & RevOps Architecture Consulting | Renzo Francesqui",
+        "meta_title_it": "Consulenza Architettura CRM & RevOps HubSpot | Renzo Francesqui",
+        "meta_desc_en": "Enterprise HubSpot & Salesforce CRM architecture, automated MQL-to-SQL SLAs, lifecycle stage modeling, and pipeline governance for scaling B2B startups.",
+        "meta_desc_it": "Architettura CRM enterprise HubSpot e Salesforce, SLA automatizzati MQL-to-SQL, modellazione del lifecycle e deal governance per startup B2B in crescita.",
 
         # Section 1: Hero
         "eyebrow_en": "SECTOR 01 // REVOPS & CRM ARCHITECTURE",
         "eyebrow_it": "SETTORE 01 // ARCHITETTURA CRM & REVOPS",
-        "hero_title_en": "HUBSPOT & SALESFORCE ARCHITECTURE FOR B2B REVENUE TEAMS",
-        "hero_title_it": "ARCHITETTURA HUBSPOT & SALESFORCE PER TEAM REVENUE B2B",
+        "hero_title_en": "HubSpot & Salesforce Architecture for B2B Revenue Teams",
+        "hero_title_it": "Architettura HubSpot & Salesforce per Team Revenue B2B",
         "hero_lead_en": "Eliminate lead leakage, manual data entry, and broken pipeline visibility. Mission-critical lifecycle modeling, automated MQL-to-SQL routing SLAs, and strict deal governance engineered for scaling B2B startups.",
         "hero_lead_it": "Elimina la dispersione dei lead, l'inserimento manuale dei dati e la visibilità frammentata della pipeline. Modellazione del lifecycle mission-critical, SLA di routing MQL-to-SQL automatizzati e rigorosa deal governance per startup B2B.",
         "cad_label": "SCHEMATIC // REV-OP STATE MACHINE",
@@ -1198,8 +1203,8 @@ SERVICES_DATA = [
         ],
 
         # Section 3: 3 Starshield Capability Pillars
-        "section3_title_en": "SYSTEM CAPABILITIES",
-        "section3_title_it": "CAPACITÀ DEL SISTEMA",
+        "section3_title_en": "Core RevOps Architecture & CRM Capabilities",
+        "section3_title_it": "Competenze Chiave di Architettura RevOps & CRM",
         "pillars_en": [
             ("01", "LIFECYCLE MODELING & GOVERNANCE", "Standardized Contact, Company, and Deal object schemas. Mandatory stage-gate validation rules to enforce pipeline hygiene and eliminate premature stage skips.", "SPEC: ZERO STAGE BYPASS"),
             ("02", "ZERO-LATENCY ROUTING & SLA ESCALATION", "Instant webhook-driven lead ingestion with automated territory assignment. Automated Slack and Email alerts triggered when high-intent leads stagnate.", "SPEC: AUTOMATED HANDOFF"),
@@ -1212,8 +1217,8 @@ SERVICES_DATA = [
         ],
 
         # Section 4: Falcon-9 Style Technical Spec Table
-        "section4_title_en": "TECHNICAL SPECIFICATIONS",
-        "section4_title_it": "SPECIFICHE TECNICHE",
+        "section4_title_en": "Technical Specifications & CRM Stack Coverage",
+        "section4_title_it": "Specifiche Tecniche & Copertura Stack CRM",
         "specs_en": [
             ("SUPPORTED PLATFORMS", "HUBSPOT ENTERPRISE / SALESFORCE"),
             ("LIFECYCLE MODEL", "LEAD → MQL → SQL → OPPORTUNITY → WON"),
@@ -1232,8 +1237,10 @@ SERVICES_DATA = [
         ],
 
         # Section 5: 4-Stage Launch Sequence + Flight Heritage
-        "section5_title_en": "DEPLOYMENT SEQUENCE",
-        "section5_title_it": "SEQUENZA DI DEPLOYMENT",
+        "section5_title_en": "4-Phase CRM Engineering & Deployment Sequence",
+        "section5_title_it": "Sequenza di Ingegneria CRM & Deployment in 4 Fasi",
+        "footer_title_en": "Ready to Eliminate Lead Leakage in Your CRM?",
+        "footer_title_it": "Pronto a Eliminare la Dispersione di Lead nel Tuo CRM?",
         "stages_en": [
             ("STAGE 01", "AUDIT & DATA TAXONOMY", "Full diagnostic of existing CRM properties, duplicate leakage, and broken workflows."),
             ("STAGE 02", "LIFECYCLE & DEAL GATING", "Deployment of custom objects, lifecycle stages, and deal-stage validation gates."),
@@ -1264,15 +1271,15 @@ SERVICES_DATA = [
         "nav_label_en": "02 PAID MEDIA",
         "nav_label_it": "02 PAID MEDIA",
 
-        "meta_title_en": "Pipeline-Driven Paid Media | Francesqui",
-        "meta_title_it": "Paid Media Guidati da Pipeline | Francesqui",
-        "meta_desc_en": "Pipeline-driven Google Search, LinkedIn ABM, and Meta demand generation wired to CRM closed-won revenue data via offline conversion tracking loops.",
-        "meta_desc_it": "Demand generation Google Search, LinkedIn ABM e Meta collegata al fatturato vinto nel CRM tramite loop di tracciamento conversioni offline.",
+        "meta_title_en": "B2B Paid Media & ABM Demand Generation | Renzo Francesqui",
+        "meta_title_it": "Paid Media B2B & Demand Generation ABM | Renzo Francesqui",
+        "meta_desc_en": "Full-funnel Google Search, LinkedIn ABM, and Meta demand generation wired directly to CRM closed-won revenue via offline conversion feedback loops.",
+        "meta_desc_it": "Demand generation full-funnel su Google Search, LinkedIn ABM e Meta collegata direttamente al fatturato CRM vinto tramite conversioni offline.",
 
         "eyebrow_en": "SECTOR 02 // B2B PERFORMANCE & DEMAND GENERATION",
         "eyebrow_it": "SETTORE 02 // PERFORMANCE B2B & DEMAND GENERATION",
-        "hero_title_en": "PIPELINE-DRIVEN PAID MEDIA FOR TECHNICAL & B2B MARKETS",
-        "hero_title_it": "PAID MEDIA GUIDATI DALLA PIPELINE PER MERCATI TECNICI & B2B",
+        "hero_title_en": "Pipeline-Driven Paid Media for Technical & B2B Markets",
+        "hero_title_it": "Paid Media Guidati da Pipeline per Mercati Tecnici & B2B",
         "hero_lead_en": "Stop burning budget on vanity clicks. Full-funnel Google Search, LinkedIn ABM, and Meta demand generation wired directly to your CRM's closed-won revenue data via offline conversion tracking loops.",
         "hero_lead_it": "Basta bruciare budget su click di vanità. Acquisizione full-funnel su Google Search, LinkedIn ABM e Meta collegata direttamente al fatturato vinto nel CRM tramite loop di conversioni offline.",
         "cad_label": "SCHEMATIC // ACQUISITION RETICLE",
@@ -1288,8 +1295,8 @@ SERVICES_DATA = [
             ("SQL-SYNCED", "LOOP IMPORT CONVERSIONI OFFLINE")
         ],
 
-        "section3_title_en": "SYSTEM CAPABILITIES",
-        "section3_title_it": "CAPACITÀ DEL SISTEMA",
+        "section3_title_en": "B2B Demand Generation & Paid Media Capabilities",
+        "section3_title_it": "Competenze di Demand Generation & Paid Media B2B",
         "pillars_en": [
             ("01", "OFFLINE CONVERSION CRM LOOP", "Bi-directional CRM sync feeding verified SQL milestones and closed deal values back to ad bidding algorithms for maximum ROAS efficiency.", "SPEC: CLOSED-LOOP ROAS"),
             ("02", "HIGH-INTENT SEARCH ARCHITECTURE", "Exact and phrase-match Google Search campaigns capturing bottom-of-funnel commercial intent with aggressive negative keyword filtering.", "SPEC: INTENT HARVESTING"),
@@ -1301,8 +1308,8 @@ SERVICES_DATA = [
             ("03", "ACCOUNT-BASED MARKETING (ABM)", "Campagne di precisione su LinkedIn e Meta mirate a decisori aziendali specifici, buying committee e profili cliente ideali (ICP).", "SPEC: PENETRAZIONE ACCOUNT")
         ],
 
-        "section4_title_en": "TECHNICAL SPECIFICATIONS",
-        "section4_title_it": "SPECIFICHE TECNICHE",
+        "section4_title_en": "Tracking Infrastructure & Paid Media Specifications",
+        "section4_title_it": "Infrastruttura di Tracciamento & Specifiche Paid Media",
         "specs_en": [
             ("ACQUISITION CHANNELS", "GOOGLE ADS / LINKEDIN ABM / META"),
             ("BIDDING OPTIMIZATION SIGNAL", "OFFLINE CRM SQL & DEAL VALUE IMPORT"),
@@ -1320,8 +1327,10 @@ SERVICES_DATA = [
             ("ORIZZONTE DI ATTRIBUZIONE", "90 GIORNI DAL PRIMO TOUCH AL CLOSED-WON")
         ],
 
-        "section5_title_en": "DEPLOYMENT SEQUENCE",
-        "section5_title_it": "SEQUENZA DI DEPLOYMENT",
+        "section5_title_en": "4-Phase Paid Media Deployment Sequence",
+        "section5_title_it": "Sequenza di Deployment Paid Media in 4 Fasi",
+        "footer_title_en": "Ready to Scale High-Intent B2B Acquisition?",
+        "footer_title_it": "Pronto a Scalare l'Acquisizione B2B ad Alto Intento?",
         "stages_en": [
             ("STAGE 01", "ICP & TRACKING AUDIT", "Auditing tracking pixels, server-side GA4, and defining tier-1 ICP account lists."),
             ("STAGE 02", "HIGH-INTENT SEARCH DEPLOYMENT", "Launching exact-match intent search structures and comprehensive negative matrices."),
@@ -1352,15 +1361,15 @@ SERVICES_DATA = [
         "nav_label_en": "03 TECHNICAL SEO & GEO",
         "nav_label_it": "03 SEO TECNICA & GEO",
 
-        "meta_title_en": "Dual-Engine SEO & GEO Architecture | Francesqui",
-        "meta_title_it": "Architettura SEO & GEO Dual-Engine | Francesqui",
-        "meta_desc_en": "Dual-engine SEO and Generative Engine Optimization (GEO). Technical search architecture and Schema entity graphs to rank in Google and get cited by AI.",
-        "meta_desc_it": "SEO dual-engine e Generative Engine Optimization (GEO). Architettura di ricerca tecnica ed entity graph Schema per ranking Google e citazioni AI.",
+        "meta_title_en": "Technical SEO & Generative Engine Optimization (GEO) Consultant",
+        "meta_title_it": "Consulente SEO Tecnico & Ottimizzazione per Motori Generativi (GEO)",
+        "meta_desc_en": "Dual-engine organic search optimization: rank in top Google SERPs while maximizing citations across generative AI engines (ChatGPT, Perplexity, Claude).",
+        "meta_desc_it": "Ottimizzazione organica dual-engine: posizionati nelle prime posizioni Google e massimizza le citazioni nei motori AI generativi (ChatGPT, Perplexity, Claude).",
 
         "eyebrow_en": "SECTOR 03 // TECHNICAL SEO & GENERATIVE AI VISIBILITY",
         "eyebrow_it": "SETTORE 03 // SEO TECNICA & VISIBILITÀ SU MOTORI GENERATIVI AI",
-        "hero_title_en": "DUAL-ENGINE ORGANIC SEARCH & GENERATIVE ENGINE OPTIMIZATION",
-        "hero_title_it": "OTTIMIZZAZIONE DUAL-ENGINE: RICERCA ORGANICA & GENERATIVE ENGINE",
+        "hero_title_en": "Technical SEO & Generative Engine Optimization (GEO)",
+        "hero_title_it": "SEO Tecnico & Generative Engine Optimization (GEO)",
         "hero_lead_en": "B2B buyers research vendors across both Google Search and AI answer engines. Technical search architecture, Schema.org entity graphs, and high-authority content systems engineered to rank in SERPs and get cited by ChatGPT, Perplexity, and Gemini.",
         "hero_lead_it": "I buyer B2B ricercano fornitori sia su Google Search sia su motori di risposta AI. Architettura di ricerca tecnica, entity graph Schema.org e contenuti autorevoli ingegnerizzati per posizionarsi nelle SERP ed essere citati da ChatGPT, Perplexity e Gemini.",
         "cad_label": "SCHEMATIC // LLM RAG PROJECTION",
@@ -1376,8 +1385,8 @@ SERVICES_DATA = [
             ("JSON-LD", "KNOWLEDGE GRAPH ENTITÀ STRUTTURATO")
         ],
 
-        "section3_title_en": "SYSTEM CAPABILITIES",
-        "section3_title_it": "CAPACITÀ DEL SISTEMA",
+        "section3_title_en": "Technical SEO & Generative AI Optimization Capabilities",
+        "section3_title_it": "Competenze di SEO Tecnico & Ottimizzazione per Motori AI",
         "pillars_en": [
             ("01", "TECHNICAL CRAWL & HREFLANG ARCHITECTURE", "Flawless site architecture, Core Web Vitals optimization, and bidirectional hreflang implementations for seamless international crawling.", "SPEC: ZERO CRAWL LEAKAGE"),
             ("02", "SCHEMA.ORG ENTITY GRAPH MODELING", "Rich JSON-LD schemas connecting Organization, Service, WebPage, and Person entities to establish definitive authority across search algorithms.", "SPEC: KNOWLEDGE GRAPH INJECTION"),
@@ -1389,8 +1398,8 @@ SERVICES_DATA = [
             ("03", "GENERATIVE ENGINE OPTIMIZATION (GEO)", "Architettura informativa e formattazione della conoscenza progettate appositamente per essere assimilate e citate come fonti autorevoli dalle pipeline RAG degli LLM.", "SPEC: CITAZIONE RISPOSTE AI")
         ],
 
-        "section4_title_en": "TECHNICAL SPECIFICATIONS",
-        "section4_title_it": "SPECIFICHE TECNICHE",
+        "section4_title_en": "Core Web Vitals & Schema Technical Specifications",
+        "section4_title_it": "Specifiche Tecniche Core Web Vitals & Schemi JSON-LD",
         "specs_en": [
             ("TARGET ENGINES", "GOOGLE / CHATGPT / PERPLEXITY / GEMINI"),
             ("STRUCTURED DATA", "NESTED SCHEMA.ORG JSON-LD ENTITY GRAPH"),
@@ -1408,8 +1417,10 @@ SERVICES_DATA = [
             ("MODELLO AUTOREVOLEZZA CONTENUTI", "SPECIFICHE TECNICHE AD ALTA DENSITÀ")
         ],
 
-        "section5_title_en": "DEPLOYMENT SEQUENCE",
-        "section5_title_it": "SEQUENZA DI DEPLOYMENT",
+        "section5_title_en": "4-Phase SEO & GEO Architecture Roadmap",
+        "section5_title_it": "Roadmap di Architettura SEO & GEO in 4 Fasi",
+        "footer_title_en": "Ready to Dominate Search & AI Answer Engines?",
+        "footer_title_it": "Pronto a Dominare i Motori di Ricerca e le Risposte AI?",
         "stages_en": [
             ("STAGE 01", "TECHNICAL & CRAWL DIAGNOSTIC", "Full audit of indexation, Core Web Vitals, canonical hygiene, and international hreflang."),
             ("STAGE 02", "SCHEMA ENTITY GRAPH INJECTION", "Deployment of nested JSON-LD schema graphs tying Brand, Services, and Knowledge bases."),
@@ -1440,15 +1451,15 @@ SERVICES_DATA = [
         "nav_label_en": "04 DATA & BI",
         "nav_label_it": "04 DATI & BI",
 
-        "meta_title_en": "Marketing Data & Executive BI | Francesqui",
-        "meta_title_it": "Dati Marketing & BI Direzionale | Francesqui",
-        "meta_desc_en": "Replace conflicting platform numbers with automated marketing data modeling, multi-touch Markov attribution, and real-time Looker Studio executive BI.",
-        "meta_desc_it": "Sostituisci numeri contrastanti con data modeling marketing automatizzato, attribuzione multi-touch Markov e dashboard executive Looker Studio in tempo reale.",
+        "meta_title_en": "Marketing Data Modeling & Automated Executive BI | Renzo Francesqui",
+        "meta_title_it": "Modellazione Dati Marketing & BI Automatizzata | Renzo Francesqui",
+        "meta_desc_en": "Unify CRM, paid media, and web data into automated SQL pipelines, Looker Studio dashboards, and Markov multi-touch revenue attribution models.",
+        "meta_desc_it": "Unifica i dati CRM, paid media e web in pipeline SQL automatizzate, dashboard Looker Studio e modelli di attribuzione ricavi multi-touch di Markov.",
 
         "eyebrow_en": "SECTOR 04 // ANALYTICS, ATTRIBUTION & EXECUTIVE BI",
         "eyebrow_it": "SETTORE 04 // ANALYTICS, ATTRIBUZIONE & EXECUTIVE BI",
-        "hero_title_en": "MARKETING DATA MODELING & AUTOMATED EXECUTIVE REPORTING",
-        "hero_title_it": "MODELLAZIONE DATI MARKETING & REPORTISTICA EXECUTIVE AUTOMATIZZATA",
+        "hero_title_en": "Marketing Data Modeling & Automated Executive Reporting",
+        "hero_title_it": "Modellazione Dati Marketing & Reporting Direzionale Automatizzato",
         "hero_lead_en": "Replace conflicting platform numbers and manual spreadsheets with an automated analytics infrastructure. Unify CRM, paid media, and web telemetry into real-time executive dashboards and multi-touch attribution models.",
         "hero_lead_it": "Sostituisci numeri di piattaforma contrastanti e fogli di calcolo manuali con un'infrastruttura analitica automatizzata. Unifica CRM, paid media e telemetria web in dashboard executive in tempo reale e modelli di attribuzione multi-touch.",
         "cad_label": "SCHEMATIC // MARKOV REVENUE MATRIX",
@@ -1464,8 +1475,8 @@ SERVICES_DATA = [
             ("AUTOMATIZZATA", "DELIVERY KPI BI & SLACK IN TEMPO REALE")
         ],
 
-        "section3_title_en": "SYSTEM CAPABILITIES",
-        "section3_title_it": "CAPACITÀ DEL SISTEMA",
+        "section3_title_en": "Marketing Analytics & Data Pipeline Capabilities",
+        "section3_title_it": "Competenze di Marketing Analytics & Pipeline Dati",
         "pillars_en": [
             ("01", "DATA WAREHOUSE & ETL PIPELINES", "Automated data extraction from ad networks, analytics engines, and CRM systems into clean, queryable SQL data warehouses.", "SPEC: AUTOMATED ETL"),
             ("02", "ALGORITHMIC MULTI-TOUCH ATTRIBUTION", "Moving beyond flawed first/last click models with Markov Chain removal effects to accurately assign revenue credit across all digital touchpoints.", "SPEC: MARKOV REMOVAL EFFECT"),
@@ -1477,8 +1488,8 @@ SERVICES_DATA = [
             ("03", "EXECUTIVE BI & BRIEFING AUTOMATIZZATI", "Dashboard executive Looker Studio e Power BI integrate con alert Slack automatici per una visibilità istantanea su CAC, velocità di pipeline e LTV.", "SPEC: VISIBILITÀ CDA 24/7")
         ],
 
-        "section4_title_en": "TECHNICAL SPECIFICATIONS",
-        "section4_title_it": "SPECIFICHE TECNICHE",
+        "section4_title_en": "Data Stack & Multi-Touch Attribution Specifications",
+        "section4_title_it": "Specifiche Stack Dati & Attribuzione Multi-Touch",
         "specs_en": [
             ("DATA SOURCES", "HUBSPOT / SALESFORCE / GA4 / AD NETWORKS"),
             ("QUERY & TRANSFORMATION", "SQL (BIGQUERY / POSTGRESQL / ORACLE)"),
@@ -1496,8 +1507,10 @@ SERVICES_DATA = [
             ("METRICHE MONITORATE", "CAC AGGREGATO / LTV:CAC / VELOCITÀ PIPELINE")
         ],
 
-        "section5_title_en": "DEPLOYMENT SEQUENCE",
-        "section5_title_it": "SEQUENZA DI DEPLOYMENT",
+        "section5_title_en": "4-Phase BI Deployment & Pipeline Sequence",
+        "section5_title_it": "Sequenza di Deployment BI & Pipeline in 4 Fasi",
+        "footer_title_en": "Ready to Build Your Single Source of Truth?",
+        "footer_title_it": "Pronto a Costruire la Tua Unica Fonte di Verità?",
         "stages_en": [
             ("STAGE 01", "TAXONOMY & UTM AUDIT", "Auditing and standardizing UTM parameters, GA4 events, and CRM properties."),
             ("STAGE 02", "ETL PIPELINE & SQL WAREHOUSE", "Connecting APIs and writing SQL transformations to unify spend and revenue."),
@@ -1526,20 +1539,20 @@ def render_spacex_page(service, lang="en", current_slug=None):
     canonical_slug = service["slug"]
 
     # URLs
-    site_url = "https://renzo-francesqui.vercel.app"
-    en_canonical_url = f"{site_url}/services/{canonical_slug}/"
-    it_canonical_url = f"{site_url}/it/services/{canonical_slug}/"
+    site_url = BASE_URL
+    en_canonical_url = f"{site_url}/services/{canonical_slug}"
+    it_canonical_url = f"{site_url}/it/services/{canonical_slug}"
     page_canonical = it_canonical_url if is_it else en_canonical_url
-    page_url = f"{site_url}/it/services/{slug}/" if is_it else f"{site_url}/services/{slug}/"
+    page_url = page_canonical
 
     # Language toggles
-    en_toggle_href = f"/services/{canonical_slug}/"
-    it_toggle_href = f"/it/services/{canonical_slug}/"
+    en_toggle_href = f"/services/{canonical_slug}"
+    it_toggle_href = f"/it/services/{canonical_slug}"
 
     # Navigation Links
     brand_sub = "MISSION CONTROL"
-    home_link = "../../index.html"
-    solar_matrix_link = "../../index.html"
+    home_link = "/it/" if is_it else "/"
+    solar_matrix_link = "/it/" if is_it else "/"
     solar_matrix_text = "RITORNO ALLA MATRICE SOLARE" if is_it else "RETURN TO SOLAR MATRIX"
     favicon_svg = "../../../favicon.svg" if is_it else "../../favicon.svg"
     favicon_ico = "../../../favicon.ico" if is_it else "../../favicon.ico"
@@ -1575,7 +1588,7 @@ def render_spacex_page(service, lang="en", current_slug=None):
     cta_primary_label = "PRENOTA BRIEFING (CALENDLY)" if is_it else "SCHEDULE MISSION BRIEFING"
     cta_secondary_label = "SPECIFICHE TECNICHE" if is_it else "TECHNICAL SPECIFICATIONS"
     cta_inquire_label = "AVVIA TRASMISSIONE" if is_it else "INITIATE TRANSMISSION"
-    footer_title = "PRONTO A DISTRIBUIRE QUESTA ARCHITETTURA?" if is_it else "READY TO DEPLOY THIS ARCHITECTURE?"
+    footer_title = service["footer_title_it"] if is_it else service["footer_title_en"]
     footer_sub = "Disponibile per ingegneria freelance strategica e consulenza RevOps per mercati EMEA e globali. Prenota direttamente su Calendly o trasmetti i parametri di progetto." if is_it else "Available for strategic freelance engineering and RevOps consulting across EMEA and global markets. Reserve time via Calendly or transmit project scope."
     footer_return = "RITORNA IN ORBITA" if is_it else "RETURN TO ORBIT"
 
@@ -1586,7 +1599,7 @@ def render_spacex_page(service, lang="en", current_slug=None):
     nav_links_html = []
     for s in SERVICES_DATA:
         s_slug = s["slug"]
-        s_href = f"/it/services/{s_slug}/" if is_it else f"/services/{s_slug}/"
+        s_href = f"/it/services/{s_slug}" if is_it else f"/services/{s_slug}"
         s_label = s["nav_label_it"] if is_it else s["nav_label_en"]
         active_class = " active" if s["id"] == service["id"] else ""
         nav_links_html.append(f'<a href="{s_href}" class="sx-nav-link{active_class}">{s_label}</a>')
@@ -1664,9 +1677,17 @@ def render_spacex_page(service, lang="en", current_slug=None):
             "provider": {
                 "@type": "Person",
                 "@id": f"{site_url}/#person",
-                "name": "Renzo Francesqui",
-                "jobTitle": "Specialista Marketing Operations, Architetture CRM & RevOps" if is_it else "Marketing Operations & RevOps Specialist",
-                "url": site_url
+                "name": PERSON_NAME,
+                "jobTitle": "Specialista Marketing Operations | Architetto CRM & RevOps | Automazioni & Flussi AI" if is_it else BRAND_TITLE,
+                "url": f"{site_url}/",
+                "description": "Marketing Operations Specialist and CRM & RevOps Architect engineering enterprise pipeline governance, lead scoring, and automated AI enrichment workflows.",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Freelance RevOps & Marketing Operations"
+                },
+                "sameAs": [
+                    "https://www.linkedin.com/in/renzofrancesqui"
+                ]
             },
             "audience": {
                 "@type": "BusinessAudience",
@@ -1821,7 +1842,7 @@ def render_spacex_page(service, lang="en", current_slug=None):
             </div>
 
             <div class="sx-container">
-                <span class="sx-eyebrow">{eyebrow}</span>
+                <span class="sx-eyebrow telemetry-label" aria-hidden="true">{eyebrow}</span>
                 <h1 class="sx-hero-title">{hero_title}</h1>
                 <p class="sx-hero-lead">{hero_lead}</p>
                 <div class="sx-hero-actions">
@@ -1854,7 +1875,7 @@ def render_spacex_page(service, lang="en", current_slug=None):
         <section class="sx-pillars-section" id="capabilities">
             <div class="sx-container">
                 <div class="sx-section-header reveal-up">
-                    <span class="sx-eyebrow">SECTOR {service['num']} // ARCHITECTURE</span>
+                    <span class="sx-eyebrow telemetry-label" aria-hidden="true">SECTOR {service['num']} // ARCHITECTURE</span>
                     <h2 class="sx-section-title">{section3_title}</h2>
                 </div>
                 <div class="sx-pillars-grid reveal-up">
@@ -1867,7 +1888,7 @@ def render_spacex_page(service, lang="en", current_slug=None):
         <section class="sx-specs-section" id="specifications">
             <div class="sx-container">
                 <div class="sx-section-header reveal-up">
-                    <span class="sx-eyebrow">TELEMETRY MATRIX // SPECIFICATION</span>
+                    <span class="sx-eyebrow telemetry-label" aria-hidden="true">TELEMETRY MATRIX // SPECIFICATION</span>
                     <h2 class="sx-section-title">{section4_title}</h2>
                 </div>
                 <div class="sx-specs-layout reveal-up">
@@ -1890,7 +1911,7 @@ def render_spacex_page(service, lang="en", current_slug=None):
         <section class="sx-sequence-section" id="sequence">
             <div class="sx-container">
                 <div class="sx-section-header reveal-up">
-                    <span class="sx-eyebrow">FLIGHT PROTOCOL // 4 PHASES</span>
+                    <span class="sx-eyebrow telemetry-label" aria-hidden="true">FLIGHT PROTOCOL // 4 PHASES</span>
                     <h2 class="sx-section-title">{section5_title}</h2>
                 </div>
                 <div class="sx-sequence-grid reveal-up">
@@ -1898,7 +1919,7 @@ def render_spacex_page(service, lang="en", current_slug=None):
                 </div>
                 <div class="sx-heritage-bar reveal-up" style="--heritage-bg: url('{hero_bg_webp}');">
                     <div>
-                        <span class="sx-eyebrow" style="margin-bottom: 0.5rem;">{heritage_title}</span>
+                        <span class="sx-eyebrow telemetry-label" aria-hidden="true" style="margin-bottom: 0.5rem;">{heritage_title}</span>
                         <p style="font-size: 0.95rem; color: var(--text-white); font-weight: 400; line-height: 1.7; max-width: 820px;">
                             "{heritage_quote}"
                         </p>

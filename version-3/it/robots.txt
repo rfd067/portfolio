@@ -1,9 +1,16 @@
 User-agent: *
 Allow: /
+Disallow: /version-1.5/
 Disallow: /api/
-Disallow: /draft
-Disallow: /draft/
-Disallow: /*?draft=*
+
+# AI & Answer Engine Crawlers (Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
 
 Sitemap: https://renzo-francesqui.vercel.app/sitemap.xml
-Host: https://renzo-francesqui.vercel.app

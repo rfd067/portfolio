@@ -23,11 +23,11 @@
     <link rel="alternate icon" href="/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture.html">
+    <link rel="canonical" href="https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture">
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture.html">
+    <meta property="og:url" content="https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture">
     <meta property="og:title" content="Modern RevOps Lifecycle Architecture: Enforcing MQL-to-SQL SLAs & Deal Governance">
     <meta property="og:description" content="Why disparate CRM pipelines fail and how standardizing MQL-to-SQL SLAs and deal stage validation rules aligns global EMEA & Americas revenue teams.">
     <meta property="og:image" content="https://renzo-francesqui.vercel.app/images/renzo-francesqui.jpg">
@@ -37,7 +37,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture.html">
+    <meta name="twitter:url" content="https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture">
     <meta name="twitter:title" content="Modern RevOps Lifecycle Architecture: Enforcing MQL-to-SQL SLAs & Deal Governance">
     <meta name="twitter:description" content="Why disparate CRM pipelines fail and how standardizing MQL-to-SQL SLAs and deal stage validation rules empowers sales teams.">
     <meta name="twitter:image" content="https://renzo-francesqui.vercel.app/images/renzo-francesqui.jpg">
@@ -49,7 +49,7 @@
       "@graph": [
         {
           "@type": "TechArticle",
-          "@id": "https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture.html#article",
+          "@id": "https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture#article",
           "headline": "Modern RevOps Lifecycle Architecture: Enforcing MQL-to-SQL SLAs & Deal Governance",
           "description": "Why disparate CRM pipelines fail and how standardizing MQL-to-SQL SLAs and deal stage validation rules aligns global EMEA & Americas revenue teams.",
           "image": "https://renzo-francesqui.vercel.app/images/renzo-francesqui.jpg",
@@ -58,7 +58,7 @@
             "@id": "https://renzo-francesqui.vercel.app/#person",
             "name": "Renzo Francesqui",
             "url": "https://renzo-francesqui.vercel.app/",
-            "jobTitle": "Marketing Operations & RevOps Specialist"
+            "jobTitle": "Marketing Operations Specialist | CRM & RevOps Architect | Automation & AI Workflows"
           },
           "publisher": {
             "@type": "Person",
@@ -66,11 +66,11 @@
           },
           "datePublished": "2026-08-01T09:00:00Z",
           "dateModified": "2026-08-16T12:00:00Z",
-          "mainEntityOfPage": "https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture.html"
+          "mainEntityOfPage": "https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture"
         },
         {
           "@type": "BreadcrumbList",
-          "@id": "https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture.html#breadcrumb",
+          "@id": "https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture#breadcrumb",
           "itemListElement": [
             {
               "@type": "ListItem",
@@ -82,13 +82,13 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Blog",
-              "item": "https://renzo-francesqui.vercel.app/blog/"
+              "item": "https://renzo-francesqui.vercel.app/blog"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Modern RevOps Lifecycle Architecture",
-              "item": "https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture.html"
+              "item": "https://renzo-francesqui.vercel.app/blog/modern-revops-lifecycle-architecture"
             }
           ]
         }
@@ -874,17 +874,17 @@ pre.code-pre {
     <!-- Sticky Minimalist HUD Header -->
     <div class="nav-wrapper">
         <header class="hud-header">
-            <a href="index.html" class="nav-brand" title="Return to Blog Archive">
+            <a href="/blog" class="nav-brand" title="Return to Blog Archive">
                 <span>← Back to <span class="gold">Editorial Hub</span></span>
             </a>
             <nav class="nav-links">
-                <a href="../index.html" class="nav-pill">← 3D Matrix</a>
-                <a href="/tools/mql-to-sql-sla-lead-leakage-calculator/" class="nav-pill">SLA Calculator</a>
-                <a href="/services/hubspot-crm-optimization-startups/" class="nav-pill">RevOps Service</a>
+                <a href="/" class="nav-pill">← 3D Matrix</a>
+                <a href="/tools/mql-to-sql-sla-lead-leakage-calculator" class="nav-pill">SLA Calculator</a>
+                <a href="/services/hubspot-crm-optimization-startups" class="nav-pill">RevOps Service</a>
                 <a href="/#client-login" class="nav-pill" style="color: var(--accent-gold); border-color: rgba(212, 168, 99, 0.4);" title="Client Login"><span>🔒</span> Client Login</a>
                 <a href="https://calendly.com/renzo-francesqui" target="_blank" rel="noopener noreferrer" class="nav-pill gold">Book Call ↗</a>
                             <div class="lang-switcher" aria-label="Language selector">
-                    <a href="/blog/" class="lang-btn active" title="English">EN</a>
+                    <a href="/blog" class="lang-btn active" title="English">EN</a>
                     <span class="lang-divider">/</span>
                     <a href="/it/" class="lang-btn" title="Italiano">IT</a>
                 </div>
@@ -893,6 +893,7 @@ pre.code-pre {
     </div>
 
     <!-- Article Container -->
+    <main>
     <article class="article-shell">
 
         <!-- Article Header -->
@@ -1018,7 +1019,7 @@ pre.code-pre {
                     <li><strong>Phantom Pipeline (Zombie Deals):</strong> Reps create deals at stage 1 without budget or decision-maker verification, leaving bloated pipeline figures that poison quarterly revenue forecasting.</li>
                 </ul>
                 <p>
-                    Quantify the cost of this operational friction using our interactive <a href="/tools/mql-to-sql-sla-lead-leakage-calculator/">MQL-to-SQL SLA Lead Leakage Calculator</a>.
+                    Quantify the cost of this operational friction using our interactive <a href="/tools/mql-to-sql-sla-lead-leakage-calculator">MQL-to-SQL SLA Lead Leakage Calculator</a>.
                 </p>
 
                 <!-- Section 2 -->
@@ -1239,7 +1240,7 @@ ORDER BY days_in_stage DESC;</code></pre>
                 </div>
 
                 <p>
-                    Learn how this telemetry powers executive board reporting in our <a href="/services/marketing-data-reporting/">Marketing Data &amp; Reporting Analytics</a> service.
+                    Learn how this telemetry powers executive board reporting in our <a href="/services/marketing-data-reporting">Marketing Data &amp; Reporting Analytics</a> service.
                 </p>
 
                 <!-- Section 6: Governance Benchmark -->
@@ -1301,7 +1302,7 @@ ORDER BY days_in_stage DESC;</code></pre>
                 </p>
 
                 <div class="next-read-grid">
-                    <a href="hubspot-ai-enrichment-agent.html" class="next-read-card">
+                    <a href="/blog/hubspot-ai-enrichment-agent" class="next-read-card">
                         <div>
                             <span class="badge-tag" style="margin-bottom:0.75rem;">AI AUTOMATION</span>
                             <h3 style="font-size:1.05rem; font-weight:700; color:var(--text-primary); margin-bottom:0.5rem;">Automated HubSpot Lead Enrichment Agent</h3>
@@ -1309,7 +1310,7 @@ ORDER BY days_in_stage DESC;</code></pre>
                         </div>
                         <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--accent-gold); margin-top:1rem;">Read Technical Dispatch →</span>
                     </a>
-                    <a href="b2b-event-lead-operations.html" class="next-read-card">
+                    <a href="/blog/b2b-event-lead-operations" class="next-read-card">
                         <div>
                             <span class="badge-tag" style="margin-bottom:0.75rem;">FIELD OPERATIONS</span>
                             <h3 style="font-size:1.05rem; font-weight:700; color:var(--text-primary); margin-bottom:0.5rem;">Scaling B2B Trade Show Operations</h3>
@@ -1337,13 +1338,14 @@ ORDER BY days_in_stage DESC;</code></pre>
                 <a href="https://calendly.com/renzo-francesqui" target="_blank" rel="noopener noreferrer" class="nav-pill gold" style="padding: 0.6rem 1.25rem;">
                     📅 Book RevOps Consultation ↗
                 </a>
-                <a href="/services/hubspot-crm-optimization-startups/" class="nav-pill" style="padding: 0.6rem 1.25rem;">
+                <a href="/services/hubspot-crm-optimization-startups" class="nav-pill" style="padding: 0.6rem 1.25rem;">
                     HubSpot CRM Architecture
                 </a>
             </div>
         </footer>
 
     </article>
+    </main>
 
     <!-- Lightbox Modal for Zooming Images -->
     <div id="mediaLightbox" onclick="closeLightbox(event)" role="dialog" aria-modal="true" aria-label="Media Preview">
